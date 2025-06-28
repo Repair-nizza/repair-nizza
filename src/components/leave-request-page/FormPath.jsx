@@ -13,6 +13,7 @@ import HeroPath from "./HeroPath";
 
 const FormPath = () => {
   const t = useTranslations("leaveRequest.mainForm");
+  const cardsT = useTranslations("leaveRequest.cards");
   const [selectedType, setSelectedType] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -37,23 +38,56 @@ const FormPath = () => {
     repairType: "",
   };
 
+  // Функция для получения человекочитаемого значения радиокнопки
+  const getRadioValue = (fieldName, value) => {
+    if (!value) return "";
+
+    if (fieldName === "timeline") {
+      const timelineOptions = {
+        asap: cardsT("timeline.options.asap"),
+        month: cardsT("timeline.options.month"),
+        threeMonths: cardsT("timeline.options.threeMonths"),
+        notSure: cardsT("timeline.options.notSure"),
+      };
+      return timelineOptions[value] || value;
+    } else {
+      const options = {
+        small: cardsT(`${fieldName}.options.small`),
+        medium: cardsT(`${fieldName}.options.medium`),
+        large: cardsT(`${fieldName}.options.large`),
+        extraLarge: cardsT(`${fieldName}.options.extraLarge`),
+      };
+      return options[value] || value;
+    }
+  };
+
+  // Функция для получения приоритетного значения (радиокнопка или пользовательский ввод)
+  const getPriorityValue = (radioValue, exactValue, fieldName) => {
+    if (exactValue && exactValue.trim() !== "") {
+      return exactValue;
+    }
+    if (radioValue && radioValue.trim() !== "") {
+      return getRadioValue(fieldName, radioValue);
+    }
+    return "";
+  };
+
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       // Форматируем данные для более читаемого вида в Telegram
       const formattedMessage = {
-        тип_формы: "Форма заявки на ремонт",
-        имя_клиента: values.name,
-        телефон_клиента: values.phone,
-        email_клиента: values.email,
-        тип_ремонта: selectedType,
-        описание_ремонта: values.customDescription,
-        диапазон_площади: values.area,
-        точная_площадь: values.exactArea,
-        диапазон_бюджета: values.budget,
-        точный_бюджет: values.exactBudget,
-        сроки: values.timeline,
-        точные_сроки: values.exactTimeline,
-        дополнительный_комментарий: values.comment,
+        Имя: values.name,
+        Телефон: values.phone,
+        Email: values.email,
+        Ремонт: selectedType || values.customDescription,
+        Площадь: getPriorityValue(values.area, values.exactArea, "area"),
+        Бюджет: getPriorityValue(values.budget, values.exactBudget, "budget"),
+        Сроки: getPriorityValue(
+          values.timeline,
+          values.exactTimeline,
+          "timeline"
+        ),
+        Комментарий: values.comment,
       };
 
       // Приводим все значения к строке

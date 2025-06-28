@@ -53,12 +53,29 @@ const ModalForm = ({ isOpen, closeModal }) => {
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      const response = await axios.post("/api/send-message", {
-        тип_формы: "Модальная форма",
-        имя_клиента: values.name,
-        телефон_клиента: values.phone,
-        сообщение: values.message,
-      });
+      // Форматируем данные для более читаемого вида в Telegram
+      const formattedMessage = {
+        Имя: values.name,
+        Телефон: values.phone,
+        Сообщение: values.message,
+      };
+
+      // Приводим все значения к строке
+      const stringifiedMessage = Object.fromEntries(
+        Object.entries(formattedMessage).map(([key, value]) => [
+          key,
+          value !== undefined && value !== null ? String(value) : "",
+        ])
+      );
+
+      // Фильтруем только непустые строки
+      const filteredMessage = Object.fromEntries(
+        Object.entries(stringifiedMessage).filter(
+          ([key, value]) => value.trim() !== ""
+        )
+      );
+
+      const response = await axios.post("/api/send-message", filteredMessage);
 
       if (response.data.success) {
         setSubmitting(false);
