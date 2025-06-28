@@ -98,7 +98,8 @@ const Card = forwardRef(
           </h4>
           <Field
             name={inputName}
-            className="pt-[5px] pb-[7px] px-3 border border-primary-black bg-transparent rounded-[32px] w-[262px] lg:w-[339px] h-[32px] placeholder:font-montserrat placeholder:font-normal placeholder:text-primary-black placeholder:text-sm placeholder:opacity-70 placeholder:leading-5"
+            type={inputName === "exactTimeline" ? "text" : "number"}
+            className="appearance-none pt-[5px] pb-[7px] px-3 border border-primary-black bg-transparent rounded-[32px] w-[262px] lg:w-[339px] h-[32px] placeholder:font-montserrat placeholder:font-normal placeholder:text-primary-black placeholder:text-sm placeholder:opacity-70 placeholder:leading-5"
             placeholder={inputPlaceholder}
           />
         </div>

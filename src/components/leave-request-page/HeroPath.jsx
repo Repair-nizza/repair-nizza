@@ -158,6 +158,7 @@ const HeroPath = ({ onTypeSelect, selectedType }) => {
                 className="cursor-pointer transition-all duration-300"
               >
                 <div
+                  className="w-[316px] h-[260px] lg:w-[393px] lg:h-[260px]"
                   style={
                     selectedType === "capital"
                       ? {
@@ -202,6 +203,7 @@ const HeroPath = ({ onTypeSelect, selectedType }) => {
                 className="cursor-pointer transition-all duration-300"
               >
                 <div
+                  className="w-[316px] h-[260px] lg:w-[393px] lg:h-[260px]"
                   style={
                     selectedType === "cosmetic"
                       ? {
@@ -246,6 +248,7 @@ const HeroPath = ({ onTypeSelect, selectedType }) => {
                 className="cursor-pointer transition-all duration-300"
               >
                 <div
+                  className="w-[316px] h-[260px] lg:w-[393px] lg:h-[260px]"
                   style={
                     selectedType === "design"
                       ? {

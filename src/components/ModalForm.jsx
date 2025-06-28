@@ -54,10 +54,10 @@ const ModalForm = ({ isOpen, closeModal }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       const response = await axios.post("/api/send-message", {
-        form_type: "Modal Form",
-        name: values.name || "Not provided",
-        phone: values.phone,
-        message: values.message || "No message",
+        тип_формы: "Модальная форма",
+        имя_клиента: values.name,
+        телефон_клиента: values.phone,
+        сообщение: values.message,
       });
 
       if (response.data.success) {

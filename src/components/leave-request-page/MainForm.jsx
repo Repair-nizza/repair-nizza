@@ -64,6 +64,7 @@ const MainForm = () => {
                   </label>
                   <Field
                     name="phone"
+                    type="tel"
                     className="w-[262px] lg:w-[340px] h-[42px] pt-[8px] pb-[10px] px-3 border border-primary-black bg-transparent rounded-[32px] lg:mb-0 placeholder:font-montserrat placeholder:font-normal placeholder:text-primary-black placeholder:text-xs placeholder:opacity-70 placeholder:leading-6"
                     placeholder={t("placeholders.phone")}
                   />

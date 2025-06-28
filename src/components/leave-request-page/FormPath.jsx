@@ -41,27 +41,44 @@ const FormPath = () => {
     try {
       // Форматируем данные для более читаемого вида в Telegram
       const formattedMessage = {
-        form_type: "Leave Request Form",
-        name: values.name || "Not provided",
-        phone: values.phone,
-        email: values.email || "Not provided",
-        repair_type: selectedType || "Not selected",
-        repair_description: values.customDescription || "Not provided",
-        area_type: values.area || "Not selected",
-        exact_area: values.exactArea || "Not provided",
-        budget_range: values.budget || "Not selected",
-        exact_budget: values.exactBudget || "Not provided",
-        timeline: values.timeline || "Not selected",
-        exact_timeline: values.exactTimeline || "Not provided",
-        additional_comment: values.comment || "No comment",
+        тип_формы: "Форма заявки на ремонт",
+        имя_клиента: values.name,
+        телефон_клиента: values.phone,
+        email_клиента: values.email,
+        тип_ремонта: selectedType,
+        описание_ремонта: values.customDescription,
+        диапазон_площади: values.area,
+        точная_площадь: values.exactArea,
+        диапазон_бюджета: values.budget,
+        точный_бюджет: values.exactBudget,
+        сроки: values.timeline,
+        точные_сроки: values.exactTimeline,
+        дополнительный_комментарий: values.comment,
       };
 
-      const response = await axios.post("/api/send-message", formattedMessage);
+      // Приводим все значения к строке
+      const stringifiedMessage = Object.fromEntries(
+        Object.entries(formattedMessage).map(([key, value]) => [
+          key,
+          value !== undefined && value !== null ? String(value) : "",
+        ])
+      );
+
+      // Фильтруем только непустые строки
+      const filteredMessage = Object.fromEntries(
+        Object.entries(stringifiedMessage).filter(
+          ([key, value]) => value.trim() !== ""
+        )
+      );
+
+      const response = await axios.post("/api/send-message", filteredMessage);
 
       if (response.data.success) {
         resetForm();
         setSelectedType(null);
         setShowSuccess(true);
+        // Прокручиваем страницу вверх
+        window.scrollTo({ top: 0, behavior: "smooth" });
         setTimeout(() => setShowSuccess(false), 3000);
       } else {
         throw new Error("Failed to send message");
@@ -100,7 +117,7 @@ const FormPath = () => {
         </Form>
       </Formik>
       {showSuccess && (
-        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-opacity duration-300">
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-500 animate-slide-up z-50 w-[300px] md:w-[400px] lg:w-[500px] text-center">
           {t("success")}
         </div>
       )}
