@@ -69,10 +69,11 @@ const PortfolioCard = ({ data }) => {
   );
 };
 
-const PortfolioComponent = ({ projects }) => {
+const PortfolioComponent = ({ projects, categories }) => {
   const t = useTranslations("portfolioPage");
+  const locale = useLocale();
   const [currentPage, setCurrentPage] = useState(0);
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState(null);
   const isDesktop = useMediaQuery("(min-width: 1280px)");
   const itemsPerPage = isDesktop ? 6 : 4;
   const portfolioRef = useRef(null);
@@ -88,10 +89,16 @@ const PortfolioComponent = ({ projects }) => {
   });
   const isCardsInView = useInView(cardsRef, { once: true, margin: "-100px" });
 
+  // Показываем все категории, пришедшие с бэка
+  const availableCategories = categories || [];
+
   const filteredProjects = useMemo(() => {
     if (!projects) return [];
-    if (activeFilter === "all") return projects;
-    return projects.filter((project) => project.style === activeFilter);
+    if (!activeFilter) return projects;
+    return projects.filter((project) => {
+      const projectCategoryId = project.category?._ref || project.category;
+      return projectCategoryId && projectCategoryId === activeFilter;
+    });
   }, [projects, activeFilter]);
 
   const scrollToTop = () => {
@@ -162,48 +169,35 @@ const PortfolioComponent = ({ projects }) => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col gap-2 mb-10 md:flex-row md:justify-center lg:gap-5 lg:justify-start lg:mb-[50px]"
           >
-            <button
-              onClick={() => {
-                setActiveFilter("all");
-                setCurrentPage(0);
-                scrollToTop();
-              }}
-              className={`w-[310px] md:w-[234px] lg:w-[234px] h-[34px] lg:h-[52px] rounded-[40px] font-arsenal font-normal text-xs md:text-sm lg:text-xl leading-[14px] lg:leading-6 transition-all duration-300 relative z-10 ${
-                activeFilter === "all"
-                  ? "bg-primary-black text-primary-white"
-                  : "bg-transparent border border-primary-black text-primary-black hover:bg-primary-black hover:text-primary-white"
-              }`}
-            >
-              {t("filters.minimalism")}
-            </button>
-            <button
-              onClick={() => {
-                setActiveFilter("neoclassic");
-                setCurrentPage(0);
-                scrollToTop();
-              }}
-              className={`w-[310px] md:w-[234px] lg:w-[186px] h-[34px] lg:h-[52px] rounded-[40px] font-arsenal font-normal text-xs md:text-sm lg:text-xl leading-[14px] lg:leading-6 transition-all duration-300 relative z-10 ${
-                activeFilter === "neoclassic"
-                  ? "bg-primary-black text-primary-white"
-                  : "bg-transparent border border-primary-black text-primary-black hover:bg-primary-black hover:text-primary-white"
-              }`}
-            >
-              {t("filters.neoclassic")}
-            </button>
-            <button
-              onClick={() => {
-                setActiveFilter("modern");
-                setCurrentPage(0);
-                scrollToTop();
-              }}
-              className={`w-[310px] md:w-[234px] lg:w-[186px] h-[34px] lg:h-[52px] rounded-[40px] font-arsenal font-normal text-xs md:text-sm lg:text-xl leading-[14px] lg:leading-6 transition-all duration-300 relative z-10 ${
-                activeFilter === "modern"
-                  ? "bg-primary-black text-primary-white"
-                  : "bg-transparent border border-primary-black text-primary-black hover:bg-primary-black hover:text-primary-white"
-              }`}
-            >
-              {t("filters.modern")}
-            </button>
+            {availableCategories.length > 0 ? (
+              availableCategories.map((category) => (
+                <button
+                  key={category._id}
+                  onClick={() => {
+                    if (activeFilter === category._id) {
+                      setActiveFilter(null);
+                    } else {
+                      setActiveFilter(category._id);
+                    }
+                    setCurrentPage(0);
+                    scrollToTop();
+                  }}
+                  className={`w-[310px] md:w-[234px] lg:w-[186px] h-[34px] lg:h-[52px] rounded-[40px] font-arsenal font-normal text-xs md:text-sm lg:text-xl leading-[14px] lg:leading-6 transition-all duration-300 relative z-10 ${
+                    activeFilter === category._id
+                      ? "bg-primary-black text-primary-white"
+                      : "bg-transparent border border-primary-black text-primary-black hover:bg-primary-black hover:text-primary-white"
+                  }`}
+                >
+                  {category.title && category.title[locale]
+                    ? category.title[locale]
+                    : category._id}
+                </button>
+              ))
+            ) : (
+              <div className="text-center text-gray-500">
+                Нет доступных категорий
+              </div>
+            )}
           </motion.div>
 
           <motion.div
