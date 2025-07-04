@@ -18,12 +18,12 @@ const HeroBlurCard = ({ data }) => {
   };
 
   return (
-    <div className="absolute top-8 md:top-[56px] md:left-0 lg:top-[-45px] lg:left-0 h-[393px] overflow-hidden">
+    <div className="absolute top-[81px] md:top-[57px] md:left-0 lg:top-[-10px] lg:left-0 overflow-hidden">
       <motion.div
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-        className="rounded-t-[16px] rounded-b-0 p-7 w-[310px] lg:w-[359px] h-[393px] backdrop-blur-[16px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] flex flex-col"
+        className="rounded-t-[16px] rounded-b-0 p-7 w-[310px] lg:w-[359px] backdrop-blur-[16px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] flex flex-col"
       >
         <div>
           {data.mainImage?.asset?.url && (

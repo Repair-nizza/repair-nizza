@@ -127,10 +127,10 @@ const Contacts = () => {
                   {t("contacts.email")}
                 </p>
                 <a
-                  href="mailto:support@[yourdomain].com"
-                  className="font-montserrat font-bold text-xs text-primary-black uppercase"
+                  href="mailto:solide.renovation06300@gmail.com"
+                  className="font-montserrat font-bold text-xs text-primary-black"
                 >
-                  support@[yourdomain].com
+                  solide.renovation06300@gmail.com
                 </a>
               </li>
               <li>
@@ -138,10 +138,12 @@ const Contacts = () => {
                   {t("contacts.instagram")}
                 </p>
                 <a
-                  href="/"
+                  href="https://www.instagram.com/soliderenovation?igsh=dTl0a2M4YTdkZWRq&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-montserrat font-bold text-xs text-primary-black uppercase"
                 >
-                  your.repair
+                  soliderenovation
                 </a>
               </li>
             </div>

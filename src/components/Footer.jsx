@@ -55,7 +55,11 @@ const Footer = () => {
             </p>
             <ul className="gap-5 hidden lg:flex mt-[30px]">
               <li>
-                <Link href="/">
+                <a
+                  href="https://www.instagram.com/soliderenovation?igsh=dTl0a2M4YTdkZWRq&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={instagram}
                     alt="instagram"
@@ -63,10 +67,10 @@ const Footer = () => {
                     height={24}
                     className="hover:scale-105 transition-all duration-300"
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/">
+                <a href="/">
                   <Image
                     src={telegram}
                     alt="telegram"
@@ -74,10 +78,10 @@ const Footer = () => {
                     height={24}
                     className="hover:scale-105 transition-all duration-300"
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/">
+                <a href="/">
                   <Image
                     src={tikTok}
                     alt="tik tok"
@@ -85,7 +89,7 @@ const Footer = () => {
                     height={24}
                     className="hover:scale-105 transition-all duration-300"
                   />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -162,16 +166,16 @@ const Footer = () => {
             </nav>
             <address className="flex flex-col gap-3 mb-6 md:items-center lg:items-start lg:mb-0 lg:order-1">
               <a
-                className="font-montserrat font-normal text-xs not-italic text-primary-white uppercase leading-[18px] hover:scale-105 transition-all duration-300"
+                className="font-montserrat font-normal text-xs not-italic text-primary-white leading-[18px] hover:scale-105 transition-all duration-300"
                 href="tel:+380970067656"
               >
                 +380-97-006-76-56
               </a>
               <a
-                className="font-montserrat font-normal text-xs not-italic text-primary-white uppercase leading-[18px] hover:scale-105 transition-all duration-300"
-                href="mailto:email@gmail.com"
+                className="font-montserrat font-normal text-xs not-italic text-primary-white leading-[18px] hover:scale-105 transition-all duration-300"
+                href="mailto:solide.renovation06300@gmail.com"
               >
-                email@gmail.com
+                solide.renovation06300@gmail.com
               </a>
             </address>
           </div>
