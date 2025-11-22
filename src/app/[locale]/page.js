@@ -7,7 +7,7 @@ import OurService from "@/components/homepage/OurService";
 import PortfolioSection from "@/components/homepage/PortfolioSection";
 import StepToDream from "@/components/homepage/StepToDream";
 import { client } from "@/sanityClient";
-import { heroBlurCardQuery, portfolioProjectsQuery } from "@/lib/queries";
+import { heroBlurCardQuery, portfolioProjectsQuery, servicesQuery } from "@/lib/queries";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -29,6 +29,10 @@ export async function generateMetadata({ params }) {
 export default async function Home() {
   const heroBlurCardData = await client.fetch(heroBlurCardQuery);
   const portfolioData = await client.fetch(portfolioProjectsQuery);
+  const servicesData = await client.fetch(servicesQuery);
+
+  console.log("🔍 Services fetched from Sanity:", servicesData);
+  console.log("📊 Number of services:", servicesData?.length || 0);
 
   return (
     <div className="flex flex-col min-h-screen">

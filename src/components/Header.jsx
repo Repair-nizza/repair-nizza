@@ -27,8 +27,10 @@ const Header = () => {
         <header className="flex items-center justify-between py-[22px] lg:py-[25px]">
           <Logo />
           <DeskNavMenu />
-          <LocaleSwitcher />
-          <LinkWithUsBtn onClick={openModal} />
+          <div className="flex items-center gap-7">
+            <LocaleSwitcher />
+            <LinkWithUsBtn onClick={openModal} />
+          </div>
           <div className="lg:hidden">
             <BurgerMenu onClick={() => setIsMenuOpen(true)} />
           </div>

@@ -22,3 +22,77 @@ export const portfolioProjectsQuery = `
     isLatestProject
   } | order(_createdAt desc)
 `;
+
+export const servicesQuery = `
+  *[_type == "service"] {
+    _id,
+    title,
+    slug,
+    shortDescription,
+    fullDescription,
+    image1 {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    image2 {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    process,
+    pros,
+    additionalInfo
+  } | order(_createdAt desc)
+`;
+
+export const serviceBySlugQuery = `
+  *[_type == "service" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    shortDescription,
+    fullDescription,
+    image1 {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    image2 {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    process,
+    pros,
+    additionalInfo
+  }
+`;

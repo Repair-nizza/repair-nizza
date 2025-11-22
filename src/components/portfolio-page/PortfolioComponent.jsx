@@ -8,7 +8,7 @@ import motif from "../../../public/images/image/porto-page-motif.png";
 import shadow from "../../../public/images/image/porto-page-shadow.png";
 import arrowWhite from "../../../public/images/SVG/arrow-white-portfolio.svg";
 import arrowBlack from "../../../public/images/SVG/arrow-black-portfolio.svg";
-import arrowDiagonal from "../../../public/images/SVG/arrow-diagonal-portfolio.svg";
+import ArrowDiagonalButton from "../ArrowDiagonalButton";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
@@ -59,12 +59,11 @@ const PortfolioCard = ({ data }) => {
           {data.subtitle[locale]}
         </p>
       </div>
-      <button
+      <ArrowDiagonalButton
         onClick={handleProjectClick}
-        className="absolute top-[260px] lg:top-[180px] right-[30px] lg:right-[25px] w-[55px] h-[55px] flex items-center justify-center bg-primary-white rounded-full hover:scale-110 transition-all duration-300"
-      >
-        <Image src={arrowDiagonal} alt="arrow button" />
-      </button>
+        variant="white"
+        className="top-[260px] lg:top-[180px] right-[30px] lg:right-[25px]"
+      />
     </div>
   );
 };
