@@ -49,6 +49,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "order",
+      title: "Order",
+      type: "number",
+      description: "Used to sort services. Lower numbers appear first.",
+    },
+    {
       name: "shortDescription",
       title: "Short Description (for service card)",
       type: "object",
@@ -73,6 +79,15 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "cardImage",
+      title: "Card Image",
+      type: "image",
+      description: "Image displayed on service cards",
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: "fullDescription",
@@ -100,18 +115,25 @@ export default {
       ],
     },
     {
-      name: "image1",
-      title: "Service Image 1",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      validation: (Rule) => Rule.required(),
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      description: "Gallery of images (at least one image required)",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+      validation: (Rule) => Rule.min(1).required(),
     },
     {
-      name: "image2",
-      title: "Service Image 2",
+      name: "infoImage",
+      title: "Info Image",
       type: "image",
+      description: "Image displayed in detailed info sections",
       options: {
         hotspot: true,
       },
@@ -197,13 +219,14 @@ export default {
     select: {
       title: "title.en",
       subtitle: "shortDescription.en",
-      media: "image1",
+      cardImage: "cardImage",
+      gallery: "gallery",
     },
-    prepare({ title, subtitle, media }) {
+    prepare({ title, subtitle, cardImage, gallery }) {
       return {
         title: title || "Untitled Service",
         subtitle: subtitle || "No description",
-        media,
+        media: cardImage || (gallery && gallery[0]) || undefined,
       };
     },
   },

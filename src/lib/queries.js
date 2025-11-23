@@ -30,34 +30,24 @@ export const servicesQuery = `
     slug,
     shortDescription,
     fullDescription,
-    image1 {
+    cardImage {
       asset-> {
         _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
+        url
       }
     },
-    image2 {
+    gallery[] {
       asset-> {
         _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
+        url
       }
     },
     process,
     pros,
-    additionalInfo
-  } | order(_createdAt desc)
+    additionalInfo,
+    order,
+    _createdAt
+  } | order(coalesce(order, 9999) asc, _createdAt desc)
 `;
 
 export const serviceBySlugQuery = `
@@ -67,7 +57,7 @@ export const serviceBySlugQuery = `
     slug,
     shortDescription,
     fullDescription,
-    image1 {
+    gallery[] {
       asset-> {
         _id,
         url,
@@ -79,7 +69,7 @@ export const serviceBySlugQuery = `
         }
       }
     },
-    image2 {
+    infoImage {
       asset-> {
         _id,
         url,

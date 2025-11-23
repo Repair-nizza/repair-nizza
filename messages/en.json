@@ -1,6 +1,10 @@
 {
   "portfolio": "Portfolio",
   "services": "Services",
+  "servicesPage": {
+    "title": "Our Services",
+    "description": "Solide Renovation performs a full range of construction and finishing works — from capital repairs to custom finishing and installation of engineering systems. We work in Nice and throughout the French Riviera, combining European quality standards, attention to detail, and an aesthetic approach to each project"
+  },
   "request": "Make Request",
   "contacts": "Contacts",
   "linkWithUs": "Contact us",
@@ -218,5 +222,27 @@
     },
     "galleryTitle": "Interior Gallery",
     "clientReviewTitle": "Client Review"
+  },
+  "feedbackForm": {
+    "title": "Get a Preliminary Renovation Estimate",
+    "description": "Fill out a short form — and we'll prepare an approximate estimate taking into account the area, volume and type of work",
+    "placeholders": {
+      "name": "Name",
+      "phone": "Phone number",
+      "message": "Message"
+    },
+    "button": "Send",
+    "submitting": "Sending...",
+    "success": "Thank you! We'll contact you soon!",
+    "validation": {
+      "required": "Required field",
+      "name": "Name must be at least 2 characters",
+      "phone": "At least 8 digits"
+    }
+  },
+  "serviceDetailPage": {
+    "process": "Process",
+    "pros": "Advantages",
+    "additionalInfo": "Additional Information"
   }
 }

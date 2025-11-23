@@ -30,6 +30,13 @@ export async function POST(request) {
   try {
     // Validate environment variables
     if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
+      console.error("Missing Telegram configuration:");
+      console.error(`TELEGRAM_BOT_TOKEN: ${TELEGRAM_TOKEN ? "✓ Set" : "✗ Missing"}`);
+      console.error(`TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID ? "✓ Set" : "✗ Missing"}`);
+      console.error("\nTo fix this, create a .env.local file in the root directory with:");
+      console.error("TELEGRAM_BOT_TOKEN=your_bot_token_here");
+      console.error("TELEGRAM_CHAT_ID=your_chat_id_here");
+      
       return NextResponse.json(
         { error: "Telegram configuration is missing" },
         { status: 500 }

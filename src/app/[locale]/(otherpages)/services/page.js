@@ -5,15 +5,17 @@ import ServiceListSection from "@/components/services-page/ServiceListSection";
 import Container from "@/components/Container";
 import { servicesClient } from "@/sanityClient";
 import { servicesQuery } from "@/lib/queries";
+import Image from "next/image";
 
 async function getServices() {
-  const services = await servicesClient.fetch(servicesQuery);
-  console.log("🔍 Services fetched from new Sanity client (aqzygdsy):", services);
-  console.log("📊 Number of services:", services?.length || 0);
-  if (services && services.length > 0) {
-    console.log("✅ First service sample:", JSON.stringify(services[0], null, 2));
+  try {
+    const services = await servicesClient.fetch(servicesQuery);
+    if (services && services.length > 0) {
+    }
+    return services || [];
+  } catch (error) {
+    return [];
   }
-  return services;
 }
 
 export async function generateMetadata({ params }) {
@@ -33,17 +35,31 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const Page = async () => {
+const Page = async ({ params }) => {
   const services = await getServices();
 
   return (
     <div className="flex flex-col min-h-screen">
+       <Image
+          src='/images/image/services/hero-decor.png'
+          alt="decoration"
+          width={200}
+          height={200}
+          className="hidden md:block h-25 w-auto absolute top-0 right-0 pointer-events-none"
+      />
+      <Image
+            src='/images/image/services/hero-decor-mob.png'
+        alt="decoration"
+        width={200}
+        height={200}
+          className="block md:hidden h-25 w-auto absolute top-0 right-0 pointer-events-none"
+      />
       <Header />
-      <main className="flex-grow overflow-x-hidden">
+      <main className="flex-grow">
         <Container>
           <ServiceHero />
+          <ServiceListSection services={services || []} />
         </Container>
-        <ServiceListSection services={services} />
       </main>
       <Footer />
     </div>
