@@ -42,8 +42,8 @@ const ServiceHero = () => {
       </div>
 
       {/* Desktop Version - Styled as Service Card */}
-      <div className="relative hidden md:block overflow-hidden">
-        <div className="flex w-full max-w-[1440px] mx-auto items-end pt-[15px] mb-[100px]">
+      <div className="relative hidden md:block">
+        <div className="flex items-end mt-[15px] mb-[100px]">
           <div className="relative w-[845px] h-[643px] -ml-10">
             <Image
               src={heroImg}

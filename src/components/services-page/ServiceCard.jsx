@@ -133,7 +133,7 @@ const ServiceCard = ({ service, index }) => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={isDesktopCardInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 + 0.2 }}
-                className="relative w-[845px] h-[500px] -mr-10 overflow-hidden rounded-[20px]"
+                className="relative w-[845px] h-[500px] -mr-10 overflow-hidden rounded-[20px] md:max-w-[50%]"
               >
                 <Image
                   src={imageUrl}
@@ -156,7 +156,7 @@ const ServiceCard = ({ service, index }) => {
                 initial={{ x: -100, opacity: 0 }}
                 animate={isDesktopCardInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 + 0.2 }}
-                className="relative w-[845px] h-[500px] -ml-10 overflow-hidden rounded-[20px]"
+                className="relative w-[845px] h-[500px] -ml-10 overflow-hidden rounded-[20px] md:max-w-[50%]"
               >
                 <Image
                   src={imageUrl}

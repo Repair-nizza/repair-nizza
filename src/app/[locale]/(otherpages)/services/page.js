@@ -40,22 +40,24 @@ const Page = async ({ params }) => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-       <Image
-          src='/images/image/services/hero-decor.png'
+       <div className="absolute top-0 md:top-[-5px] -z-10 right-0">
+         <Image
+            src='/images/image/services/hero-decor.png'
+            alt="decoration"
+            width={200}
+            height={200}
+            className="hidden lg:block h-25 w-auto pointer-events-none"
+               />
+               <Image
+              src='/images/image/services/hero-decor-mob.png'
           alt="decoration"
           width={200}
           height={200}
-          className="hidden md:block h-25 w-auto absolute top-[-5px] right-0 pointer-events-none"
-      />
-      <Image
-            src='/images/image/services/hero-decor-mob.png'
-        alt="decoration"
-        width={200}
-        height={200}
-          className="block md:hidden h-25 w-auto absolute top-0 right-0 pointer-events-none"
-      />
+            className="block lg:hidden h-25 w-auto pointer-events-none"
+               />
+       </div>
       <Header />
-      <main className="flex-grow overflow-x-hidden">
+      <main className="flex-grow">
         <Container>
           <ServiceHero />
           <ServiceListSection services={services || []} />
