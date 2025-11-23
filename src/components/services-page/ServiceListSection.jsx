@@ -7,6 +7,7 @@ import ServiceCard from "./ServiceCard";
 import Container from "../Container";
 import serviceMotif from "../../../public/images/image/service-motif-test.png";
 import serviceMotif2 from "../../../public/images/image/services/lines-bot-mobile.png";
+import serviceMotif2Desktop from "../../../public/images/image/services/lines-bot-desk.png";
 
 const ServiceListSection = ({ services }) => {
   const cardsRef = useRef(null);
@@ -25,12 +26,12 @@ const ServiceListSection = ({ services }) => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-        className="hidden md:block absolute -z-10"
+        className="hidden md:block absolute -z-10 pointer-events-none"
         style={{
           top: "-60px",
           left: "-510px",
@@ -46,7 +47,7 @@ const ServiceListSection = ({ services }) => {
         initial={{ opacity: 0 }}
         animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-        className="hidden md:block absolute -z-10"
+        className="hidden md:block absolute -z-10 pointer-events-none"
         style={{
           top: "0px",
           left: "-140px",
@@ -58,11 +59,12 @@ const ServiceListSection = ({ services }) => {
           className="md:block lg:hidden"
         />
       </motion.div>
+      {/* Mobile bottom lines */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-        className="lg:hidden absolute"
+        className="lg:hidden absolute pointer-events-none"
         style={{
           bottom: "-44px",
           right: "-25px",
@@ -72,6 +74,23 @@ const ServiceListSection = ({ services }) => {
           src={serviceMotif2}
           alt="service motif bottom"
           className="lg:hidden"
+        />
+      </motion.div>
+      {/* Desktop bottom lines */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+        className="hidden lg:block absolute pointer-events-none"
+        style={{
+          bottom: "-44px",
+          right: "-25px",
+        }}
+      >
+        <Image
+          src={serviceMotif2Desktop}
+          alt="service motif bottom desktop"
+          className="hidden lg:block"
         />
       </motion.div>
 
