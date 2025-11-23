@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import { servicesClient } from "@/sanityClient";
 import { serviceBySlugQuery } from "@/lib/queries";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 async function getService(slug) {
   const service = await servicesClient.fetch(serviceBySlugQuery, { slug });
@@ -42,9 +43,49 @@ const Page = async ({ params }) => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
+      {/* Top decorations similar to services page */}
+      <div className="absolute top-0 md:top-[-5px] -z-10 right-0">
+        <Image
+          src='/images/image/services/hero-decor-mob.png'
+          alt="decoration"
+          width={200}
+          height={200}
+          className="block md:hidden h-25 w-auto pointer-events-none"
+        />
+      </div>
+      {/* Desktop: Top left decoration */}
+      <div className="absolute top-0 left-0 -z-10 hidden lg:block pointer-events-none">
+        <Image
+          src='/images/image/service-slug-page/leaves-header.png'
+          alt="decoration"
+          width={200}
+          height={200}
+          className="h-auto w-auto pointer-events-none"
+        />
+      </div>
       <Header />
-      <main className="flex-grow overflow-x-hidden">
+      <main className="flex-grow overflow-x-hidden relative">
+        {/* Bottom right decoration for mobile */}
+        <div className="absolute bottom-0 right-0 z-0 md:hidden pointer-events-none">
+          <Image
+            src='/images/image/service-slug-page/leaves-contact-form-mob.png'
+            alt="decoration"
+            width={200}
+            height={200}
+            className="h-auto w-auto pointer-events-none"
+          />
+        </div>
+        {/* Desktop: Bottom middle decoration */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -z-10 hidden lg:block pointer-events-none">
+          <Image
+            src='/images/image/service-slug-page/leaves-contact-form.png'
+            alt="decoration"
+            width={200}
+            height={200}
+            className="h-auto w-auto pointer-events-none"
+          />
+        </div>
         <Container>
           <ServiceDetailHero service={service} />
         </Container>

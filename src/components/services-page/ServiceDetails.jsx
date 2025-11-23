@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import plus from "../../../public/images/SVG/icon-plus.svg";
 import minus from "../../../public/images/SVG/icon-minus.svg";
+import ServiceGallery from "./ServiceGallery";
 
 const ServiceDetails = ({ service }) => {
   const locale = useLocale();
@@ -49,55 +50,224 @@ const ServiceDetails = ({ service }) => {
   }
 
   return (
-    <div ref={detailsRef} className="py-12 md:py-16 lg:py-20">
-      <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
-        {fullDescription && (
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={isDetailsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <div className="font-montserrat font-light text-sm md:text-base lg:text-base text-primary-black leading-relaxed whitespace-pre-line">
-              {fullDescription}
+    <>
+      {/* Full Description - Mobile only (Desktop shows in ServiceDetailHero) */}
+      {fullDescription && (
+        <motion.div
+          ref={detailsRef}
+          initial={{ y: 50, opacity: 0 }}
+          animate={isDetailsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mb-4 lg:hidden"
+        >
+          <div className="font-montserrat font-light text-[12px] leading-[125%] whitespace-pre-line">
+            {fullDescription}
+          </div>
+        </motion.div>
+      )}
+
+         {/* Background image for mobile */}
+          <div className="absolute w-[467px] h-[544px] inset-0 top-[350px] left-[25px] -z-10 md:hidden pointer-events-none">
+            <Image
+              src="/images/image/service-slug-page/lines-title-mob.png"
+              alt=""
+              fill
+              className="object-contain object-center"
+              sizes="310px"
+              priority={false}
+            />
+          </div>
+
+      {/* Gallery - shown after description (mobile only) */}
+      <div className="lg:hidden">
+        <ServiceGallery service={service} />
+      </div>
+
+      {/* Info Cards and Image Section */}
+      {(process || pros || additionalInfo || imageUrl) && (
+        <div ref={detailsRef} className="mb-[50px] lg:mb-[51px]">
+          <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
+            {/* Mobile: Info Cards first, then Image */}
+            <div className="lg:hidden flex flex-col gap-8">
+              {/* Info Cards */}
+              {(process || pros || additionalInfo) && (
+                <motion.div
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+                  className="flex-1"
+                >
+                  {process && (
+                    <div className="mb-7">
+                      <div
+                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        onClick={() => toggleCard("process")}
+                      >
+                        <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
+                          {t("process")}
+                        </h3>
+                        <Image
+                          src={openCards.process ? minus : plus}
+                          alt={openCards.process ? "icon minus" : "icon plus"}
+                          className="transition-transform duration-300"
+                          style={{
+                            transform: openCards.process
+                              ? "rotate(180deg)"
+                              : "rotate(0)",
+                          }}
+                        />
+                      </div>
+                      <div
+                        className="overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{
+                          maxHeight: openCards.process ? "1000px" : "0",
+                          opacity: openCards.process ? 1 : 0,
+                        }}
+                      >
+                        <p className="font-montserrat font-light text-xs text-primary-black whitespace-pre-line">
+                          {process}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {pros && (
+                    <div className="mb-7">
+                      <div
+                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        onClick={() => toggleCard("pros")}
+                      >
+                        <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
+                          {t("pros")}
+                        </h3>
+                        <Image
+                          src={openCards.pros ? minus : plus}
+                          alt={openCards.pros ? "icon minus" : "icon plus"}
+                          className="transition-transform duration-300"
+                          style={{
+                            transform: openCards.pros
+                              ? "rotate(180deg)"
+                              : "rotate(0)",
+                          }}
+                        />
+                      </div>
+                      <div
+                        className="overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{
+                          maxHeight: openCards.pros ? "1000px" : "0",
+                          opacity: openCards.pros ? 1 : 0,
+                        }}
+                      >
+                        <p className="font-montserrat font-light text-xs text-primary-black whitespace-pre-line">
+                          {pros}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {additionalInfo && (
+                    <div className="">
+                      <div
+                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        onClick={() => toggleCard("additionalInfo")}
+                      >
+                        <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
+                          {t("additionalInfo")}
+                        </h3>
+                        <Image
+                          src={openCards.additionalInfo ? minus : plus}
+                          alt={openCards.additionalInfo ? "icon minus" : "icon plus"}
+                          className="transition-transform duration-300"
+                          style={{
+                            transform: openCards.additionalInfo
+                              ? "rotate(180deg)"
+                              : "rotate(0)",
+                          }}
+                        />
+                      </div>
+                      <div
+                        className="overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{
+                          maxHeight: openCards.additionalInfo ? "1000px" : "0",
+                          opacity: openCards.additionalInfo ? 1 : 0,
+                        }}
+                      >
+                        <p className="font-montserrat font-light text-xs text-primary-black whitespace-pre-line">
+                          {additionalInfo}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+
+              {/* Info Image - Mobile: after cards */}
+              {imageUrl && (
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                  className="mb-10"
+                >
+                  <div className="relative w-[310px] h-[234px] md:h-[400px]">
+                    <Image
+                      src={imageUrl}
+                      alt={service.title?.[locale] || service.title?.en || service.title?.ru || ""}
+                      fill
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
+                </motion.div>
+              )}
             </div>
-          </motion.div>
-        )}
 
-        {(process || pros || additionalInfo) && (
-          <div className="lg:flex lg:gap-[118px] lg:items-start">
-            {/* Image on the left - Desktop only */}
-            {imageUrl && (
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                className="mb-10 lg:mb-0 lg:flex-shrink-0"
-              >
-                <div className="relative w-full h-[295px] md:h-[400px] lg:w-[488px] lg:h-[518px]">
-                  <Image
-                    src={imageUrl}
-                    alt={service.title?.[locale] || service.title?.en || service.title?.ru || ""}
-                    fill
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </motion.div>
-            )}
+            {/* Desktop: Image left, Cards right */}
+            <div className="hidden lg:flex lg:gap-16 lg:items-stretch relative">
+              {/* Decoration above info image - Desktop only */}
+              <div className="absolute top-0 left-0 -z-10 -translate-y-20 pointer-events-none">
+                <Image
+                  src="/images/image/service-slug-page/leaves-info.png"
+                  alt="decoration"
+                  width={200}
+                  height={200}
+                  className="h-auto w-auto pointer-events-none"
+                />
+              </div>
+              {/* Image on the left - Desktop only */}
+              {imageUrl && (
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                  className="mb-10 lg:mb-0 lg:flex-shrink-0"
+                >
+                  <div className="relative w-full h-[295px] md:h-[400px] lg:w-[546px] lg:h-[234px]">
+                    <Image
+                      src={imageUrl}
+                      alt={service.title?.[locale] || service.title?.en || service.title?.ru || ""}
+                      fill
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
+                </motion.div>
+              )}
 
-            {/* Cards on the right */}
+              {/* Cards on the right */}
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-              className="flex-1"
+              className="flex-1 lg:flex lg:flex-col lg:justify-between lg:h-[234px]"
             >
               {process && (
-                <div className="mb-7 lg:mb-10">
+                <div className="mb-7 lg:mb-0 lg:flex lg:flex-col">
                   <div
-                    className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] lg:mb-6"
+                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                      openCards.process ? "lg:mb-6" : "lg:mb-0"
+                    }`}
                     onClick={() => toggleCard("process")}
-                  >
-                    <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase lg:text-[32px]">
+                    >
+                    <h3 className="font-arsenal text-[32px] leading-[75%] uppercase">
                       {t("process")}
                     </h3>
                     <Image
@@ -112,7 +282,7 @@ const ServiceDetails = ({ service }) => {
                     />
                   </div>
                   <div
-                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    className="overflow-hidden transition-all duration-300 ease-in-out lg:flex-1"
                     style={{
                       maxHeight: openCards.process ? "1000px" : "0",
                       opacity: openCards.process ? 1 : 0,
@@ -126,12 +296,14 @@ const ServiceDetails = ({ service }) => {
               )}
 
               {pros && (
-                <div className="mb-7 lg:mb-10">
+                <div className="mb-7 lg:mb-0 lg:flex lg:flex-col">
                   <div
-                    className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] lg:mb-6"
+                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                      openCards.pros ? "lg:mb-6" : "lg:mb-0"
+                    }`}
                     onClick={() => toggleCard("pros")}
                   >
-                    <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase lg:text-[32px]">
+                    <h3 className="font-arsenal text-[32px] leading-[75%] uppercase">
                       {t("pros")}
                     </h3>
                     <Image
@@ -146,7 +318,7 @@ const ServiceDetails = ({ service }) => {
                     />
                   </div>
                   <div
-                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    className="overflow-hidden transition-all duration-300 ease-in-out lg:flex-1"
                     style={{
                       maxHeight: openCards.pros ? "1000px" : "0",
                       opacity: openCards.pros ? 1 : 0,
@@ -160,12 +332,14 @@ const ServiceDetails = ({ service }) => {
               )}
 
               {additionalInfo && (
-                <div>
+                <div className="lg:flex lg:flex-col">
                   <div
-                    className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] lg:mb-6"
+                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                      openCards.additionalInfo ? "lg:mb-6" : "lg:mb-0"
+                    }`}
                     onClick={() => toggleCard("additionalInfo")}
                   >
-                    <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase lg:text-[32px]">
+                    <h3 className="font-arsenal text-[32px] leading-[75%] uppercase">
                       {t("additionalInfo")}
                     </h3>
                     <Image
@@ -180,7 +354,7 @@ const ServiceDetails = ({ service }) => {
                     />
                   </div>
                   <div
-                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    className="overflow-hidden transition-all duration-300 ease-in-out lg:flex-1"
                     style={{
                       maxHeight: openCards.additionalInfo ? "1000px" : "0",
                       opacity: openCards.additionalInfo ? 1 : 0,
@@ -193,10 +367,11 @@ const ServiceDetails = ({ service }) => {
                 </div>
               )}
             </motion.div>
+            </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 

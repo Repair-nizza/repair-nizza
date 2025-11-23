@@ -85,16 +85,16 @@ const FeedbackForm = ({ service }) => {
 
   return (
     <>
-      <div className="py-12 md:py-16 lg:py-20">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-[118px]">
+      <div className="mb-[100px] lg:mt-[84px]">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
           {/* Left side - Title and Description */}
-          <div className="mb-8 lg:mb-0 lg:flex-1">
+          <div className="mb-8 lg:mb-0">
             <motion.h2
               ref={titleRef}
               initial={{ x: -100, opacity: 0 }}
               animate={isTitleInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="font-arsenal font-normal text-[32px] md:text-4xl lg:text-5xl text-primary-black uppercase mb-4 lg:mb-6"
+              className="font-arsenal text-[32px] leading-[125%] lg:text-[64px] uppercase mb-4 lg:mb-[9px] lg:w-[572px]"
             >
               {t("title")}
             </motion.h2>
@@ -103,7 +103,7 @@ const FeedbackForm = ({ service }) => {
               initial={{ y: 20, opacity: 0 }}
               animate={isDescriptionInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-              className="font-montserrat font-light text-sm md:text-base text-primary-black lg:max-w-[500px]"
+              className="font-montserrat font-light text-base lg:text-[20px] leading-[125%] max-w-[265px] lg:max-w-[429px]"
             >
               {t("description")}
             </motion.p>
@@ -115,7 +115,7 @@ const FeedbackForm = ({ service }) => {
             initial={{ x: 100, opacity: 0 }}
             animate={isFormInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="lg:flex-shrink-0 lg:w-[590px]"
+            className="lg:flex-shrink-0 lg:w-[317px] lg:mr-[62px]"
           >
             <Formik
               initialValues={{ name: "", phone: "", message: "" }}
