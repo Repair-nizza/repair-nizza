@@ -45,7 +45,7 @@ const Page = async ({ params }) => {
           alt="decoration"
           width={200}
           height={200}
-          className="hidden md:block h-25 w-auto absolute top-0 right-0 pointer-events-none"
+          className="hidden md:block h-25 w-auto absolute top-[-5px] right-0 pointer-events-none"
       />
       <Image
             src='/images/image/services/hero-decor-mob.png'
@@ -55,7 +55,7 @@ const Page = async ({ params }) => {
           className="block md:hidden h-25 w-auto absolute top-0 right-0 pointer-events-none"
       />
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         <Container>
           <ServiceHero />
           <ServiceListSection services={services || []} />

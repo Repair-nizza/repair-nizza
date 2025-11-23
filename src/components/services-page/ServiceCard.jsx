@@ -26,37 +26,43 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <>
-      {/* Mobile Card - Similar to Portfolio Card */}
-      <div className="relative md:hidden mx-auto">
+      {/* Mobile Card - Glass background with image on top and text below */}
+      <div className="relative md:hidden mx-auto w-[310px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] rounded-[12px] overflow-hidden">
+        {/* Image on top */}
         {imageUrl ? (
-          <div className="relative w-[310px] h-[402px]">
+          <div className="relative w-[310px] h-[250px] rounded-[12px]">
             <Image
               src={imageUrl}
               alt={title}
               fill
-              className="rounded-[20px] object-cover"
+              className="object-cover"
             />
           </div>
         ) : (
-          <div className="relative w-[310px] h-[402px] bg-gray-200 rounded-[20px] flex items-center justify-center">
+          <div className="relative w-[310px] h-[250px] bg-gray-200 flex items-center justify-center">
             <span className="text-gray-400 text-sm">No image</span>
           </div>
         )}
-        <div className="absolute bottom-0 left-0 w-[310px] rounded-b-[20px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] pt-4 pb-5 pr-10 pl-[25px]">
-          <h3 className="font-arsenal font-normal text-base text-primary-white leading-[19px] w-[174px] uppercase mb-3">
-            {title}
-          </h3>
-          <p className="font-montserrat font-light text-xs text-primary-white">
+        
+        {/* Text section on bottom */}
+        <div className="pt-[13px] pb-[19px] px-[25px]">
+          <div className="flex items-center gap-1 mb-3">
+            <h3 className="font-arsenal font-normal text-base text-primary-white leading-[125%] uppercase flex-1">
+              {title}
+            </h3>
+            {service.slug?.current && (
+              <ArrowDiagonalButton
+                onClick={handleServiceClick}
+                variant="white"
+                position="relative"
+                className=""
+              />
+            )}
+          </div>
+          <p className="font-montserrat font-light text-[12px] leading-[125%] text-primary-white">
             {description}
           </p>
         </div>
-        {service.slug?.current && (
-          <ArrowDiagonalButton
-            onClick={handleServiceClick}
-            variant="white"
-            className="top-[260px] right-[30px]"
-          />
-        )}
       </div>
 
       {/* Desktop/Tablet Card - Horizontal with alternating layout */}
@@ -64,9 +70,9 @@ const ServiceCard = ({ service, index }) => {
         {isOdd ? (
           // Odd cards: Text left, Image right
           <>
-            <div className="flex-1 flex flex-col justify-end pb-6 pr-8">
-              <div className="flex items-center gap-4 mb-4">
-                <h3 className="font-arsenal font-normal text-3xl text-primary-black uppercase">
+            <div className="flex-1 flex flex-col justify-end pb-10 pr-8 ">
+              <div className="flex items-center gap-4 mb-5 max-w-[346px]">
+                <h3 className="font-arsenal text-[24px] leading-[125%] uppercase ">
                   {title}
                 </h3>
                 {service.slug?.current && (
@@ -74,16 +80,16 @@ const ServiceCard = ({ service, index }) => {
                     onClick={handleServiceClick}
                     variant="black"
                     position="relative"
-                    className=""
+                    className="w-[74px] h-[74px]"
                   />
                 )}
               </div>
-              <p className="font-montserrat font-light text-base text-primary-black leading-[19px] mb-6 max-w-[500px]">
+              <p className="font-montserrat font-light text-[16px] leading-[125%] text-primary-black">
                 {description}
               </p>
             </div>
             {imageUrl ? (
-              <div className="relative w-[845px] h-[500px] flex-shrink-0">
+              <div className="relative w-[845px] h-[500px] flex-shrink-0 -mr-10">
                 <Image
                   src={imageUrl}
                   alt={title}
@@ -101,7 +107,7 @@ const ServiceCard = ({ service, index }) => {
           // Even cards: Image left, Text right
           <>
             {imageUrl ? (
-              <div className="relative w-[845px] h-[500px] flex-shrink-0">
+              <div className="relative w-[845px] h-[500px] flex-shrink-0 -ml-10">
                 <Image
                   src={imageUrl}
                   alt={title}
@@ -114,9 +120,9 @@ const ServiceCard = ({ service, index }) => {
                 <span className="text-gray-400">No image</span>
               </div>
             )}
-            <div className="flex-1 flex flex-col justify-end pb-6 pl-8">
-              <div className="flex items-center gap-4 mb-4">
-                <h3 className="font-arsenal font-normal text-3xl text-primary-black uppercase">
+            <div className="flex-1 flex flex-col justify-end pb-10 pl-8">
+              <div className="flex items-center gap-4 mb-5 max-w-[346px]">
+                <h3 className="font-arsenal text-[24px] leading-[125%] uppercase">
                   {title}
                 </h3>
                 {service.slug?.current && (
@@ -124,11 +130,11 @@ const ServiceCard = ({ service, index }) => {
                     onClick={handleServiceClick}
                     variant="black"
                     position="relative"
-                    className=""
+                    className="w-[74px] h-[74px]"
                   />
                 )}
               </div>
-              <p className="font-montserrat font-light text-base text-primary-black leading-[19px] mb-6 max-w-[500px]">
+              <p className="font-montserrat font-light text-[16px] leading-[125%] text-primary-black">
                 {description}
               </p>
             </div>

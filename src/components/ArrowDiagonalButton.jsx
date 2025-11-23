@@ -9,7 +9,7 @@ const ArrowDiagonalButton = ({
   variant = "white", // "white" for white bg with black arrow, "black" for black bg with white arrow
   position = "absolute" // "absolute" or "relative"
 }) => {
-  const baseClasses = `${position} shrink-0 w-[55px] h-[55px] flex items-center justify-center rounded-full hover:scale-110 transition-all duration-300`;
+  const baseClasses = `${position} p-5 shrink-0 w-[55px] h-[55px] flex items-center justify-center rounded-full hover:scale-110 transition-all duration-300`;
   
   const variantClasses = variant === "black" 
     ? "bg-primary-black" 
@@ -29,6 +29,7 @@ const ArrowDiagonalButton = ({
         src={arrowDiagonal} 
         alt="arrow button"
         style={iconStyle}
+        className="w-full h-full"
       />
     </button>
   );
