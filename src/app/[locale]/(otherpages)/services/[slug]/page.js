@@ -4,13 +4,13 @@ import ServiceDetailHero from "@/components/services-page/ServiceDetailHero";
 import ServiceDetails from "@/components/services-page/ServiceDetails";
 import FeedbackForm from "@/components/services-page/FeedbackForm";
 import Container from "@/components/Container";
-import { servicesClient } from "@/sanityClient";
+import { client } from "@/sanityClient";
 import { serviceBySlugQuery } from "@/lib/queries";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
 async function getService(slug) {
-  const service = await servicesClient.fetch(serviceBySlugQuery, { slug });
+  const service = await client.fetch(serviceBySlugQuery, { slug });
   return service;
 }
 

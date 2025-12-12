@@ -3,13 +3,13 @@ import Header from "@/components/Header";
 import ServiceHero from "@/components/services-page/ServiceHero";
 import ServiceListSection from "@/components/services-page/ServiceListSection";
 import Container from "@/components/Container";
-import { servicesClient } from "@/sanityClient";
+import { client } from "@/sanityClient";
 import { servicesQuery } from "@/lib/queries";
 import Image from "next/image";
 
 async function getServices() {
   try {
-    const services = await servicesClient.fetch(servicesQuery);
+    const services = await client.fetch(servicesQuery);
     if (services && services.length > 0) {
     }
     return services || [];

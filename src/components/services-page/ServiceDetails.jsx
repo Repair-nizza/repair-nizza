@@ -20,7 +20,17 @@ const ServiceDetails = ({ service }) => {
     additionalInfo: false,
   });
 
-  const fullDescription = service.fullDescription?.[locale] || service.fullDescription?.en || service.fullDescription?.ru || "";
+  // Helper function to extract text from block content
+  const getFullDescription = () => {
+    const blockContent = service.fullDescription?.[locale] || service.fullDescription?.en || service.fullDescription?.ru;
+    if (!blockContent) return "";
+    
+    return blockContent
+      .map((block) => block.children?.map((child) => child.text).join("") || "")
+      .join(" ");
+  };
+
+  const fullDescription = getFullDescription();
   const process = service.process?.[locale] || service.process?.en || service.process?.ru || "";
   const pros = service.pros?.[locale] || service.pros?.en || service.pros?.ru || "";
   const additionalInfo = service.additionalInfo?.[locale] || service.additionalInfo?.en || service.additionalInfo?.ru || "";

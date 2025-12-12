@@ -23,6 +23,16 @@ const ServiceDetailHero = ({ service }) => {
   // Use first image from gallery
   const imageUrl = service.gallery && service.gallery[0]?.asset?.url;
 
+  // Helper function to extract text from block content
+  const getFullDescription = () => {
+    const blockContent = service?.fullDescription?.[locale] || service?.fullDescription?.en || service?.fullDescription?.ru;
+    if (!blockContent) return "";
+    
+    return blockContent
+      .map((block) => block.children?.map((child) => child.text).join("") || "")
+      .join(" ");
+  };
+
   return (
     <>
       {/* Mobile Version - Title only */}
@@ -57,14 +67,14 @@ const ServiceDetailHero = ({ service }) => {
               </motion.h1>
             )}
             {/* Full Description on Desktop */}
-            {service?.fullDescription?.[locale] || service?.fullDescription?.en || service?.fullDescription?.ru ? (
+            {getFullDescription() ? (
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={isDescriptionInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
                 className="font-montserrat font-light text-[16px] leading-[125%] max-w-[484px] whitespace-pre-line"
               >
-                {service.fullDescription?.[locale] || service.fullDescription?.en || service.fullDescription?.ru}
+                {getFullDescription()}
               </motion.div>
             ) : null}
           </div>

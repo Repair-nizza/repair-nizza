@@ -9,11 +9,6 @@ const config = {
         hostname: "cdn.sanity.io",
         pathname: "/images/8kyc11bs/production/**",
       },
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        pathname: "/images/aqzygdsy/production/**",
-      },
     ],
   },
 };

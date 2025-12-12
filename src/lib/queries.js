@@ -29,7 +29,11 @@ export const servicesQuery = `
     title,
     slug,
     shortDescription,
-    fullDescription,
+    fullDescription {
+      ru,
+      en,
+      fr
+    },
     cardImage {
       asset-> {
         _id,
@@ -56,7 +60,11 @@ export const serviceBySlugQuery = `
     title,
     slug,
     shortDescription,
-    fullDescription,
+    fullDescription {
+      ru,
+      en,
+      fr
+    },
     gallery[] {
       asset-> {
         _id,
