@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import heroImg from "../../../public/images/image/services/hero.png";
+import heroImg from "../../../public/images/image/services/hero.webp";
 
 const ServiceHero = () => {
   const t = useTranslations();

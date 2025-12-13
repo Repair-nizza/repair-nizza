@@ -40,14 +40,14 @@ const Page = async ({ params }) => {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
        <div className="absolute top-0 md:top-[-5px] -z-10 right-0">
          <Image
-            src='/images/image/services/hero-decor.png'
+            src='/images/image/services/hero-decor.webp'
             alt="decoration"
             width={200}
             height={200}
             className="hidden lg:block h-25 w-auto pointer-events-none"
                />
                <Image
-              src='/images/image/services/hero-decor-mob.png'
+              src='/images/image/services/hero-decor-mob.webp'
           alt="decoration"
           width={200}
           height={200}

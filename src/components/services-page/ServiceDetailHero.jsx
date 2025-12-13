@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import linesTitle from "../../../public/images/image/service-slug-page/lines-title.png";
+import linesTitle from "../../../public/images/image/service-slug-page/lines-title.webp";
 import ServiceGallery from "./ServiceGallery";
 
 const ServiceDetailHero = ({ service }) => {

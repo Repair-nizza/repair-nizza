@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import plus from "../../../public/images/SVG/icon-plus.svg";
 import minus from "../../../public/images/SVG/icon-minus.svg";
-import linesInfo from "../../../public/images/image/service-slug-page/lines-info.png";
+import linesInfo from "../../../public/images/image/service-slug-page/lines-info.webp";
 import ServiceGallery from "./ServiceGallery";
 
 const ServiceDetails = ({ service }) => {
@@ -76,7 +76,7 @@ const ServiceDetails = ({ service }) => {
 
       <div className="absolute w-[467px] h-[544px] inset-0 top-[350px] left-[25px] -z-10 md:hidden pointer-events-none">
             <Image
-              src="/images/image/service-slug-page/lines-title-mob.png"
+              src="/images/image/service-slug-page/lines-title-mob.webp"
               alt=""
               fill
               className="object-contain object-center"
@@ -226,7 +226,7 @@ const ServiceDetails = ({ service }) => {
             <div className="hidden lg:flex lg:gap-16 lg:items-stretch relative">
               <div className="absolute top-0 left-0 lg:left-[305px] lg:top-[-86px] lg:scale-124 -z-10 -translate-y-20 pointer-events-none">
                 <Image
-                  src="/images/image/service-slug-page/leaves-info.png"
+                  src="/images/image/service-slug-page/leaves-info.webp"
                   alt="decoration"
                   width={200}
                   height={200}

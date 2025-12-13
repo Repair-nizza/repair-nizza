@@ -48,7 +48,7 @@ const Page = async ({ params }) => {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <div className="absolute top-[29px] right-[-30px] -z-10 rotate-[-25deg] md:top-[-5px]">
         <Image
-          src='/images/image/services/hero-decor-mob.png'
+          src='/images/image/services/hero-decor-mob.webp'
           alt="decoration"
           width={200}
           height={200}
@@ -57,7 +57,7 @@ const Page = async ({ params }) => {
       </div>
       <div className="absolute top-0 left-0 -z-10 hidden lg:block pointer-events-none">
         <Image
-          src='/images/image/service-slug-page/leaves-header.png'
+          src='/images/image/service-slug-page/leaves-header.webp'
           alt="decoration"
           width={200}
           height={200}
@@ -68,7 +68,7 @@ const Page = async ({ params }) => {
       <main className="flex-grow overflow-x-hidden relative">
         <div className="absolute bottom-0 right-0 z-0 md:hidden pointer-events-none">
           <Image
-            src='/images/image/service-slug-page/leaves-contact-form-mob.png'
+            src='/images/image/service-slug-page/leaves-contact-form-mob.webp'
             alt="decoration"
             width={200}
             height={200}
@@ -77,7 +77,7 @@ const Page = async ({ params }) => {
         </div>
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -z-10 hidden lg:block pointer-events-none">
           <Image
-            src='/images/image/service-slug-page/leaves-contact-form.png'
+            src='/images/image/service-slug-page/leaves-contact-form.webp'
             alt="decoration"
             width={200}
             height={200}

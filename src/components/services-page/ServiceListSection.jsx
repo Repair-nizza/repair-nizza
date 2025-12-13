@@ -6,8 +6,8 @@ import Image from "next/image";
 import ServiceCard from "./ServiceCard";
 import Container from "../Container";
 import serviceMotif from "../../../public/images/image/service-motif-test.png";
-import serviceMotif2 from "../../../public/images/image/services/lines-bot-mobile.png";
-import serviceMotif2Desktop from "../../../public/images/image/services/lines-bot-desk.png";
+import serviceMotif2 from "../../../public/images/image/services/lines-bot-mobile.webp";
+import serviceMotif2Desktop from "../../../public/images/image/services/lines-bot-desk.webp";
 
 const ServiceListSection = ({ services }) => {
   const cardsRef = useRef(null);
