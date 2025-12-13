@@ -107,7 +107,7 @@ const ServiceCard = ({ service, index }) => {
               className="flex-1 flex flex-col justify-end pb-10 pr-8 "
             >
               <div className="flex items-center justify-between gap-4 mb-5 max-w-[346px]">
-                <h3 className="font-arsenal text-[24px] leading-[125%] uppercase ">
+                <h3 className="font-arsenal text-[24px] leading-[125%] uppercase tracking-[-0.06rem]">
                   {title}
                 </h3>
                 {service.slug?.current && (

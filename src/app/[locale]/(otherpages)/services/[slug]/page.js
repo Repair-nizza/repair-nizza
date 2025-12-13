@@ -45,7 +45,7 @@ const Page = async ({ params }) => {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Top decorations similar to services page */}
-      <div className="absolute top-0 md:top-[-5px] -z-10 right-0">
+      <div className="absolute top-[29px] right-[-30px] -z-10 rotate-[-25deg] md:top-[-5px] -z-10">
         <Image
           src='/images/image/services/hero-decor-mob.png'
           alt="decoration"

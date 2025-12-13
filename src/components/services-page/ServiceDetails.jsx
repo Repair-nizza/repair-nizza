@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import plus from "../../../public/images/SVG/icon-plus.svg";
 import minus from "../../../public/images/SVG/icon-minus.svg";
+import linesInfo from "../../../public/images/image/service-slug-page/lines-info.png";
 import ServiceGallery from "./ServiceGallery";
 
 const ServiceDetails = ({ service }) => {
@@ -95,7 +96,7 @@ const ServiceDetails = ({ service }) => {
 
       {/* Info Cards and Image Section */}
       {(process || pros || additionalInfo || imageUrl) && (
-        <div ref={detailsRef} className="mb-[50px] lg:mb-[51px]">
+        <div ref={detailsRef} className="mb-[50px] lg:mb-[51px] relative">
           <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
             {/* Mobile: Info Cards first, then Image */}
             <div className="lg:hidden flex flex-col gap-8">
@@ -217,7 +218,7 @@ const ServiceDetails = ({ service }) => {
                   initial={{ x: -100, opacity: 0 }}
                   animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
                   transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                  className="mb-10"
+                  className="mb-10 relative"
                 >
                   <div className="relative w-[310px] h-[234px] md:h-[400px]">
                     <Image
@@ -227,6 +228,7 @@ const ServiceDetails = ({ service }) => {
                       className="rounded-lg object-cover"
                     />
                   </div>
+               
                 </motion.div>
               )}
             </div>
@@ -234,7 +236,7 @@ const ServiceDetails = ({ service }) => {
             {/* Desktop: Image left, Cards right */}
             <div className="hidden lg:flex lg:gap-16 lg:items-stretch relative">
               {/* Decoration above info image - Desktop only */}
-              <div className="absolute top-0 left-0 -z-10 -translate-y-20 pointer-events-none">
+              <div className="absolute top-0 left-0 lg:left-[305px] lg:top-[-86px] lg:scale-124 -z-10 -translate-y-20 pointer-events-none">
                 <Image
                   src="/images/image/service-slug-page/leaves-info.png"
                   alt="decoration"
@@ -249,7 +251,7 @@ const ServiceDetails = ({ service }) => {
                   initial={{ x: -100, opacity: 0 }}
                   animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
                   transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                  className="mb-10 lg:mb-0 lg:flex-shrink-0"
+                  className="mb-10 lg:mb-0 lg:flex-shrink-0 relative"
                 >
                   <div className="relative w-full h-[295px] md:h-[400px] lg:w-[546px] lg:h-[234px]">
                     <Image
@@ -259,6 +261,8 @@ const ServiceDetails = ({ service }) => {
                       className="rounded-lg object-cover"
                     />
                   </div>
+                  {/* Lines info decorative image below info image - Desktop only */}
+                  
                 </motion.div>
               )}
 
@@ -376,7 +380,21 @@ const ServiceDetails = ({ service }) => {
                   </div>
                 </div>
               )}
-            </motion.div>
+              </motion.div>
+              <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={isDetailsInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+                    className="hidden lg:block -z-10 absolute bottom-[-613px] left-[-126px] scale-85 pointer-events-none"
+                  >
+                    <Image
+                      src={linesInfo}
+                      alt="decoration"
+                      width={828}
+                      height={596}
+                      className="pointer-events-none"
+                    />
+                  </motion.div>
             </div>
           </div>
         </div>

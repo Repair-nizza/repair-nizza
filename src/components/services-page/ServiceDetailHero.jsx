@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import heroDecor from "../../../public/images/image/services/hero-decor.png";
+import linesTitle from "../../../public/images/image/service-slug-page/lines-title.png";
 import ServiceGallery from "./ServiceGallery";
 
 const ServiceDetailHero = ({ service }) => {
@@ -16,7 +16,7 @@ const ServiceDetailHero = ({ service }) => {
   const imageRef = useRef(null);
   const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
   const isDescriptionInView = useInView(descriptionRef, { once: true, margin: "-100px" });
-  const isImageInView = useInView(imageRef, { once: true, margin: "-100px" });
+  const isImageInView = useInView(imageRef, { once: true, margin: "200px" });
 
   const title = service?.title?.[locale] || service?.title?.en || service?.title?.ru || service?.title || "";
   const description = service?.shortDescription?.[locale] || service?.shortDescription?.en || service?.shortDescription?.ru || "";
@@ -69,6 +69,7 @@ const ServiceDetailHero = ({ service }) => {
             {/* Full Description on Desktop */}
             {getFullDescription() ? (
               <motion.div
+                ref={descriptionRef}
                 initial={{ y: 20, opacity: 0 }}
                 animate={isDescriptionInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
@@ -79,10 +80,27 @@ const ServiceDetailHero = ({ service }) => {
             ) : null}
           </div>
           {/* Right: Gallery */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 relative">
             <ServiceGallery service={service} />
+    
+           
           </div>
         </div>
+        <motion.div
+            ref={imageRef}
+            initial={{ opacity: 0 }}
+            animate={isImageInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+            className="absolute bottom-[-414px] -z-10 right-[-167px] pointer-events-none"
+        >
+          <Image
+            src={linesTitle}
+            alt="decoration"
+            width={1408.62}
+            height={1071.51}
+            className="pointer-events-none scale-81"
+          />
+        </motion.div>
       </div>
     </>
   );

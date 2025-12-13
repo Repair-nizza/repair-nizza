@@ -85,10 +85,10 @@ const FeedbackForm = ({ service }) => {
 
   return (
     <>
-      <div className="mb-[100px] lg:mt-[84px]">
+      <div className="mb-[100px] lg:mt-[135px]">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
           {/* Left side - Title and Description */}
-          <div className="mb-8 lg:mb-0">
+          <div className="mb-8 lg:mb-0 lg:pl-[62px]">
             <motion.h2
               ref={titleRef}
               initial={{ x: -100, opacity: 0 }}
@@ -152,12 +152,12 @@ const FeedbackForm = ({ service }) => {
                     )}
                   </div>
 
-                  <div>
+                  <div className="h-32 lg:h-[112px]">
                     <Field
                       as="textarea"
                       name="message"
                       placeholder={t("placeholders.message")}
-                      className="px-4 py-2 border border-[#989898] w-full rounded-lg font-montserrat text-sm h-32 resize-none bg-primary-white placeholder:font-montserrat placeholder:font-normal placeholder:text-xs placeholder:text-[#989898]"
+                      className="px-4 py-2 border border-[#989898] w-full rounded-lg font-montserrat text-sm h-32 lg:h-[112px] resize-none bg-primary-white placeholder:font-montserrat placeholder:font-normal placeholder:text-xs placeholder:text-[#989898]"
                     />
                   </div>
 
