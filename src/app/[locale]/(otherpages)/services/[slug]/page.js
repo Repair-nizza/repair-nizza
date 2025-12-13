@@ -15,7 +15,8 @@ async function getService(slug) {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug, locale } = params;
+  const resolvedParams = await params;
+  const { slug, locale } = resolvedParams;
   const service = await getService(slug);
 
   if (!service) {
@@ -35,7 +36,8 @@ export async function generateMetadata({ params }) {
 }
 
 const Page = async ({ params }) => {
-  const { slug } = params;
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   const service = await getService(slug);
 
   if (!service) {
