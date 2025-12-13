@@ -101,7 +101,7 @@ const MobNavMenu = ({ isOpen, setIsOpen, openModal }) => {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.3 }}
+                  transition={{ delay: 0.55, duration: 0.3 }}
                 >
                   <Link
                     href="/leave-request"
@@ -111,10 +111,23 @@ const MobNavMenu = ({ isOpen, setIsOpen, openModal }) => {
                     {t("request")}
                   </Link>
                 </motion.li>
+                   <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.3 }}
+                >
+                  <Link
+                    href="/services"
+                    className="font-montserrat font-normal text-base text-primary-black"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t("services")}
+                  </Link>
+                </motion.li>
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.55, duration: 0.3 }}
+                  transition={{ delay: 0.6, duration: 0.3 }}
                 >
                   <Link
                     href="/contacts"

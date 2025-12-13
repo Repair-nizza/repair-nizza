@@ -64,3 +64,13 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: none;
 }
+
+/* Hide scrollbar for horizontal gallery */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

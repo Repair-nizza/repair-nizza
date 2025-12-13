@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import arrowWhite from "../../../public/images/SVG/arrow-white-portfolio.svg";
 import arrowBlack from "../../../public/images/SVG/arrow-black-portfolio.svg";
-import arrowDiagonal from "../../../public/images/SVG/arrow-diagonal-portfolio.svg";
+import ArrowDiagonalButton from "../ArrowDiagonalButton";
 import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -46,12 +46,11 @@ const PortfolioCard = ({ data }) => {
           {data.subtitle[locale]}
         </p>
       </div>
-      <button
+      <ArrowDiagonalButton
         onClick={handleProjectClick}
-        className="absolute top-[217px] md:top-[220px] right-[24px] w-[55px] h-[55px] flex items-center justify-center bg-primary-white rounded-full hover:scale-110 transition-all duration-300"
-      >
-        <Image src={arrowDiagonal} alt="arrow button" />
-      </button>
+        variant="white"
+        className="top-[217px] md:top-[220px] right-[24px]"
+      />
     </div>
   );
 };

@@ -58,7 +58,7 @@ export default function LocaleSwitcher() {
   }, [isOpen, handleClickOutside, handleKeyDown]);
 
   return (
-    <div className="relative lg:ml-[60px]" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-[9px] outline-none text-[#091129]"
