@@ -103,7 +103,7 @@ const ServiceListSection = ({ services }) => {
         initial={{ y: 100, opacity: 0 }}
         animate={isCardsInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="flex flex-col gap-[24px] md:gap-[24px] lg:gap-12 pb-[97px]"
+        className="flex flex-col gap-[24px] md:gap-[24px] lg:gap-10 pb-[97px]"
       >
         {services.map((service, index) => (
           <motion.div
