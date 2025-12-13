@@ -10,7 +10,7 @@ import ArrowDiagonalButton from "../ArrowDiagonalButton";
 const ServiceCard = ({ service, index }) => {
   const router = useRouter();
   const locale = useLocale();
-  const isOdd = index % 2 === 0; // 0-indexed, so first card (index 0) is odd (text left, image right)
+  const isOdd = index % 2 === 0;
   const mobileCardRef = useRef(null);
   const desktopCardRef = useRef(null);
   const isMobileCardInView = useInView(mobileCardRef, { once: true, margin: "-50px" });
@@ -24,15 +24,10 @@ const ServiceCard = ({ service, index }) => {
 
   const title = service.title?.[locale] || service.title?.en || service.title?.ru || "Untitled Service";
   const description = service.shortDescription?.[locale] || service.shortDescription?.en || service.shortDescription?.ru || "";
-  // Use cardImage, or if missing - first image from gallery
   const imageUrl = service.cardImage?.asset?.url || (service.gallery && service.gallery[0]?.asset?.url);
-
-  // Don't return null - render card even without image, or use placeholder
-  // if (!imageUrl) return null;
 
   return (
     <>
-      {/* Mobile Card - Glass background with image on top and text below */}
       <motion.div
         ref={mobileCardRef}
         initial={{ y: 50, opacity: 0 }}
@@ -41,7 +36,6 @@ const ServiceCard = ({ service, index }) => {
         whileHover={{ y: -5 }}
         className="relative md:hidden mx-auto w-[310px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] rounded-[12px] overflow-hidden"
       >
-        {/* Image on top */}
         {imageUrl ? (
           <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
@@ -61,8 +55,7 @@ const ServiceCard = ({ service, index }) => {
             <span className="text-gray-400 text-sm">No image</span>
           </div>
         )}
-        
-        {/* Text section on bottom */}
+
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={isMobileCardInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
@@ -88,7 +81,6 @@ const ServiceCard = ({ service, index }) => {
         </motion.div>
       </motion.div>
 
-      {/* Desktop/Tablet Card - Horizontal with alternating layout */}
       <motion.div
         ref={desktopCardRef}
         initial={{ opacity: 0 }}
@@ -98,7 +90,6 @@ const ServiceCard = ({ service, index }) => {
         className="hidden md:flex w-full max-w-[1440px] mx-auto items-end"
       >
         {isOdd ? (
-          // Odd cards: Text left, Image right
           <>
             <motion.div
               initial={{ x: -100, opacity: 0 }}
@@ -149,7 +140,6 @@ const ServiceCard = ({ service, index }) => {
             )}
           </>
         ) : (
-          // Even cards: Image left, Text right
           <>
             {imageUrl ? (
               <motion.div

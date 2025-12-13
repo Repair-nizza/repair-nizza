@@ -37,7 +37,6 @@ const FeedbackForm = ({ service }) => {
         Сообщение: values.message,
       };
 
-      // Add service title if service is provided
       if (service) {
         const serviceTitle = service.title?.[locale] || service.title?.ru || service.title?.en || "";
         if (serviceTitle) {
@@ -87,7 +86,6 @@ const FeedbackForm = ({ service }) => {
     <>
       <div className="mb-[100px] lg:mt-[135px]">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
-          {/* Left side - Title and Description */}
           <div className="mb-8 lg:mb-0 lg:pl-[62px]">
             <motion.h2
               ref={titleRef}
@@ -109,7 +107,6 @@ const FeedbackForm = ({ service }) => {
             </motion.p>
           </div>
 
-          {/* Right side - Form */}
           <motion.div
             ref={formRef}
             initial={{ x: 100, opacity: 0 }}
@@ -175,7 +172,6 @@ const FeedbackForm = ({ service }) => {
         </div>
       </div>
 
-      {/* Success Alert */}
       <AnimatePresence>
         {isSuccess && (
           <motion.div

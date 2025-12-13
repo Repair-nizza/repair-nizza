@@ -356,13 +356,13 @@
 }
 
 .center-card {
-  transform: translateX(30px) scale(0.96);
+  transform: translateX(32px) scale(0.96);
   z-index: 20;
   animation: moveToLeft 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
 }
 
 .right-card {
-  transform: translateX(60px) scale(0.92);
+  transform: translateX(64px) scale(0.92);
   z-index: 10;
   animation: moveToCenter 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
 }
@@ -375,12 +375,12 @@
   }
   33%,
   61% {
-    transform: translateX(60px) scale(0.92);
+    transform: translateX(64px) scale(0.92);
     z-index: 10;
   }
   66%,
   94% {
-    transform: translateX(30px) scale(0.96);
+    transform: translateX(32px) scale(0.96);
     z-index: 20;
   }
   99%,
@@ -393,7 +393,7 @@
 @keyframes moveToLeft {
   0%,
   28% {
-    transform: translateX(30px) scale(0.96);
+    transform: translateX(32px) scale(0.96);
     z-index: 20;
   }
   33%,
@@ -403,12 +403,12 @@
   }
   66%,
   94% {
-    transform: translateX(60px) scale(0.92);
+    transform: translateX(64px) scale(0.92);
     z-index: 10;
   }
   99%,
   100% {
-    transform: translateX(30px) scale(0.96);
+    transform: translateX(32px) scale(0.96);
     z-index: 20;
   }
 }
@@ -416,12 +416,12 @@
 @keyframes moveToCenter {
   0%,
   28% {
-    transform: translateX(60px) scale(0.92);
+    transform: translateX(64px) scale(0.92);
     z-index: 10;
   }
   33%,
   61% {
-    transform: translateX(30px) scale(0.96);
+    transform: translateX(48px) scale(0.96);
     z-index: 20;
   }
   66%,
@@ -431,18 +431,18 @@
   }
   99%,
   100% {
-    transform: translateX(60px) scale(0.92);
+    transform: translateX(64px) scale(0.92);
     z-index: 10;
   }
 }
 
 @media (min-width: 1024px) {
   .center-card {
-    transform: translateX(50px) scale(0.96);
+    transform: translateX(32px) scale(0.96);
   }
 
   .right-card {
-    transform: translateX(100px) scale(0.92);
+    transform: translateX(64px) scale(0.92);
   }
 
   @keyframes moveToRight {
@@ -453,12 +453,12 @@
     }
     33%,
     61% {
-      transform: translateX(100px) scale(0.92);
+      transform: translateX(64px) scale(0.92);
       z-index: 10;
     }
     66%,
     94% {
-      transform: translateX(50px) scale(0.96);
+      transform: translateX(48px) scale(0.96);
       z-index: 20;
     }
     99%,
@@ -471,7 +471,7 @@
   @keyframes moveToLeft {
     0%,
     28% {
-      transform: translateX(50px) scale(0.96);
+      transform: translateX(32px) scale(0.96);
       z-index: 20;
     }
     33%,
@@ -481,12 +481,12 @@
     }
     66%,
     94% {
-      transform: translateX(100px) scale(0.92);
+      transform: translateX(64px) scale(0.92);
       z-index: 10;
     }
     99%,
     100% {
-      transform: translateX(50px) scale(0.96);
+      transform: translateX(32px) scale(0.96);
       z-index: 20;
     }
   }
@@ -494,12 +494,12 @@
   @keyframes moveToCenter {
     0%,
     28% {
-      transform: translateX(100px) scale(0.92);
+      transform: translateX(32px) scale(0.92);
       z-index: 10;
     }
     33%,
     61% {
-      transform: translateX(50px) scale(0.96);
+      transform: translateX(32px) scale(0.96);
       z-index: 20;
     }
     66%,
@@ -509,7 +509,7 @@
     }
     99%,
     100% {
-      transform: translateX(100px) scale(0.92);
+      transform: translateX(32px) scale(0.92);
       z-index: 10;
     }
   }

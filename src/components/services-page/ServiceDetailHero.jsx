@@ -20,10 +20,8 @@ const ServiceDetailHero = ({ service }) => {
 
   const title = service?.title?.[locale] || service?.title?.en || service?.title?.ru || service?.title || "";
   const description = service?.shortDescription?.[locale] || service?.shortDescription?.en || service?.shortDescription?.ru || "";
-  // Use first image from gallery
   const imageUrl = service.gallery && service.gallery[0]?.asset?.url;
 
-  // Helper function to extract text from block content
   const getFullDescription = () => {
     const blockContent = service?.fullDescription?.[locale] || service?.fullDescription?.en || service?.fullDescription?.ru;
     if (!blockContent) return "";
@@ -35,9 +33,8 @@ const ServiceDetailHero = ({ service }) => {
 
   return (
     <>
-      {/* Mobile Version - Title only */}
       {title && (
-        <div className="relative mt-[31px] mb-4 md:hidden">
+        <div className="relative mt-[31px] mb-4 lg:hidden">
           <motion.h1
             ref={titleRef}
             initial={{ x: -100, opacity: 0 }}
@@ -50,10 +47,8 @@ const ServiceDetailHero = ({ service }) => {
         </div>
       )}
 
-      {/* Desktop Version - Title/Description left, Gallery right */}
       <div className="relative hidden lg:block">
         <div className="flex w-full max-w-[1440px] mx-auto items-end pt-[15px] pb-[221px] space-between">
-          {/* Left: Title and Description in column */}
           <div className="flex-1 flex flex-col">
             {title && (
               <motion.h1
@@ -66,7 +61,6 @@ const ServiceDetailHero = ({ service }) => {
                 {title}
               </motion.h1>
             )}
-            {/* Full Description on Desktop */}
             {getFullDescription() ? (
               <motion.div
                 ref={descriptionRef}
@@ -79,11 +73,8 @@ const ServiceDetailHero = ({ service }) => {
               </motion.div>
             ) : null}
           </div>
-          {/* Right: Gallery */}
           <div className="flex-shrink-0 relative">
             <ServiceGallery service={service} />
-    
-           
           </div>
         </div>
         <motion.div

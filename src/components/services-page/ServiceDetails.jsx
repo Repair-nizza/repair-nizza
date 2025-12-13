@@ -21,7 +21,6 @@ const ServiceDetails = ({ service }) => {
     additionalInfo: false,
   });
 
-  // Helper function to extract text from block content
   const getFullDescription = () => {
     const blockContent = service.fullDescription?.[locale] || service.fullDescription?.en || service.fullDescription?.ru;
     if (!blockContent) return "";
@@ -35,7 +34,6 @@ const ServiceDetails = ({ service }) => {
   const process = service.process?.[locale] || service.process?.en || service.process?.ru || "";
   const pros = service.pros?.[locale] || service.pros?.en || service.pros?.ru || "";
   const additionalInfo = service.additionalInfo?.[locale] || service.additionalInfo?.en || service.additionalInfo?.ru || "";
-  // Use infoImage
   const imageUrl = service.infoImage?.asset?.url;
 
   const toggleCard = (cardName) => {
@@ -62,7 +60,6 @@ const ServiceDetails = ({ service }) => {
 
   return (
     <>
-      {/* Full Description - Mobile only (Desktop shows in ServiceDetailHero) */}
       {fullDescription && (
         <motion.div
           ref={detailsRef}
@@ -77,8 +74,7 @@ const ServiceDetails = ({ service }) => {
         </motion.div>
       )}
 
-         {/* Background image for mobile */}
-          <div className="absolute w-[467px] h-[544px] inset-0 top-[350px] left-[25px] -z-10 md:hidden pointer-events-none">
+      <div className="absolute w-[467px] h-[544px] inset-0 top-[350px] left-[25px] -z-10 md:hidden pointer-events-none">
             <Image
               src="/images/image/service-slug-page/lines-title-mob.png"
               alt=""
@@ -87,20 +83,16 @@ const ServiceDetails = ({ service }) => {
               sizes="310px"
               priority={false}
             />
-          </div>
+      </div>
 
-      {/* Gallery - shown after description (mobile only) */}
       <div className="lg:hidden">
         <ServiceGallery service={service} />
       </div>
 
-      {/* Info Cards and Image Section */}
       {(process || pros || additionalInfo || imageUrl) && (
         <div ref={detailsRef} className="mb-[50px] lg:mb-[51px] relative">
           <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
-            {/* Mobile: Info Cards first, then Image */}
             <div className="lg:hidden flex flex-col gap-8">
-              {/* Info Cards */}
               {(process || pros || additionalInfo) && (
                 <motion.div
                   initial={{ x: 100, opacity: 0 }}
@@ -111,7 +103,7 @@ const ServiceDetails = ({ service }) => {
                   {process && (
                     <div className="mb-7">
                       <div
-                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
                         onClick={() => toggleCard("process")}
                       >
                         <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
@@ -145,7 +137,7 @@ const ServiceDetails = ({ service }) => {
                   {pros && (
                     <div className="mb-7">
                       <div
-                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
                         onClick={() => toggleCard("pros")}
                       >
                         <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
@@ -179,7 +171,7 @@ const ServiceDetails = ({ service }) => {
                   {additionalInfo && (
                     <div className="">
                       <div
-                        className="flex justify-between items-center mb-[22px] w-[310px] cursor-pointer"
+                        className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
                         onClick={() => toggleCard("additionalInfo")}
                       >
                         <h3 className="font-arsenal font-normal text-xl text-primary-black uppercase">
@@ -212,7 +204,6 @@ const ServiceDetails = ({ service }) => {
                 </motion.div>
               )}
 
-              {/* Info Image - Mobile: after cards */}
               {imageUrl && (
                 <motion.div
                   initial={{ x: -100, opacity: 0 }}
@@ -220,7 +211,7 @@ const ServiceDetails = ({ service }) => {
                   transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
                   className="mb-10 relative"
                 >
-                  <div className="relative w-[310px] h-[234px] md:h-[400px]">
+                  <div className="relative w-full h-[234px] md:h-[400px]">
                     <Image
                       src={imageUrl}
                       alt={service.title?.[locale] || service.title?.en || service.title?.ru || ""}
@@ -228,14 +219,11 @@ const ServiceDetails = ({ service }) => {
                       className="rounded-lg object-cover"
                     />
                   </div>
-               
                 </motion.div>
               )}
             </div>
 
-            {/* Desktop: Image left, Cards right */}
             <div className="hidden lg:flex lg:gap-16 lg:items-stretch relative">
-              {/* Decoration above info image - Desktop only */}
               <div className="absolute top-0 left-0 lg:left-[305px] lg:top-[-86px] lg:scale-124 -z-10 -translate-y-20 pointer-events-none">
                 <Image
                   src="/images/image/service-slug-page/leaves-info.png"
@@ -245,7 +233,6 @@ const ServiceDetails = ({ service }) => {
                   className="h-auto w-auto pointer-events-none"
                 />
               </div>
-              {/* Image on the left - Desktop only */}
               {imageUrl && (
                 <motion.div
                   initial={{ x: -100, opacity: 0 }}
@@ -261,12 +248,9 @@ const ServiceDetails = ({ service }) => {
                       className="rounded-lg object-cover"
                     />
                   </div>
-                  {/* Lines info decorative image below info image - Desktop only */}
-                  
                 </motion.div>
               )}
 
-              {/* Cards on the right */}
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={isDetailsInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
@@ -276,7 +260,7 @@ const ServiceDetails = ({ service }) => {
               {process && (
                 <div className="mb-7 lg:mb-0 lg:flex lg:flex-col">
                   <div
-                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                    className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                       openCards.process ? "lg:mb-6" : "lg:mb-0"
                     }`}
                     onClick={() => toggleCard("process")}
@@ -302,7 +286,7 @@ const ServiceDetails = ({ service }) => {
                       opacity: openCards.process ? 1 : 0,
                     }}
                   >
-                    <p className="font-montserrat font-light text-xs text-primary-black md:w-[300px] lg:w-[530px] lg:text-sm whitespace-pre-line">
+                    <p className="font-montserrat font-light text-xs text-primary-black w-full md:w-full lg:w-[530px] lg:text-sm whitespace-pre-line">
                       {process}
                     </p>
                   </div>
@@ -312,7 +296,7 @@ const ServiceDetails = ({ service }) => {
               {pros && (
                 <div className="mb-7 lg:mb-0 lg:flex lg:flex-col">
                   <div
-                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                    className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                       openCards.pros ? "lg:mb-6" : "lg:mb-0"
                     }`}
                     onClick={() => toggleCard("pros")}
@@ -338,7 +322,7 @@ const ServiceDetails = ({ service }) => {
                       opacity: openCards.pros ? 1 : 0,
                     }}
                   >
-                    <p className="font-montserrat font-light text-xs text-primary-black md:w-[300px] lg:w-[530px] lg:text-sm whitespace-pre-line">
+                    <p className="font-montserrat font-light text-xs text-primary-black w-full md:w-full lg:w-[530px] lg:text-sm whitespace-pre-line">
                       {pros}
                     </p>
                   </div>
@@ -348,7 +332,7 @@ const ServiceDetails = ({ service }) => {
               {additionalInfo && (
                 <div className="lg:flex lg:flex-col">
                   <div
-                    className={`flex justify-between items-center mb-[22px] w-[310px] cursor-pointer lg:w-[590px] transition-all duration-300 ${
+                    className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                       openCards.additionalInfo ? "lg:mb-6" : "lg:mb-0"
                     }`}
                     onClick={() => toggleCard("additionalInfo")}
@@ -374,7 +358,7 @@ const ServiceDetails = ({ service }) => {
                       opacity: openCards.additionalInfo ? 1 : 0,
                     }}
                   >
-                    <p className="font-montserrat font-light text-xs text-primary-black md:w-[300px] lg:w-[530px] lg:text-sm whitespace-pre-line">
+                    <p className="font-montserrat font-light text-xs text-primary-black w-full md:w-full lg:w-[530px] lg:text-sm whitespace-pre-line">
                       {additionalInfo}
                     </p>
                   </div>

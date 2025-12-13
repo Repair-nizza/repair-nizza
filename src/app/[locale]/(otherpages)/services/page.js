@@ -10,8 +10,6 @@ import Image from "next/image";
 async function getServices() {
   try {
     const services = await client.fetch(servicesQuery);
-    if (services && services.length > 0) {
-    }
     return services || [];
   } catch (error) {
     return [];

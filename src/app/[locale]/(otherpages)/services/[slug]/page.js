@@ -46,8 +46,7 @@ const Page = async ({ params }) => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {/* Top decorations similar to services page */}
-      <div className="absolute top-[29px] right-[-30px] -z-10 rotate-[-25deg] md:top-[-5px] -z-10">
+      <div className="absolute top-[29px] right-[-30px] -z-10 rotate-[-25deg] md:top-[-5px]">
         <Image
           src='/images/image/services/hero-decor-mob.png'
           alt="decoration"
@@ -56,7 +55,6 @@ const Page = async ({ params }) => {
           className="block md:hidden h-25 w-auto pointer-events-none"
         />
       </div>
-      {/* Desktop: Top left decoration */}
       <div className="absolute top-0 left-0 -z-10 hidden lg:block pointer-events-none">
         <Image
           src='/images/image/service-slug-page/leaves-header.png'
@@ -68,7 +66,6 @@ const Page = async ({ params }) => {
       </div>
       <Header />
       <main className="flex-grow overflow-x-hidden relative">
-        {/* Bottom right decoration for mobile */}
         <div className="absolute bottom-0 right-0 z-0 md:hidden pointer-events-none">
           <Image
             src='/images/image/service-slug-page/leaves-contact-form-mob.png'
@@ -78,7 +75,6 @@ const Page = async ({ params }) => {
             className="h-auto w-auto pointer-events-none"
           />
         </div>
-        {/* Desktop: Bottom middle decoration */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -z-10 hidden lg:block pointer-events-none">
           <Image
             src='/images/image/service-slug-page/leaves-contact-form.png'

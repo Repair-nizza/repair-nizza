@@ -12,7 +12,6 @@ const ServiceDetailSection = ({ service, allServices }) => {
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // Filter out the current service from the list
   const otherServices = allServices?.filter(s => s._id !== service._id) || [];
   const imageUrl = service.image2?.asset?.url;
 
@@ -20,7 +19,6 @@ const ServiceDetailSection = ({ service, allServices }) => {
     <Container className="relative">
       <div ref={sectionRef} className="pt-12 pb-20 md:pt-16 lg:pt-20">
         <div className="lg:flex lg:gap-[118px] lg:items-start">
-          {/* Image on the left */}
           {imageUrl && (
             <motion.div
               initial={{ x: -100, opacity: 0 }}
@@ -39,7 +37,6 @@ const ServiceDetailSection = ({ service, allServices }) => {
             </motion.div>
           )}
 
-          {/* Service Cards on the right */}
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             animate={isSectionInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}

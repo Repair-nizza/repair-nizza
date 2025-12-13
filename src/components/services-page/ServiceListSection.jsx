@@ -59,7 +59,6 @@ const ServiceListSection = ({ services }) => {
           className="md:block lg:hidden"
         />
       </motion.div>
-      {/* Mobile bottom lines */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
@@ -76,7 +75,6 @@ const ServiceListSection = ({ services }) => {
           className="lg:hidden"
         />
       </motion.div>
-      {/* Desktop bottom lines */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isCardsInView ? { opacity: 1 } : { opacity: 0 }}
@@ -93,11 +91,9 @@ const ServiceListSection = ({ services }) => {
           className="hidden lg:block"
           width={483}
             height={693}
-          
         />
       </motion.div>
 
-      
       <motion.div
         ref={cardsRef}
         initial={{ y: 100, opacity: 0 }}

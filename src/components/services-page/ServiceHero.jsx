@@ -19,7 +19,6 @@ const ServiceHero = () => {
 
   return (
     <>
-      {/* Mobile Version */}
       <div className="relative pt-[34px] mb-14 md:hidden">
         <motion.h1
           ref={mobileTitleRef}
@@ -41,7 +40,6 @@ const ServiceHero = () => {
         </motion.p>
       </div>
 
-      {/* Desktop Version - Styled as Service Card */}
       <div className="relative hidden md:block">
         <div className="flex items-end mt-[15px] mb-[100px]">
           <div className="relative w-[845px] h-[643px] -ml-10">
