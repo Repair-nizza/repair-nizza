@@ -244,5 +244,13 @@
     "process": "Processus",
     "pros": "Avantages",
     "additionalInfo": "Informations Complémentaires"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "description": "Idées, conseils et inspirations pour vos rénovations, votre décoration intérieure et les matériaux modernes. Nous partageons notre expertise pour vous aider à créer la maison de vos rêves sur la Côte d'Azur.",
+    "noBlogs": "Nous ajouterons bientôt nos articles de blog ici",
+    "minRead": "min",
+    "minReadPlural": "min",
+    "readMore": "Lire la suite"
   }
 }

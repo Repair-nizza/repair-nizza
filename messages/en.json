@@ -244,5 +244,13 @@
     "process": "Process",
     "pros": "Advantages",
     "additionalInfo": "Additional Information"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "description": "Ideas, tips, and inspiration about renovations, interior design, and modern materials. We share our expertise to help you create your dream home on the Côte d'Azur.",
+    "noBlogs": "We will add our blog posts here soon",
+    "minRead": "min",
+    "minReadPlural": "min",
+    "readMore": "Read more"
   }
 }
