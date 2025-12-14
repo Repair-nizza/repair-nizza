@@ -87,7 +87,7 @@ const BlogListSection = ({ blogs }) => {
         alt="leaves image"
         width={243}
         height={243}
-        className="absolute lg:hidden w-auto h-[243px] bottom-[-124px] left-[11px] scale-120% -z-10"
+        className="absolute lg:hidden w-auto h-[243px] bottom-[-124px] scale-120% -z-10"
       />
       <Image
         src={leavesTopDesk}
@@ -118,7 +118,7 @@ const BlogListSection = ({ blogs }) => {
             isCardsInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
           }
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col gap-[26px] mb-10 md:flex-row md:flex-wrap md:justify-center md:gap-[26px] lg:gap-5"
+          className="flex flex-row flex-wrap justify-start gap-[26px] mb-10 md:gap-[26px] lg:gap-5"
         >
           {!blogs || blogs.length === 0 ? (
             <div className="w-full text-center font-arsenal text-xl md:text-2xl lg:text-3xl text-primary-black relative z-10">
@@ -137,6 +137,7 @@ const BlogListSection = ({ blogs }) => {
                   ease: "easeOut",
                   delay: index * 0.1,
                 }}
+                className="flex-[0_1_310px] max-w-[386px]"
               >
                 <BlogCard data={blog} />
               </motion.div>

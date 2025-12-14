@@ -18,7 +18,7 @@ const BlogCard = ({ data }) => {
   if (!data?.title || !data?.title[locale]) return null;
 
   return (
-    <div className="relative rounded-[8px] overflow-hidden bg-secondary-grey max-w-[386px]">
+    <div className="relative rounded-[8px] overflow-hidden bg-secondary-grey w-full max-w-[386px] flex-shrink-0">
       {data.mainImage?.asset?.url && (
         <div className="relative w-full h-[215px]">
           <Image
