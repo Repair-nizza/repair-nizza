@@ -36,12 +36,26 @@ const TaskAndSolution = ({ task, solution }) => {
     useLayoutEffect(() => {
         const taskEl = taskBlurRef.current;
         const solutionEl = solutionBlurRef.current;
+
         if (!taskEl || !solutionEl) return;
 
-        const taskHeight = taskEl.scrollHeight;
-        const solutionHeight = solutionEl.scrollHeight;
+        const updateHeight = () => {
+            const taskHeight = taskEl.scrollHeight;
+            const solutionHeight = solutionEl.scrollHeight;
 
-        setBlurHeight(Math.max(taskHeight, solutionHeight));
+            setBlurHeight(Math.max(taskHeight, solutionHeight));
+        };
+
+        updateHeight();
+
+        const observer = new ResizeObserver(updateHeight);
+
+        observer.observe(taskEl);
+        observer.observe(solutionEl);
+
+        return () => {
+            observer.disconnect();
+        };
     }, [locale, task, solution]);
 
     const isTaskInView = useInView(taskCardRef, {
@@ -62,7 +76,7 @@ const TaskAndSolution = ({ task, solution }) => {
                     initial={{ x: -100, opacity: 0 }}
                     animate={isTaskInView ? { x: 0, opacity: 1 } : {}}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative w-full md:w-[310px] lg:w-[590px] rounded-[20px] overflow-hidden group"
+                    className="relative w-full md:w-[310px] h-[402px] md:h-[400px] lg:w-[590px] lg:h-[583px] rounded-[20px] overflow-hidden group"
                 >
                     {task.image?.asset?.url && (
                         <Image
@@ -96,7 +110,7 @@ const TaskAndSolution = ({ task, solution }) => {
                     initial={{ x: 100, opacity: 0 }}
                     animate={isSolutionInView ? { x: 0, opacity: 1 } : {}}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative w-full md:w-[310px] lg:w-[590px] rounded-[20px] overflow-hidden group"
+                    className="relative w-full md:w-[310px] h-[402px] md:h-[400px] lg:w-[590px] lg:h-[583px] rounded-[20px] overflow-hidden group"
                 >
                     {solution.image?.asset?.url && (
                         <Image
