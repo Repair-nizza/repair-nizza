@@ -137,7 +137,7 @@ const BlogListSection = ({ blogs }) => {
                   ease: "easeOut",
                   delay: index * 0.1,
                 }}
-                className="flex-[0_1_310px] max-w-[386px]"
+                className="w-[310px] md:w-[calc((100%-26px)/2)] lg:w-[calc((100%-40px)/3)] max-w-[386px]"
               >
                 <BlogCard data={blog} />
               </motion.div>
