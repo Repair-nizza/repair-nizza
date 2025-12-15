@@ -1,256 +1,258 @@
 {
-  "portfolio": "Portfolio",
-  "services": "Services",
-  "servicesPage": {
-    "title": "Nos Services",
-    "description": "Solide Renovation réalise une gamme complète de travaux de construction et de finition — de la rénovation complète à la finition sur mesure et à l'installation de systèmes techniques. Nous travaillons à Nice et sur toute la Côte d'Azur, en combinant les normes de qualité européennes, l'attention aux détails et une approche esthétique de chaque projet"
-  },
-  "request": "Faire une Demande",
-  "contacts": "Contacts",
-  "linkWithUs": "Contactez-nous",
-  "contactPage": {
-    "title": "Contacts",
-    "description": "Contactez-nous de la manière qui vous convient — nous sommes toujours là pour vous aider !",
-    "contacts": {
-      "email": "Email",
-      "instagram": "Instagram",
-      "telegram": "Telegram",
-      "phone": "Téléphone"
-    }
-  },
-  "hero": {
-    "title": "Rénovation Design Clé en Main",
-    "subtitle": "Créer des espaces où il fait bon vivre",
-    "button": "Obtenir une Consultation"
-  },
-  "portfolioSection": {
-    "title": "Notre Portfolio",
-    "description": "Nous sommes fiers de chaque projet que nous entreprenons, de la rénovation cosmétique à la rénovation complète clé en main",
-    "button": "Voir Plus"
-  },
-  "mobileMenu": {
-    "discussProject": "Discutons de votre projet",
-    "leaveContacts": "Laissez vos coordonnées et nous vous contacterons bientôt",
-    "contactButton": "Laisser les contacts"
-  },
-  "ourService": {
-    "title": "Nous proposons une gamme complète de services de rénovation résidentielle",
-    "description": "Nous travaillons soigneusement, professionnellement et dans les délais. Nous effectuons aussi bien des mises à jour cosmétiques que des rénovations complètes à partir de zéro",
-    "cards": {
-      "cosmetic": {
-        "title": "Rénovation Cosmétique",
-        "description": "Peinture des murs et plafonds, remplacement des revêtements de sol, pose de papier peint, mise à jour de l'intérieur sans réaménagement"
-      },
-      "capital": {
-        "title": "Rénovation Complète",
-        "description": "Rénovation totale incluant les changements structurels, nouvelle plomberie, systèmes électriques et réaménagement complet de l'intérieur"
-      },
-      "fullSupport": {
-        "title": "Accompagnement Complet",
-        "description": "Gestion de projet complète de la conception à la réalisation, incluant la sélection des matériaux et la coordination des entrepreneurs"
-      }
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "servicesPage": {
+        "title": "Nos Services",
+        "description": "Solide Renovation réalise une gamme complète de travaux de construction et de finition — de la rénovation complète à la finition sur mesure et à l'installation de systèmes techniques. Nous travaillons à Nice et sur toute la Côte d'Azur, en combinant les normes de qualité européennes, l'attention aux détails et une approche esthétique de chaque projet"
     },
-    "uniqueness": {
-      "title": "Notre Unicité:",
-      "description": "Nous utilisons: le béton CRM - un matériau spécialisé utilisé dans la construction pour minimiser l'apparition et la propagation des fissures sur les surfaces en béton",
-      "stats": {
-        "satisfied": {
-          "value": "90%",
-          "label": "Clients Satisfaits"
-        },
-        "completed": {
-          "value": "200+",
-          "label": "Projets Réalisés"
-        },
-        "experience": {
-          "value": "10+",
-          "label": "Ans d'Expérience"
+    "request": "Faire une Demande",
+    "contacts": "Contacts",
+    "linkWithUs": "Contactez-nous",
+    "contactPage": {
+        "title": "Contacts",
+        "description": "Contactez-nous de la manière qui vous convient — nous sommes toujours là pour vous aider !",
+        "contacts": {
+            "email": "Email",
+            "instagram": "Instagram",
+            "telegram": "Telegram",
+            "phone": "Téléphone"
         }
-      }
-    }
-  },
-  "dreamRepair": {
-    "title": "Prêt pour la rénovation de vos rêves ?",
-    "description": "Contactez-nous — nous vous conseillerons, calculerons le devis et suggérerons la meilleure solution pour vous.",
-    "additionalInfo": "Nous vous aiderons à transformer votre maison en un espace confortable, moderne et fonctionnel — sans stress et avec une garantie de qualité.",
-    "button": "Obtenir une consultation"
-  },
-  "aboutUs": {
-    "title": "À Propos",
-    "description": "Notre entreprise est spécialisée dans la rénovation de biens résidentiels à Nice et dans d'autres villes de la Côte d'Azur. Nous sommes spécialisés dans les rénovations clé en main : de la réorganisation aux finitions",
-    "button": "Voir le Portfolio",
-    "whyChooseUs": {
-      "title": "Pourquoi Nous Choisir",
-      "advantages": {
-        "fullService": "Gamme complète de services",
-        "transparentEstimate": "Devis transparent",
-        "warranty": "Garantie sur tous les travaux",
-        "control": "Contrôle à toutes les étapes",
-        "experience": "Plus de 10 ans d'expérience"
-      }
-    }
-  },
-  "stepToDream": {
-    "title": "Faites un Pas vers votre Rénovation de Rêve",
-    "description": "Laissez une demande - nous vous contacterons pour une consultation gratuite. Nous vous aiderons à évaluer l'étendue des travaux, proposerons des solutions adaptées à votre budget et suggérerons les matériaux optimaux.",
-    "button": "Obtenir une Consultation"
-  },
-  "footer": {
-    "slogan": "Nous créons les meilleures solutions de rénovation",
-    "navigation": {
-      "main": "Accueil",
-      "request": "Faire une Demande",
-      "portfolio": "Portfolio",
-      "contacts": "Contacts"
     },
-    "legal": {
-      "data": "Informations Légales",
-      "contract": "Contrat Public",
-      "offer": "Conditions Générales",
-      "privacy": "Politique de Confidentialité"
-    },
-    "createdBy": "Créé par"
-  },
-  "modalForm": {
-    "title": "Obtenir une consultation sur la rénovation",
-    "placeholders": {
-      "name": "Nom",
-      "phone": "Numéro de téléphone",
-      "message": "Message"
-    },
-    "button": "Envoyer",
-    "validation": {
-      "required": "Champ obligatoire",
-      "name": "Le nom doit contenir au moins 2 caractères",
-      "phone": "Au moins 10 chiffres"
-    },
-    "success": {
-      "title": "Merci! Nous vous contacterons bientôt!",
-      "description": "Si vous devez nous joindre de toute urgence, vous pouvez utiliser notre page de contacts",
-      "button": "Aller à la page des contacts"
-    }
-  },
-  "leaveRequest": {
     "hero": {
-      "title": "Faites une demande pour la rénovation de vos rêves",
-      "repairType": {
-        "title": "Type de rénovation",
-        "description": "Veuillez choisir l'une des options qui correspond le mieux à vos besoins :",
-        "types": {
-          "capital": "Rénovation complète",
-          "cosmetic": "Rénovation cosmétique",
-          "design": "Projet de design"
+        "title": "Rénovation Design Clé en Main",
+        "subtitle": "Créer des espaces où il fait bon vivre",
+        "button": "Obtenir une Consultation"
+    },
+    "portfolioSection": {
+        "title": "Notre Portfolio",
+        "description": "Nous sommes fiers de chaque projet que nous entreprenons, de la rénovation cosmétique à la rénovation complète clé en main",
+        "button": "Voir Plus"
+    },
+    "mobileMenu": {
+        "discussProject": "Discutons de votre projet",
+        "leaveContacts": "Laissez vos coordonnées et nous vous contacterons bientôt",
+        "contactButton": "Laisser les contacts"
+    },
+    "ourService": {
+        "title": "Nous proposons une gamme complète de services de rénovation résidentielle",
+        "description": "Nous travaillons soigneusement, professionnellement et dans les délais. Nous effectuons aussi bien des mises à jour cosmétiques que des rénovations complètes à partir de zéro",
+        "cards": {
+            "cosmetic": {
+                "title": "Rénovation Cosmétique",
+                "description": "Peinture des murs et plafonds, remplacement des revêtements de sol, pose de papier peint, mise à jour de l'intérieur sans réaménagement"
+            },
+            "capital": {
+                "title": "Rénovation Complète",
+                "description": "Rénovation totale incluant les changements structurels, nouvelle plomberie, systèmes électriques et réaménagement complet de l'intérieur"
+            },
+            "fullSupport": {
+                "title": "Accompagnement Complet",
+                "description": "Gestion de projet complète de la conception à la réalisation, incluant la sélection des matériaux et la coordination des entrepreneurs"
+            }
+        },
+        "uniqueness": {
+            "title": "Notre Unicité:",
+            "description": "Nous utilisons: le béton CRM - un matériau spécialisé utilisé dans la construction pour minimiser l'apparition et la propagation des fissures sur les surfaces en béton",
+            "stats": {
+                "satisfied": {
+                    "value": "90%",
+                    "label": "Clients Satisfaits"
+                },
+                "completed": {
+                    "value": "200+",
+                    "label": "Projets Réalisés"
+                },
+                "experience": {
+                    "value": "10+",
+                    "label": "Ans d'Expérience"
+                }
+            }
         }
-      }
     },
-    "notFoundOption": "Vous n'avez pas trouvé l'option qui vous convient ?",
-    "describeRepair": "Décrivez le type de rénovation que vous souhaitez",
-    "cards": {
-      "area": {
-        "title": "Surface de la pièce",
-        "description": "Indiquez la surface approximative :",
-        "options": {
-          "small": "jusqu'à 30 m²",
-          "medium": "30–60 m²",
-          "large": "60–100 m²",
-          "extraLarge": "plus de 100 m²"
-        },
-        "customTitle": "Ou entrez une valeur exacte :",
-        "placeholder": "45 m²"
-      },
-      "budget": {
-        "title": "Budget de rénovation",
-        "description": "Choisissez un budget approximatif :",
-        "options": {
-          "small": "jusqu'à 3 000 $",
-          "medium": "3 000 $ – 7 000 $",
-          "large": "7 000 $ – 15 000 $",
-          "extraLarge": "plus de 15 000 $"
-        },
-        "customTitle": "Ou entrez votre propre montant :",
-        "placeholder": "10 500 $"
-      },
-      "timeline": {
-        "title": "Calendrier des travaux",
-        "description": "Quand souhaitez-vous commencer les travaux ?",
-        "options": {
-          "asap": "Le plus tôt possible",
-          "month": "Dans le mois",
-          "threeMonths": "Dans 1 à 3 mois",
-          "notSure": "Pas encore décidé(e)"
-        },
-        "customTitle": "Avez-vous des dates précises pour les travaux ?",
-        "placeholder": "2025/09/01 – 2025/10/15"
-      }
+    "dreamRepair": {
+        "title": "Prêt pour la rénovation de vos rêves ?",
+        "description": "Contactez-nous — nous vous conseillerons, calculerons le devis et suggérerons la meilleure solution pour vous.",
+        "additionalInfo": "Nous vous aiderons à transformer votre maison en un espace confortable, moderne et fonctionnel — sans stress et avec une garantie de qualité.",
+        "button": "Obtenir une consultation"
     },
-    "mainForm": {
-      "title": "Coordonnées et Informations Complémentaires",
-      "labels": {
-        "name": "Nom",
-        "phone": "Téléphone",
-        "email": "Email",
-        "comment": "Commentaire / Informations Supplémentaires"
-      },
-      "placeholders": {
-        "name": "Entrez votre nom",
-        "phone": "Entrez votre numéro de téléphone",
-        "email": "Entrez votre email",
-        "comment": "Décrivez vos souhaits, questions ou détails de rénovation..."
-      },
-      "button": "Envoyer la Demande",
-      "validation": {
-        "phoneRequired": "Le numéro de téléphone est requis",
-        "phoneInvalid": "Au moins 8 chiffres"
-      },
-      "success": "Demande envoyée avec succès !"
+    "aboutUs": {
+        "title": "À Propos",
+        "description": "Notre entreprise est spécialisée dans la rénovation de biens résidentiels à Nice et dans d'autres villes de la Côte d'Azur. Nous sommes spécialisés dans les rénovations clé en main : de la réorganisation aux finitions",
+        "button": "Voir le Portfolio",
+        "whyChooseUs": {
+            "title": "Pourquoi Nous Choisir",
+            "advantages": {
+                "fullService": "Gamme complète de services",
+                "transparentEstimate": "Devis transparent",
+                "warranty": "Garantie sur tous les travaux",
+                "control": "Contrôle à toutes les étapes",
+                "experience": "Plus de 10 ans d'expérience"
+            }
+        }
+    },
+    "stepToDream": {
+        "title": "Faites un Pas vers votre Rénovation de Rêve",
+        "description": "Laissez une demande - nous vous contacterons pour une consultation gratuite. Nous vous aiderons à évaluer l'étendue des travaux, proposerons des solutions adaptées à votre budget et suggérerons les matériaux optimaux.",
+        "button": "Obtenir une Consultation"
+    },
+    "footer": {
+        "slogan": "Nous créons les meilleures solutions de rénovation",
+        "navigation": {
+            "main": "Accueil",
+            "request": "Faire une Demande",
+            "portfolio": "Portfolio",
+            "contacts": "Contacts"
+        },
+        "legal": {
+            "data": "Informations Légales",
+            "contract": "Contrat Public",
+            "offer": "Conditions Générales",
+            "privacy": "Politique de Confidentialité"
+        },
+        "createdBy": "Créé par"
+    },
+    "modalForm": {
+        "title": "Obtenir une consultation sur la rénovation",
+        "placeholders": {
+            "name": "Nom",
+            "phone": "Numéro de téléphone",
+            "message": "Message"
+        },
+        "button": "Envoyer",
+        "validation": {
+            "required": "Champ obligatoire",
+            "name": "Le nom doit contenir au moins 2 caractères",
+            "phone": "Au moins 10 chiffres"
+        },
+        "success": {
+            "title": "Merci! Nous vous contacterons bientôt!",
+            "description": "Si vous devez nous joindre de toute urgence, vous pouvez utiliser notre page de contacts",
+            "button": "Aller à la page des contacts"
+        }
+    },
+    "leaveRequest": {
+        "hero": {
+            "title": "Faites une demande pour la rénovation de vos rêves",
+            "repairType": {
+                "title": "Type de rénovation",
+                "description": "Veuillez choisir l'une des options qui correspond le mieux à vos besoins :",
+                "types": {
+                    "capital": "Rénovation complète",
+                    "cosmetic": "Rénovation cosmétique",
+                    "design": "Projet de design"
+                }
+            }
+        },
+        "notFoundOption": "Vous n'avez pas trouvé l'option qui vous convient ?",
+        "describeRepair": "Décrivez le type de rénovation que vous souhaitez",
+        "cards": {
+            "area": {
+                "title": "Surface de la pièce",
+                "description": "Indiquez la surface approximative :",
+                "options": {
+                    "small": "jusqu'à 30 m²",
+                    "medium": "30–60 m²",
+                    "large": "60–100 m²",
+                    "extraLarge": "plus de 100 m²"
+                },
+                "customTitle": "Ou entrez une valeur exacte :",
+                "placeholder": "45 m²"
+            },
+            "budget": {
+                "title": "Budget de rénovation",
+                "description": "Choisissez un budget approximatif :",
+                "options": {
+                    "small": "jusqu'à 3 000 $",
+                    "medium": "3 000 $ – 7 000 $",
+                    "large": "7 000 $ – 15 000 $",
+                    "extraLarge": "plus de 15 000 $"
+                },
+                "customTitle": "Ou entrez votre propre montant :",
+                "placeholder": "10 500 $"
+            },
+            "timeline": {
+                "title": "Calendrier des travaux",
+                "description": "Quand souhaitez-vous commencer les travaux ?",
+                "options": {
+                    "asap": "Le plus tôt possible",
+                    "month": "Dans le mois",
+                    "threeMonths": "Dans 1 à 3 mois",
+                    "notSure": "Pas encore décidé(e)"
+                },
+                "customTitle": "Avez-vous des dates précises pour les travaux ?",
+                "placeholder": "2025/09/01 – 2025/10/15"
+            }
+        },
+        "mainForm": {
+            "title": "Coordonnées et Informations Complémentaires",
+            "labels": {
+                "name": "Nom",
+                "phone": "Téléphone",
+                "email": "Email",
+                "comment": "Commentaire / Informations Supplémentaires"
+            },
+            "placeholders": {
+                "name": "Entrez votre nom",
+                "phone": "Entrez votre numéro de téléphone",
+                "email": "Entrez votre email",
+                "comment": "Décrivez vos souhaits, questions ou détails de rénovation..."
+            },
+            "button": "Envoyer la Demande",
+            "validation": {
+                "phoneRequired": "Le numéro de téléphone est requis",
+                "phoneInvalid": "Au moins 8 chiffres"
+            },
+            "success": "Demande envoyée avec succès !"
+        }
+    },
+    "portfolioPage": {
+        "title": "Notre Portfolio",
+        "filters": {
+            "minimalism": "Minimalisme",
+            "neoclassic": "Néoclassique",
+            "modern": "Moderne"
+        },
+        "noProjects": "Nous ajouterons bientôt nos projets ici"
+    },
+    "projectPage": {
+        "beforeAfter": {
+            "title": "AVANT/APRÈS",
+            "before": "AVANT",
+            "after": "APRÈS"
+        },
+        "galleryTitle": "Galerie d'intérieur",
+        "clientReviewTitle": "Avis du client"
+    },
+    "feedbackForm": {
+        "title": "Obtenez un Devis Préliminaire de Rénovation",
+        "description": "Remplissez un court formulaire — et nous préparerons un devis approximatif en tenant compte de la superficie, du volume et du type de travaux",
+        "placeholders": {
+            "name": "Nom",
+            "phone": "Numéro de téléphone",
+            "message": "Message"
+        },
+        "button": "Envoyer",
+        "submitting": "Envoi...",
+        "success": "Merci! Nous vous contacterons bientôt!",
+        "validation": {
+            "required": "Champ obligatoire",
+            "name": "Le nom doit contenir au moins 2 caractères",
+            "phone": "Au moins 8 chiffres"
+        }
+    },
+    "serviceDetailPage": {
+        "process": "Processus",
+        "pros": "Avantages",
+        "additionalInfo": "Informations Complémentaires"
+    },
+    "blogPage": {
+        "title": "Blog",
+        "description": "Idées, conseils et inspirations pour vos rénovations, votre décoration intérieure et les matériaux modernes. Nous partageons notre expertise pour vous aider à créer la maison de vos rêves sur la Côte d'Azur.",
+        "noBlogs": "Nous ajouterons bientôt nos articles de blog ici",
+        "minRead": "min",
+        "minReadPlural": "min",
+        "readMore": "Lire la suite",
+        "galleryTitle": "Galerie",
+        "date": "Date"
     }
-  },
-  "portfolioPage": {
-    "title": "Notre Portfolio",
-    "filters": {
-      "minimalism": "Minimalisme",
-      "neoclassic": "Néoclassique",
-      "modern": "Moderne"
-    },
-    "noProjects": "Nous ajouterons bientôt nos projets ici"
-  },
-  "projectPage": {
-    "beforeAfter": {
-      "title": "AVANT/APRÈS",
-      "before": "AVANT",
-      "after": "APRÈS"
-    },
-    "galleryTitle": "Galerie d'intérieur",
-    "clientReviewTitle": "Avis du client"
-  },
-  "feedbackForm": {
-    "title": "Obtenez un Devis Préliminaire de Rénovation",
-    "description": "Remplissez un court formulaire — et nous préparerons un devis approximatif en tenant compte de la superficie, du volume et du type de travaux",
-    "placeholders": {
-      "name": "Nom",
-      "phone": "Numéro de téléphone",
-      "message": "Message"
-    },
-    "button": "Envoyer",
-    "submitting": "Envoi...",
-    "success": "Merci! Nous vous contacterons bientôt!",
-    "validation": {
-      "required": "Champ obligatoire",
-      "name": "Le nom doit contenir au moins 2 caractères",
-      "phone": "Au moins 8 chiffres"
-    }
-  },
-  "serviceDetailPage": {
-    "process": "Processus",
-    "pros": "Avantages",
-    "additionalInfo": "Informations Complémentaires"
-  },
-  "blogPage": {
-    "title": "Blog",
-    "description": "Idées, conseils et inspirations pour vos rénovations, votre décoration intérieure et les matériaux modernes. Nous partageons notre expertise pour vous aider à créer la maison de vos rêves sur la Côte d'Azur.",
-    "noBlogs": "Nous ajouterons bientôt nos articles de blog ici",
-    "minRead": "min",
-    "minReadPlural": "min",
-    "readMore": "Lire la suite"
-  }
 }
