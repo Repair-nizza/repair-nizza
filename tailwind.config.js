@@ -1,29 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    screens: {
-      xs: "360px",
-      md: "768px",
-      lg: "1280px",
-    },
-    extend: {
-      colors: {
-        primary: {
-          black: "#1a130d",
-          white: "#fff3e0",
+    content: [
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {
+        screens: {
+            xs: "360px",
+            md: "768px",
+            lg: "1280px",
         },
-      },
-      fontFamily: {
-        montserrat: ["Montserrat", "sans-serif"],
-        arsenal: ["Arsenal SC", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
-      },
+        extend: {
+            colors: {
+                primary: {
+                    black: "#1a130d",
+                    white: "#fff3e0",
+                },
+                secondary: {
+                    grey: "#9e958742",
+                    greyText: "#12121242",
+                },
+            },
+            fontFamily: {
+                montserrat: ["Montserrat", "sans-serif"],
+                arsenal: ["Arsenal SC", "sans-serif"],
+                raleway: ["Raleway", "sans-serif"],
+            },
+        },
     },
-  },
-  plugins: [],
+    plugins: [],
 };

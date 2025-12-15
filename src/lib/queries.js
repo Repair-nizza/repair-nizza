@@ -94,3 +94,57 @@ export const serviceBySlugQuery = `
     additionalInfo
   }
 `;
+
+export const blogsQuery = `
+  *[_type == "blog"] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    mainImage {
+      asset-> {
+        _id,
+        url
+      }
+    },
+    readTime,
+    date,
+    _createdAt
+  } | order(date desc, _createdAt desc)
+`;
+
+export const blogBySlugQuery = `
+  *[_type == "blog" && slug.current == $slug][0] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    date,
+    readTime,
+    mainImage {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    content,
+    gallery[] {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    }
+  }
+`;

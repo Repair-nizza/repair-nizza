@@ -1,248 +1,258 @@
 {
-  "portfolio": "Portfolio",
-  "services": "Services",
-  "servicesPage": {
-    "title": "Our Services",
-    "description": "Solide Renovation performs a full range of construction and finishing works — from capital repairs to custom finishing and installation of engineering systems. We work in Nice and throughout the French Riviera, combining European quality standards, attention to detail, and an aesthetic approach to each project"
-  },
-  "request": "Make Request",
-  "contacts": "Contacts",
-  "linkWithUs": "Contact us",
-  "contactPage": {
-    "title": "Contacts",
-    "description": "Get in touch with us in any convenient way — we're always here to help!",
-    "contacts": {
-      "email": "Email",
-      "instagram": "Instagram",
-      "telegram": "Telegram",
-      "phone": "Phone"
-    }
-  },
-  "hero": {
-    "title": "Turnkey Designer Renovation",
-    "subtitle": "Creating spaces you want to live in",
-    "button": "Get Consultation"
-  },
-  "portfolioSection": {
-    "title": "Our Portfolio",
-    "description": "We take pride in every project we undertake, from cosmetic repairs to full turnkey renovation",
-    "button": "View More"
-  },
-  "mobileMenu": {
-    "discussProject": "Let's discuss your project",
-    "leaveContacts": "Leave your contacts and we will get in touch with you soon",
-    "contactButton": "Leave contacts"
-  },
-  "ourService": {
-    "title": "We provide a full range of residential repair services",
-    "description": "We work carefully, professionally and on time. We perform both cosmetic updates and complete renovation from scratch",
-    "cards": {
-      "cosmetic": {
-        "title": "Cosmetic Renovation",
-        "description": "Painting walls and ceilings, replacing flooring, wallpapering, interior updates without replanning"
-      },
-      "capital": {
-        "title": "Capital Renovation",
-        "description": "Complete renovation including structural changes, new plumbing, electrical systems, and full interior redesign"
-      },
-      "fullSupport": {
-        "title": "Full Support",
-        "description": "Comprehensive project management from design to completion, including material selection and contractor coordination"
-      }
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "servicesPage": {
+        "title": "Our Services",
+        "description": "Solide Renovation performs a full range of construction and finishing works — from capital repairs to custom finishing and installation of engineering systems. We work in Nice and throughout the French Riviera, combining European quality standards, attention to detail, and an aesthetic approach to each project"
     },
-    "uniqueness": {
-      "title": "Our Uniqueness:",
-      "description": "We use: CRM concrete - a specialized material used in construction and building works to minimize the occurrence and spread of cracks on concrete surfaces",
-      "stats": {
-        "satisfied": {
-          "value": "90%",
-          "label": "Satisfied Clients"
-        },
-        "completed": {
-          "value": "200+",
-          "label": "Completed Projects"
-        },
-        "experience": {
-          "value": "10+",
-          "label": "Years of Experience"
+    "request": "Make Request",
+    "contacts": "Contacts",
+    "linkWithUs": "Contact us",
+    "contactPage": {
+        "title": "Contacts",
+        "description": "Get in touch with us in any convenient way — we're always here to help!",
+        "contacts": {
+            "email": "Email",
+            "instagram": "Instagram",
+            "telegram": "Telegram",
+            "phone": "Phone"
         }
-      }
-    }
-  },
-  "dreamRepair": {
-    "title": "Ready for your dream renovation?",
-    "description": "Contact us — we will consult, calculate the estimate and suggest the best solution for you.",
-    "additionalInfo": "We will help transform your home into a cozy, modern and functional space — without stress and with quality guarantee.",
-    "button": "Get consultation"
-  },
-  "aboutUs": {
-    "title": "About Us",
-    "description": "Our company specializes in residential property renovation in Nice and other cities of the French Riviera. We specialize in turnkey renovations: from replanning to finishing works",
-    "button": "View Portfolio",
-    "whyChooseUs": {
-      "title": "Why Choose Us",
-      "advantages": {
-        "fullService": "Full range of services",
-        "transparentEstimate": "Transparent estimate",
-        "warranty": "Warranty on all works",
-        "control": "Control at all stages",
-        "experience": "Over 10 years of experience"
-      }
-    }
-  },
-  "stepToDream": {
-    "title": "Take a Step Towards Your Dream Renovation",
-    "description": "Leave a request - we will contact you for a free consultation. We will help assess the scope of work, offer solutions within your budget, and suggest optimal materials.",
-    "button": "Get Consultation"
-  },
-  "footer": {
-    "slogan": "We create the best renovation solutions",
-    "navigation": {
-      "main": "Home",
-      "request": "Make Request",
-      "portfolio": "Portfolio",
-      "contacts": "Contacts"
     },
-    "legal": {
-      "data": "Legal Information",
-      "contract": "Public Contract",
-      "offer": "Terms of Service",
-      "privacy": "Privacy Policy"
-    },
-    "createdBy": "Created by"
-  },
-  "modalForm": {
-    "title": "Get a consultation about renovation",
-    "placeholders": {
-      "name": "Name",
-      "phone": "Phone number",
-      "message": "Message"
-    },
-    "button": "Send",
-    "validation": {
-      "required": "Required field",
-      "name": "Name must be at least 2 characters",
-      "phone": "At least 10 digits"
-    },
-    "success": {
-      "title": "Thank you! We'll contact you soon!",
-      "description": "If you need to reach us urgently, you can use our contacts page",
-      "button": "Go to contacts page"
-    }
-  },
-  "leaveRequest": {
     "hero": {
-      "title": "Submit a Request for Your Dream Renovation",
-      "repairType": {
-        "title": "Renovation Type",
-        "description": "Please choose one of the options that best suits your needs:",
-        "types": {
-          "capital": "Capital Renovation",
-          "cosmetic": "Cosmetic Renovation",
-          "design": "Design Project"
+        "title": "Turnkey Designer Renovation",
+        "subtitle": "Creating spaces you want to live in",
+        "button": "Get Consultation"
+    },
+    "portfolioSection": {
+        "title": "Our Portfolio",
+        "description": "We take pride in every project we undertake, from cosmetic repairs to full turnkey renovation",
+        "button": "View More"
+    },
+    "mobileMenu": {
+        "discussProject": "Let's discuss your project",
+        "leaveContacts": "Leave your contacts and we will get in touch with you soon",
+        "contactButton": "Leave contacts"
+    },
+    "ourService": {
+        "title": "We provide a full range of residential repair services",
+        "description": "We work carefully, professionally and on time. We perform both cosmetic updates and complete renovation from scratch",
+        "cards": {
+            "cosmetic": {
+                "title": "Cosmetic Renovation",
+                "description": "Painting walls and ceilings, replacing flooring, wallpapering, interior updates without replanning"
+            },
+            "capital": {
+                "title": "Capital Renovation",
+                "description": "Complete renovation including structural changes, new plumbing, electrical systems, and full interior redesign"
+            },
+            "fullSupport": {
+                "title": "Full Support",
+                "description": "Comprehensive project management from design to completion, including material selection and contractor coordination"
+            }
+        },
+        "uniqueness": {
+            "title": "Our Uniqueness:",
+            "description": "We use: CRM concrete - a specialized material used in construction and building works to minimize the occurrence and spread of cracks on concrete surfaces",
+            "stats": {
+                "satisfied": {
+                    "value": "90%",
+                    "label": "Satisfied Clients"
+                },
+                "completed": {
+                    "value": "200+",
+                    "label": "Completed Projects"
+                },
+                "experience": {
+                    "value": "10+",
+                    "label": "Years of Experience"
+                }
+            }
         }
-      }
     },
-    "notFoundOption": "Haven't found the right option?",
-    "describeRepair": "Describe what kind of renovation you want",
-    "cards": {
-      "area": {
-        "title": "Room Area",
-        "description": "Specify approximate area:",
-        "options": {
-          "small": "up to 30 m²",
-          "medium": "30–60 m²",
-          "large": "60–100 m²",
-          "extraLarge": "over 100 m²"
-        },
-        "customTitle": "Or enter exact value:",
-        "placeholder": "45 m²"
-      },
-      "budget": {
-        "title": "Renovation Budget",
-        "description": "Choose approximate budget:",
-        "options": {
-          "small": "up to $3,000",
-          "medium": "$3,000 – $7,000",
-          "large": "$7,000 – $15,000",
-          "extraLarge": "over $15,000"
-        },
-        "customTitle": "Or enter your own amount:",
-        "placeholder": "10,500 $"
-      },
-      "timeline": {
-        "title": "Renovation Timeline",
-        "description": "When would you like to start the renovation?",
-        "options": {
-          "asap": "As soon as possible",
-          "month": "Within a month",
-          "threeMonths": "In 1–3 months",
-          "notSure": "Not decided yet"
-        },
-        "customTitle": "Have specific renovation dates?",
-        "placeholder": "2025/09/01 – 2025/10/15"
-      }
+    "dreamRepair": {
+        "title": "Ready for your dream renovation?",
+        "description": "Contact us — we will consult, calculate the estimate and suggest the best solution for you.",
+        "additionalInfo": "We will help transform your home into a cozy, modern and functional space — without stress and with quality guarantee.",
+        "button": "Get consultation"
     },
-    "mainForm": {
-      "title": "Contact Details and Additional Information",
-      "labels": {
-        "name": "Name",
-        "phone": "Phone",
-        "email": "Email",
-        "comment": "Comment / Additional Information"
-      },
-      "placeholders": {
-        "name": "Enter your name",
-        "phone": "Enter your phone number",
-        "email": "Enter your email",
-        "comment": "Describe your wishes, questions, or renovation details..."
-      },
-      "button": "Submit Request",
-      "validation": {
-        "phoneRequired": "Phone number is required",
-        "phoneInvalid": "At least 8 digits"
-      },
-      "success": "Request successfully sent!"
+    "aboutUs": {
+        "title": "About Us",
+        "description": "Our company specializes in residential property renovation in Nice and other cities of the French Riviera. We specialize in turnkey renovations: from replanning to finishing works",
+        "button": "View Portfolio",
+        "whyChooseUs": {
+            "title": "Why Choose Us",
+            "advantages": {
+                "fullService": "Full range of services",
+                "transparentEstimate": "Transparent estimate",
+                "warranty": "Warranty on all works",
+                "control": "Control at all stages",
+                "experience": "Over 10 years of experience"
+            }
+        }
+    },
+    "stepToDream": {
+        "title": "Take a Step Towards Your Dream Renovation",
+        "description": "Leave a request - we will contact you for a free consultation. We will help assess the scope of work, offer solutions within your budget, and suggest optimal materials.",
+        "button": "Get Consultation"
+    },
+    "footer": {
+        "slogan": "We create the best renovation solutions",
+        "navigation": {
+            "main": "Home",
+            "request": "Make Request",
+            "portfolio": "Portfolio",
+            "contacts": "Contacts"
+        },
+        "legal": {
+            "data": "Legal Information",
+            "contract": "Public Contract",
+            "offer": "Terms of Service",
+            "privacy": "Privacy Policy"
+        },
+        "createdBy": "Created by"
+    },
+    "modalForm": {
+        "title": "Get a consultation about renovation",
+        "placeholders": {
+            "name": "Name",
+            "phone": "Phone number",
+            "message": "Message"
+        },
+        "button": "Send",
+        "validation": {
+            "required": "Required field",
+            "name": "Name must be at least 2 characters",
+            "phone": "At least 10 digits"
+        },
+        "success": {
+            "title": "Thank you! We'll contact you soon!",
+            "description": "If you need to reach us urgently, you can use our contacts page",
+            "button": "Go to contacts page"
+        }
+    },
+    "leaveRequest": {
+        "hero": {
+            "title": "Submit a Request for Your Dream Renovation",
+            "repairType": {
+                "title": "Renovation Type",
+                "description": "Please choose one of the options that best suits your needs:",
+                "types": {
+                    "capital": "Capital Renovation",
+                    "cosmetic": "Cosmetic Renovation",
+                    "design": "Design Project"
+                }
+            }
+        },
+        "notFoundOption": "Haven't found the right option?",
+        "describeRepair": "Describe what kind of renovation you want",
+        "cards": {
+            "area": {
+                "title": "Room Area",
+                "description": "Specify approximate area:",
+                "options": {
+                    "small": "up to 30 m²",
+                    "medium": "30–60 m²",
+                    "large": "60–100 m²",
+                    "extraLarge": "over 100 m²"
+                },
+                "customTitle": "Or enter exact value:",
+                "placeholder": "45 m²"
+            },
+            "budget": {
+                "title": "Renovation Budget",
+                "description": "Choose approximate budget:",
+                "options": {
+                    "small": "up to $3,000",
+                    "medium": "$3,000 – $7,000",
+                    "large": "$7,000 – $15,000",
+                    "extraLarge": "over $15,000"
+                },
+                "customTitle": "Or enter your own amount:",
+                "placeholder": "10,500 $"
+            },
+            "timeline": {
+                "title": "Renovation Timeline",
+                "description": "When would you like to start the renovation?",
+                "options": {
+                    "asap": "As soon as possible",
+                    "month": "Within a month",
+                    "threeMonths": "In 1–3 months",
+                    "notSure": "Not decided yet"
+                },
+                "customTitle": "Have specific renovation dates?",
+                "placeholder": "2025/09/01 – 2025/10/15"
+            }
+        },
+        "mainForm": {
+            "title": "Contact Details and Additional Information",
+            "labels": {
+                "name": "Name",
+                "phone": "Phone",
+                "email": "Email",
+                "comment": "Comment / Additional Information"
+            },
+            "placeholders": {
+                "name": "Enter your name",
+                "phone": "Enter your phone number",
+                "email": "Enter your email",
+                "comment": "Describe your wishes, questions, or renovation details..."
+            },
+            "button": "Submit Request",
+            "validation": {
+                "phoneRequired": "Phone number is required",
+                "phoneInvalid": "At least 8 digits"
+            },
+            "success": "Request successfully sent!"
+        }
+    },
+    "portfolioPage": {
+        "title": "Our Portfolio",
+        "filters": {
+            "minimalism": "Minimalism",
+            "neoclassic": "Neoclassic",
+            "modern": "Modern"
+        },
+        "noProjects": "We will add our projects here soon"
+    },
+    "projectPage": {
+        "beforeAfter": {
+            "title": "BEFORE/AFTER",
+            "before": "BEFORE",
+            "after": "AFTER"
+        },
+        "galleryTitle": "Interior Gallery",
+        "clientReviewTitle": "Client Review"
+    },
+    "feedbackForm": {
+        "title": "Get a Preliminary Renovation Estimate",
+        "description": "Fill out a short form — and we'll prepare an approximate estimate taking into account the area, volume and type of work",
+        "placeholders": {
+            "name": "Name",
+            "phone": "Phone number",
+            "message": "Message"
+        },
+        "button": "Send",
+        "submitting": "Sending...",
+        "success": "Thank you! We'll contact you soon!",
+        "validation": {
+            "required": "Required field",
+            "name": "Name must be at least 2 characters",
+            "phone": "At least 8 digits"
+        }
+    },
+    "serviceDetailPage": {
+        "process": "Process",
+        "pros": "Advantages",
+        "additionalInfo": "Additional Information"
+    },
+    "blogPage": {
+        "title": "Blog",
+        "description": "Ideas, tips, and inspiration about renovations, interior design, and modern materials. We share our expertise to help you create your dream home on the Côte d'Azur.",
+        "noBlogs": "We will add our blog posts here soon",
+        "minRead": "min",
+        "minReadPlural": "min",
+        "readMore": "Read more",
+        "galleryTitle": "Gallery",
+        "date": "Date"
     }
-  },
-  "portfolioPage": {
-    "title": "Our Portfolio",
-    "filters": {
-      "minimalism": "Minimalism",
-      "neoclassic": "Neoclassic",
-      "modern": "Modern"
-    },
-    "noProjects": "We will add our projects here soon"
-  },
-  "projectPage": {
-    "beforeAfter": {
-      "title": "BEFORE/AFTER",
-      "before": "BEFORE",
-      "after": "AFTER"
-    },
-    "galleryTitle": "Interior Gallery",
-    "clientReviewTitle": "Client Review"
-  },
-  "feedbackForm": {
-    "title": "Get a Preliminary Renovation Estimate",
-    "description": "Fill out a short form — and we'll prepare an approximate estimate taking into account the area, volume and type of work",
-    "placeholders": {
-      "name": "Name",
-      "phone": "Phone number",
-      "message": "Message"
-    },
-    "button": "Send",
-    "submitting": "Sending...",
-    "success": "Thank you! We'll contact you soon!",
-    "validation": {
-      "required": "Required field",
-      "name": "Name must be at least 2 characters",
-      "phone": "At least 8 digits"
-    }
-  },
-  "serviceDetailPage": {
-    "process": "Process",
-    "pros": "Advantages",
-    "additionalInfo": "Additional Information"
-  }
 }
