@@ -89,19 +89,9 @@ const TypeOfRoom = ({ data }) => {
                 className="absolute top-[320px] right-0 md:hidden -z-10"
             />
             <Image
-                src={motifDesk}
-                alt="motif"
-                className="absolute top-[-130px] left-[-15px] lg:left-[-400px] lg:top-[200px] md:block hidden -z-10"
-            />
-            <Image
                 src={shadowMob}
                 alt="motif"
                 className="absolute top-[270px] right-0 md:hidden -z-20"
-            />
-            <Image
-                src={shadowDesk}
-                alt="motif"
-                className="absolute top-[-120px] right-0 md:block lg:top-[280px] lg:right-[600px] hidden -z-10"
             />
             {/* Mobile Version */}
             <div className="block md:hidden">
@@ -222,7 +212,7 @@ const TypeOfRoom = ({ data }) => {
 
             {/* Desktop Version */}
             <div className="hidden lg:flex justify-between items-center">
-                <div className="mb-auto">
+                <div className="mb-auto relative pb-[60px]">
                     <motion.h2
                         ref={deskTitleRef}
                         initial={{ y: 60, opacity: 0 }}
@@ -245,13 +235,47 @@ const TypeOfRoom = ({ data }) => {
                     >
                         {getDescription()}
                     </motion.p>
+                    <motion.div
+                        initial={{ y: 60, opacity: 0 }}
+                        animate={isDeskDescInView ? { y: 0, opacity: 1 } : {}}
+                        transition={{
+                            delay: 0.3,
+                            duration: 0.7,
+                            ease: "easeOut",
+                        }}
+                        className="absolute bottom-[-328px] left-[-400px] w-[898px] h-[409px] -z-10"
+                    >
+                        <Image
+                            src={motifDesk}
+                            alt="motif"
+                            fill
+                            className="object-cover"
+                        />
+                    </motion.div>
+                    <motion.div
+                        initial={{ y: 60, opacity: 0 }}
+                        animate={isDeskDescInView ? { y: 0, opacity: 1 } : {}}
+                        transition={{
+                            delay: 0.3,
+                            duration: 0.7,
+                            ease: "easeOut",
+                        }}
+                        className="absolute bottom-[-548px] right-[-600px] w-[975px] h-[631px] -z-10"
+                    >
+                        <Image
+                            src={shadowDesk}
+                            alt="shadow"
+                            fill
+                            className="object-cover"
+                        />
+                    </motion.div>
                 </div>
                 <motion.div
                     ref={deskLogoRef}
                     initial={{ y: 60, opacity: 0 }}
                     animate={isDeskLogoInView ? { y: 0, opacity: 1 } : {}}
                     transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
-                    className="mr-auto mt-auto"
+                    className="ml-3 mr-auto mt-auto"
                 >
                     <Image
                         src={Logo}
