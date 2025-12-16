@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import Container from "../../Container";
-import telegramIcon from "../../../../public/images/SVG/telegram.svg";
+import telegramIcon from "../../../../public/images/SVG/telegram-outline.svg";
 import bgMob from "../../../../public/images/image/bottomCTA/bgMob.webp";
 import bgDesk from "../../../../public/images/image/bottomCTA/bgDesk.webp";
 
@@ -93,7 +93,7 @@ const BottomCTA = () => {
                             }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center space-between w-full h-[52px] px-[24px] rounded-full md:max-w-[262px] bg-primary-white text-primary-black rounded-lg font-montserrat font-medium text-sm lg:text-base hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap"
+                            className="flex items-center justify-between w-full h-[52px] px-[24px] rounded-full md:max-w-[262px] bg-primary-white text-primary-black text-[14px] hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap"
                         >
                             <span>{t("button")}</span>
                             <Image
@@ -101,7 +101,7 @@ const BottomCTA = () => {
                                 alt="Telegram"
                                 width={20}
                                 height={20}
-                                className="size-6 text-primmary-black"
+                                className="size-6"
                             />
                         </motion.a>
                     </div>
