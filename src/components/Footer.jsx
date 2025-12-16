@@ -165,6 +165,14 @@ const Footer = () => {
                                     </li>
                                     <li className="hover:scale-105 transition-all duration-300">
                                         <Link
+                                            href="/blog"
+                                            className="font-montserrat font-normal text-xs text-primary-white uppercase"
+                                        >
+                                            {t("navigation.blog")}
+                                        </Link>
+                                    </li>
+                                    <li className="hover:scale-105 transition-all duration-300">
+                                        <Link
                                             href="/contacts"
                                             className="font-montserrat font-normal text-xs text-primary-white uppercase"
                                         >

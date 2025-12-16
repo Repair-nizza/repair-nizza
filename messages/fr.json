@@ -1,6 +1,7 @@
 {
     "portfolio": "Portfolio",
     "services": "Services",
+    "blog": "Blog",
     "servicesPage": {
         "title": "Nos Services",
         "description": "Solide Renovation réalise une gamme complète de travaux de construction et de finition — de la rénovation complète à la finition sur mesure et à l'installation de systèmes techniques. Nous travaillons à Nice et sur toute la Côte d'Azur, en combinant les normes de qualité européennes, l'attention aux détails et une approche esthétique de chaque projet"
@@ -101,6 +102,7 @@
             "main": "Accueil",
             "request": "Faire une Demande",
             "portfolio": "Portfolio",
+            "blog": "Blog",
             "contacts": "Contacts"
         },
         "legal": {

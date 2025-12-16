@@ -1,6 +1,7 @@
 {
     "portfolio": "Portfolio",
     "services": "Services",
+    "blog": "Blog",
     "servicesPage": {
         "title": "Our Services",
         "description": "Solide Renovation performs a full range of construction and finishing works — from capital repairs to custom finishing and installation of engineering systems. We work in Nice and throughout the French Riviera, combining European quality standards, attention to detail, and an aesthetic approach to each project"
@@ -101,6 +102,7 @@
             "main": "Home",
             "request": "Make Request",
             "portfolio": "Portfolio",
+            "blog": "Blog",
             "contacts": "Contacts"
         },
         "legal": {
