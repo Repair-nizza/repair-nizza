@@ -24,7 +24,7 @@ const Hero = ({ heroBlurCardData }) => {
                 style={{ backgroundImage: `url(${bgImgMob.src})` }}
                 className="bg-cover bg-center h-[730px] w-full rounded-t-[28px] md:hidden"
             >
-                <Container className="px-6 pt-[65px] mx-auto h-full">
+                <Container className="px-6 pt-[65px] mx-auto h-full relative">
                     <div className="h-full flex flex-col">
                         <div>
                             <motion.h1
