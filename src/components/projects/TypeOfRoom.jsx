@@ -83,18 +83,18 @@ const TypeOfRoom = ({ data }) => {
 
     return (
         <Container className="pb-[94px] lg:pb-[150px] relative z-20">
-            <Image
-                src={motifMob}
-                alt="motif"
-                className="absolute top-[320px] right-0 md:hidden -z-10"
-            />
-            <Image
-                src={shadowMob}
-                alt="motif"
-                className="absolute top-[270px] right-0 md:hidden -z-20"
-            />
             {/* Mobile Version */}
-            <div className="block md:hidden">
+            <div className="relative block md:hidden">
+                <Image
+                    src={motifMob}
+                    alt="motif"
+                    className="absolute bottom-[-120px] right-0 md:hidden -z-10"
+                />
+                <Image
+                    src={shadowMob}
+                    alt="motif"
+                    className="absolute bottom-[-170px] right-0 md:hidden -z-20"
+                />
                 <div className="flex flex-col gap-6">
                     <div className="mb-[100px] md:mb-0">
                         <motion.h2
@@ -211,8 +211,8 @@ const TypeOfRoom = ({ data }) => {
             </div>
 
             {/* Desktop Version */}
-            <div className="hidden lg:flex justify-between items-center">
-                <div className="mb-auto relative pb-[60px]">
+            <div className="hidden lg:flex justify-between items-stretch gap-4">
+                <div className="relative pb-[60px] flex flex-col">
                     <motion.h2
                         ref={deskTitleRef}
                         initial={{ y: 60, opacity: 0 }}
@@ -285,7 +285,10 @@ const TypeOfRoom = ({ data }) => {
                         className="object-contain"
                     />
                 </motion.div>
-                <div className="relative w-[590px] h-[328px]">
+                <div
+                    className="relative w-[590px] flex-shrink-0"
+                    style={{ alignSelf: "stretch", minHeight: "328px" }}
+                >
                     {data.image?.asset?.url && (
                         <motion.div
                             ref={deskImgRef}
@@ -298,7 +301,7 @@ const TypeOfRoom = ({ data }) => {
                                 duration: 0.7,
                                 ease: "easeOut",
                             }}
-                            className="w-full h-full"
+                            className="absolute inset-0 w-full h-full"
                         >
                             <Image
                                 src={data.image.asset.url}

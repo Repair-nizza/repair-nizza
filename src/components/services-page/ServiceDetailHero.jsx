@@ -19,11 +19,10 @@ const ServiceDetailHero = ({ service }) => {
   const isImageInView = useInView(imageRef, { once: true, margin: "200px" });
 
   const title = service?.title?.[locale] || service?.title?.en || service?.title?.ru || service?.title || "";
-  const description = service?.shortDescription?.[locale] || service?.shortDescription?.en || service?.shortDescription?.ru || "";
-  const imageUrl = service.gallery && service.gallery[0]?.asset?.url;
+  const imageUrl = service.gallery && service.gallery[0]?.image?.asset?.url;
 
-  const getFullDescription = () => {
-    const blockContent = service?.fullDescription?.[locale] || service?.fullDescription?.en || service?.fullDescription?.ru;
+  const getDescription = () => {
+    const blockContent = service?.description?.[locale] || service?.description?.en || service?.description?.ru;
     if (!blockContent) return "";
     
     return blockContent
@@ -61,7 +60,7 @@ const ServiceDetailHero = ({ service }) => {
                 {title}
               </motion.h1>
             )}
-            {getFullDescription() ? (
+            {getDescription() ? (
               <motion.div
                 ref={descriptionRef}
                 initial={{ y: 20, opacity: 0 }}
@@ -69,12 +68,12 @@ const ServiceDetailHero = ({ service }) => {
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
                 className="font-montserrat font-light text-[16px] leading-[125%] max-w-[484px] whitespace-pre-line"
               >
-                {getFullDescription()}
+                {getDescription()}
               </motion.div>
             ) : null}
           </div>
           <div className="flex-shrink-0 relative">
-            <ServiceGallery service={service} />
+            <ServiceGallery service={{ ...service, gallery: service.gallery?.slice(0, -1) || [] }} />
           </div>
         </div>
         <motion.div

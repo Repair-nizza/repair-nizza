@@ -141,22 +141,22 @@ const TaskAndSolution = ({ task, solution }) => {
             <Image
                 src={motifMob}
                 alt="motif"
-                className="absolute bottom-[-85px] left-[-10px] md:hidden"
+                className="absolute bottom-[-85px] left-[-10px] md:hidden -z-10"
             />
             <Image
                 src={motifDesk}
                 alt="motif"
-                className="absolute bottom-[-270px] lg:bottom-[-260px] right-[-300px] md:block hidden"
+                className="absolute bottom-[-270px] lg:bottom-[-260px] right-[-300px] md:block hidden -z-10"
             />
             <Image
                 src={shadowMob}
                 alt="motif"
-                className="absolute bottom-[-345px] left-[-10px] md:hidden"
+                className="absolute bottom-[-345px] left-[-10px] md:hidden -z-10"
             />
             <Image
                 src={shadowDesk}
                 alt="motif"
-                className="absolute bottom-[-505px] right-[-280px] md:block hidden"
+                className="absolute bottom-[-505px] right-[-280px] md:block hidden -z-10"
             />
         </Container>
     );

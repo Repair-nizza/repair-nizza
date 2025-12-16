@@ -19,7 +19,7 @@ const ServiceGallery = ({ service }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   useEffect(() => {
-    if (galleryImages.length <= 3) return;
+    if (galleryImages.length <= 5) return;
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
@@ -29,21 +29,23 @@ const ServiceGallery = ({ service }) => {
   }, [galleryImages.length]);
 
   const getDisplayCards = () => {
-    if (galleryImages.length <= 3) {
+    if (galleryImages.length <= 5) {
+      const classNames = ["left-card", "center-card", "right-card", "fourth-card", "fifth-card"];
       return galleryImages.map((img, idx) => ({
         image: img,
         index: idx,
-        className: idx === 0 ? "left-card" : idx === 1 ? "center-card" : "right-card",
+        className: classNames[idx] || "gallery-card",
       }));
     }
 
     const cards = [];
-    for (let i = 0; i < 3; i++) {
+    const classNames = ["left-card", "center-card", "right-card", "fourth-card", "fifth-card"];
+    for (let i = 0; i < 5; i++) {
       const imgIndex = (currentIndex + i) % galleryImages.length;
       cards.push({
         image: galleryImages[imgIndex],
         index: imgIndex,
-        className: i === 0 ? "left-card" : i === 1 ? "center-card" : "right-card",
+        className: classNames[i] || "gallery-card",
       });
     }
     return cards;
@@ -63,12 +65,14 @@ const ServiceGallery = ({ service }) => {
         <div className="relative w-[310px] h-[207px] md:w-[400px] md:h-[267px] lg:w-[605px] lg:h-[343px]" style={{ overflow: 'visible' }}>
           <div className="gallery-card-stack relative z-10">
             {displayCards.map((card, idx) => {
-              const imageUrl = card.image?.asset?.url;
+              const imageUrl = card.image?.image?.asset?.url || card.image?.asset?.url;
               if (!imageUrl) return null;
+
+              const imageId = card.image?.image?.asset?._id || card.image?.asset?._id || card.index;
 
               return (
                 <div
-                  key={`gallery-${card.image.asset._id || card.index}-${idx}-${currentIndex}`}
+                  key={`gallery-${imageId}-${idx}-${currentIndex}`}
                   className={`gallery-card-item ${card.className}`}
                 >
                   <div className="relative w-[295px] h-[193px] md:w-[400px] md:h-[267px] lg:w-[605px] lg:h-[343px] rounded-md lg:rounded-xl overflow-hidden">
