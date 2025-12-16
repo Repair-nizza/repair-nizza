@@ -29,17 +29,17 @@ const PortfolioCard = ({ data }) => {
     if (!data?.title || !data?.title[locale]) return null;
 
     return (
-        <div className="relative h-[402px] lg:h-[418px] flex flex-col">
+        <div className="relative h-[402px] lg:h-[418px] flex flex-col rounded-[20px] overflow-hidden">
             {data.mainImage?.asset?.url && (
                 <Image
                     src={data.mainImage.asset.url}
                     alt={data.title[locale]}
                     width={387}
                     height={247}
-                    className="rounded-t-[20px] h-[247px] w-[310px] md:w-[345px] lg:w-[387px] object-cover flex-shrink-0"
+                    className="h-[247px] w-[310px] md:w-[345px] lg:w-[387px] object-cover flex-shrink-0"
                 />
             )}
-            <div className="flex flex-col justify-between w-[310px] md:w-[345px] lg:w-[387px] rounded-b-[20px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] py-7 pl-6 pr-10 flex-1 flex flex-col">
+            <div className="flex flex-col justify-between w-[310px] md:w-[345px] lg:w-[387px] rounded-b-[20px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] py-7 pl-6 pr-10 flex-1">
                 <div className="h-[48px] mb-4">
                     <AutoFitText
                         as="h3"
