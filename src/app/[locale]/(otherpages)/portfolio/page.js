@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PortfolioComponent from "@/components/portfolio-page/PortfolioComponent";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import { client } from "@/sanityClient";
 
 async function getProjects() {
@@ -55,6 +56,7 @@ const Page = async () => {
       <main className="flex-grow overflow-x-hidden">
         <PortfolioComponent projects={projects} categories={categories} />
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );

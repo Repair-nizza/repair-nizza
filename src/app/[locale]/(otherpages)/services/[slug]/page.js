@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import ServiceDetailHero from "@/components/services-page/ServiceDetailHero";
 import ServiceDetails from "@/components/services-page/ServiceDetails";
 import FeedbackForm from "@/components/services-page/FeedbackForm";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import Container from "@/components/Container";
 import { client } from "@/sanityClient";
 import { serviceBySlugQuery } from "@/lib/queries";
@@ -94,6 +95,7 @@ const Page = async ({ params }) => {
           <FeedbackForm service={service} />
         </Container>
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );

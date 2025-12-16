@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ClientFormPath from "@/components/leave-request-page/ClientFormPath";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -26,6 +27,7 @@ const Page = () => {
       <main className="flex-grow overflow-x-hidden overflow-y-clip">
         <ClientFormPath />
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );

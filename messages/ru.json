@@ -254,5 +254,10 @@
         "readMore": "Читать дальше",
         "galleryTitle": "Галерея",
         "date": "Дата"
+    },
+    "bottomCTA": {
+        "title": "Подпишись на наш Telegram",
+        "description": "чтобы следить за новыми проектами и получать советы по ремонту.",
+        "button": "Перейти в Telegram"
     }
 }
