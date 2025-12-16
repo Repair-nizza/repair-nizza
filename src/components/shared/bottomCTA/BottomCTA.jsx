@@ -8,6 +8,7 @@ import Container from "../../Container";
 import telegramIcon from "../../../../public/images/SVG/telegram-outline.svg";
 import bgMob from "../../../../public/images/image/bottomCTA/bgMob.webp";
 import bgDesk from "../../../../public/images/image/bottomCTA/bgDesk.webp";
+import { TELEGRAM_USERNAME } from "../../../constants/contacts";
 
 const BottomCTA = () => {
     const t = useTranslations("bottomCTA");
@@ -47,8 +48,8 @@ const BottomCTA = () => {
                 className="w-full backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)]"
             >
                 <Container className="relative">
-                    <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-4 lg:gap-6 px-[13px] py-[41px]">
-                        <div className="flex flex-col items-center lg:items-start gap-[14px] text-center lg:text-left">
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between w-full gap-4 lg:gap-6 px-[13px] py-[41px]">
+                        <div className="flex flex-col lg:items-start gap-[14px]">
                             <motion.h2
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={
@@ -79,9 +80,9 @@ const BottomCTA = () => {
                             </motion.p>
                         </div>
                         <motion.a
-                            href={telegramUrl}
+                            href={`https://t.me/${TELEGRAM_USERNAME}`}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer nofollow"
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={
                                 isCtaInView ? { scale: 1, opacity: 1 } : {}
