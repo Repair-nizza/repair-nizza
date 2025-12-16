@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import BlogHero from "@/components/blog-page/BlogHero";
 import BlogListSection from "@/components/blog-page/BlogComponent";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import { client } from "@/sanityClient";
 import { blogsQuery } from "@/lib/queries";
 import { getTranslations } from "next-intl/server";
@@ -36,6 +37,7 @@ const Page = async ({ params }) => {
         <BlogHero />
         <BlogListSection blogs={blogs} />
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );

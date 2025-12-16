@@ -28,27 +28,35 @@ export const servicesQuery = `
     _id,
     title,
     slug,
-    shortDescription,
-    fullDescription {
+    description {
       ru,
       en,
       fr
     },
-    cardImage {
-      asset-> {
-        _id,
-        url
-      }
+    "gallery": gallery | order(coalesce(order, 9999) asc)[0] {
+      image {
+        asset-> {
+          _id,
+          url
+        }
+      },
+      order
     },
-    gallery[] {
-      asset-> {
-        _id,
-        url
-      }
+    process {
+      ru,
+      en,
+      fr
     },
-    process,
-    pros,
-    additionalInfo,
+    pros {
+      ru,
+      en,
+      fr
+    },
+    additionalInfo {
+      ru,
+      en,
+      fr
+    },
     order,
     _createdAt
   } | order(coalesce(order, 9999) asc, _createdAt desc)
@@ -59,39 +67,41 @@ export const serviceBySlugQuery = `
     _id,
     title,
     slug,
-    shortDescription,
-    fullDescription {
+    description {
       ru,
       en,
       fr
     },
     gallery[] {
-      asset-> {
-        _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
+      image {
+        asset-> {
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
           }
         }
-      }
+      },
+      order
+    } | order(coalesce(order, 9999) asc),
+    process {
+      ru,
+      en,
+      fr
     },
-    infoImage {
-      asset-> {
-        _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
-      }
+    pros {
+      ru,
+      en,
+      fr
     },
-    process,
-    pros,
-    additionalInfo
+    additionalInfo {
+      ru,
+      en,
+      fr
+    }
   }
 `;
 

@@ -2,6 +2,7 @@ import { client } from "@/sanityClient";
 import ProjectHero from "@/components/projects/ProjectHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import BeforeAndAfter from "@/components/projects/BeforeAndAfter";
 import TypeOfRoom from "@/components/projects/TypeOfRoom";
 import TaskAndSolution from "@/components/projects/TaskAndSolution";
@@ -112,6 +113,7 @@ export default async function ProjectPage({ params }) {
                 <ProjectGallery gallery={project.gallery} />
                 <ClientReview data={project.testimonial} />
             </main>
+            <BottomCTA />
             <Footer />
         </div>
     );

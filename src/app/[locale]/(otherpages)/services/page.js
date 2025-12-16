@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ServiceHero from "@/components/services-page/ServiceHero";
 import ServiceListSection from "@/components/services-page/ServiceListSection";
+import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import Container from "@/components/Container";
 import { client } from "@/sanityClient";
 import { servicesQuery } from "@/lib/queries";
@@ -61,6 +62,7 @@ const Page = async ({ params }) => {
           <ServiceListSection services={services || []} />
         </Container>
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );

@@ -254,5 +254,10 @@
         "readMore": "Read more",
         "galleryTitle": "Gallery",
         "date": "Date"
+    },
+    "bottomCTA": {
+        "title": "Subscribe to our Telegram",
+        "description": "to follow new projects and get renovation tips.",
+        "button": "Go to Telegram"
     }
 }
