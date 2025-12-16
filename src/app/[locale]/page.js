@@ -36,9 +36,6 @@ export default async function Home() {
     const portfolioData = await client.fetch(portfolioProjectsQuery);
     const servicesData = await client.fetch(servicesQuery);
 
-    console.log("🔍 Services fetched from Sanity:", servicesData);
-    console.log("📊 Number of services:", servicesData?.length || 0);
-
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
