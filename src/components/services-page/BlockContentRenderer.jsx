@@ -263,7 +263,10 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                 {currentListItems.map((item, itemIndex) => {
                     const markDefs = item.markDefs || [];
                     return (
-                        <li key={itemIndex}>
+                        <li
+                            key={itemIndex}
+                            className="relative before:content-[''] before:block before:w-1 before:h-1 before:bg-primary-black before:rounded-full before:absolute before:left-[-10px] before:top-1/2 before:-translate-y-1/2"
+                        >
                             {renderChildren(item.children, markDefs)}
                         </li>
                     );
