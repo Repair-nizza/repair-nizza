@@ -85,7 +85,10 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                 elements.push(
                     <ListTag
                         key={`list-${index}`}
-                        className="list-disc list-inside space-y-1 mb-2 ml-4"
+                        className={`list-disc list-inside space-y-1 mb-2 ml-4 ${
+                            className ||
+                            "font-montserrat font-light text-xs text-primary-black"
+                        }`}
                     >
                         {currentListItems.map((item, itemIndex) => {
                             const markDefs = item.markDefs || [];
@@ -132,7 +135,10 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                     elements.push(
                         <ListTag
                             key={`list-${index}`}
-                            className="list-disc list-inside space-y-1 mb-2 ml-4"
+                            className={`list-disc list-inside space-y-1 mb-2 ml-4 ${
+                                className ||
+                                "font-montserrat font-light text-xs text-primary-black"
+                            }`}
                         >
                             {currentListItems.map((item, itemIndex) => (
                                 <li key={itemIndex}>
@@ -151,7 +157,10 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                     elements.push(
                         <ListTag
                             key={`list-${index}`}
-                            className="list-disc list-inside space-y-1 mb-2 ml-4"
+                            className={`list-disc list-inside space-y-1 mb-2 ml-4 ${
+                                className ||
+                                "font-montserrat font-light text-xs text-primary-black"
+                            }`}
                         >
                             {currentListItems.map((item, itemIndex) => (
                                 <li key={itemIndex}>
@@ -177,14 +186,14 @@ const BlockContentRenderer = ({ content, className = "" }) => {
 
                 const baseClassName =
                     className ||
-                    "font-montserrat font-light text-primary-black";
+                    "font-montserrat font-light text-xs text-primary-black";
 
                 switch (style) {
                     case "h1":
                         elements.push(
                             <h1
                                 key={index}
-                                className={`${baseClassName} text-2xl font-bold mb-2`}
+                                className={`${baseClassName} font-bold mb-2`}
                             >
                                 {children}
                             </h1>
@@ -194,7 +203,7 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                         elements.push(
                             <h2
                                 key={index}
-                                className={`${baseClassName} text-xl font-bold mb-2`}
+                                className={`${baseClassName} font-bold mb-2`}
                             >
                                 {children}
                             </h2>
@@ -204,7 +213,7 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                         elements.push(
                             <h3
                                 key={index}
-                                className={`${baseClassName} text-lg font-bold mb-2`}
+                                className={`${baseClassName} font-bold mb-2`}
                             >
                                 {children}
                             </h3>
@@ -214,7 +223,7 @@ const BlockContentRenderer = ({ content, className = "" }) => {
                         elements.push(
                             <h4
                                 key={index}
-                                className={`${baseClassName} text-base font-bold mb-2`}
+                                className={`${baseClassName} font-bold mb-2`}
                             >
                                 {children}
                             </h4>
@@ -246,7 +255,10 @@ const BlockContentRenderer = ({ content, className = "" }) => {
         elements.push(
             <ListTag
                 key={`list-end`}
-                className="list-disc list-inside space-y-1 mb-2 ml-4"
+                className={`list-disc list-inside space-y-1 ml-4 ${
+                    className ||
+                    "font-montserrat font-light text-xs text-primary-black"
+                }`}
             >
                 {currentListItems.map((item, itemIndex) => {
                     const markDefs = item.markDefs || [];

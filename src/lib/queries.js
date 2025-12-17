@@ -18,6 +18,9 @@ export const portfolioProjectsQuery = `
     mainImage {
       asset->
     },
+    mobileMainImage {
+      asset->
+    },
     _createdAt,
     isLatestProject
   } | order(_createdAt desc)
