@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import Container from "../Container";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import AutoFitText from "../shared/autoFillText/AutoFillText";
+import { urlForSanityImage } from "@/utils/getUrlForSanityImage";
 
 const useMediaQuery = query => {
     const [matches, setMatches] = useState(false);
@@ -45,10 +46,16 @@ const PortfolioCard = ({ data }) => {
             {data.mainImage?.asset?.url && (
                 <div className="relative w-[310px] h-[402px] lg:w-[590px] lg:h-[309px]">
                     <Image
-                        src={data.mainImage.asset.url}
+                        src={urlForSanityImage(data.mainImage)
+                            .width(590)
+                            .height(402)
+                            .fit("crop")
+                            .quality(90)
+                            .url()}
                         alt={data.title[locale]}
                         fill
                         className="rounded-[20px] object-cover"
+                        sizes="(max-width: 1024px) 310px, 590px"
                     />
                 </div>
             )}
