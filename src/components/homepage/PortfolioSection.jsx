@@ -161,7 +161,7 @@ const PortfolioSection = ({ portfolioData }) => {
                     >
                         {t("portfolioSection.description")}
                     </motion.p>
-                    <motion.button
+                    <motion.div
                         ref={buttonRef}
                         initial={{ opacity: 0 }}
                         animate={
@@ -172,11 +172,14 @@ const PortfolioSection = ({ portfolioData }) => {
                             ease: "easeOut",
                             delay: 0.1,
                         }}
-                        onClick={handlePortfolioClick}
-                        className="w-[310px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 block md:mb-0 md:order-2 lg:w-[258px] hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300"
                     >
-                        {t("portfolioSection.button")}
-                    </motion.button>
+                        <button
+                            onClick={handlePortfolioClick}
+                            className="w-[310px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 block md:mb-0 md:order-2 lg:w-[258px] hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300"
+                        >
+                            {t("portfolioSection.button")}
+                        </button>
+                    </motion.div>
                 </div>
                 <motion.div
                     ref={cardsRef}

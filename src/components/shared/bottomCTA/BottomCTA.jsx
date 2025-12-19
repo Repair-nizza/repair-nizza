@@ -79,10 +79,7 @@ const BottomCTA = () => {
                                 {t("description")}
                             </motion.p>
                         </div>
-                        <motion.a
-                            href={`https://t.me/${TELEGRAM_USERNAME}`}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
+                        <motion.div
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={
                                 isCtaInView ? { scale: 1, opacity: 1 } : {}
@@ -94,17 +91,23 @@ const BottomCTA = () => {
                             }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center justify-between w-full h-[52px] px-[24px] rounded-full md:max-w-[262px] bg-primary-white text-primary-black text-[14px] hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap"
                         >
-                            <span>{t("button")}</span>
-                            <Image
-                                src={telegramIcon}
-                                alt="Telegram"
-                                width={20}
-                                height={20}
-                                className="size-6"
-                            />
-                        </motion.a>
+                            <a
+                                href={`https://t.me/${TELEGRAM_USERNAME}`}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                                className="flex items-center justify-between w-full h-[52px] px-[24px] rounded-full md:max-w-[262px] bg-primary-white text-primary-black text-[14px] hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap"
+                            >
+                                <span>{t("button")}</span>
+                                <Image
+                                    src={telegramIcon}
+                                    alt="Telegram"
+                                    width={20}
+                                    height={20}
+                                    className="size-6"
+                                />
+                            </a>
+                        </motion.div>
                     </div>
                 </Container>
             </motion.div>
