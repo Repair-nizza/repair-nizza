@@ -6,13 +6,10 @@ import Hero from "@/components/homepage/Hero";
 import OurService from "@/components/homepage/OurService";
 import PortfolioSection from "@/components/homepage/PortfolioSection";
 import StepToDream from "@/components/homepage/StepToDream";
+import WeWorkWith from "@/components/homepage/WeWorkWith";
 import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import { client } from "@/sanityClient";
-import {
-    heroBlurCardQuery,
-    portfolioProjectsQuery,
-    servicesQuery,
-} from "@/lib/queries";
+import { heroBlurCardQuery, portfolioProjectsQuery } from "@/lib/queries";
 
 export async function generateMetadata({ params }) {
     const { locale } = params;
@@ -34,7 +31,6 @@ export async function generateMetadata({ params }) {
 export default async function Home() {
     const heroBlurCardData = await client.fetch(heroBlurCardQuery);
     const portfolioData = await client.fetch(portfolioProjectsQuery);
-    const servicesData = await client.fetch(servicesQuery);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -43,6 +39,7 @@ export default async function Home() {
                 <Hero heroBlurCardData={heroBlurCardData} />
                 <OurService />
                 <PortfolioSection portfolioData={portfolioData} />
+                <WeWorkWith />
                 <DreamRepair />
                 <AboutUs />
                 <StepToDream />

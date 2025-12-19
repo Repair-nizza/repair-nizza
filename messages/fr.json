@@ -29,6 +29,9 @@
         "description": "Nous sommes fiers de chaque projet que nous entreprenons, de la rénovation cosmétique à la rénovation complète clé en main",
         "button": "Voir Plus"
     },
+    "weWorkWith": {
+        "title": "Nous avons travaillé avec"
+    },
     "mobileMenu": {
         "discussProject": "Discutons de votre projet",
         "leaveContacts": "Laissez vos coordonnées et nous vous contacterons bientôt",

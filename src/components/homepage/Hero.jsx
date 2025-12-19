@@ -47,7 +47,7 @@ const Hero = ({ heroBlurCardData }) => {
                             >
                                 {t("subtitle")}
                             </motion.p>
-                            <motion.button
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{
@@ -55,11 +55,14 @@ const Hero = ({ heroBlurCardData }) => {
                                     ease: "easeOut",
                                     delay: 0.4,
                                 }}
-                                onClick={handleConsultationClick}
-                                className="w-[312px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm mx-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
                             >
-                                {t("button")}
-                            </motion.button>
+                                <button
+                                    onClick={handleConsultationClick}
+                                    className="w-[312px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm mx-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
+                                >
+                                    {t("button")}
+                                </button>
+                            </motion.div>
                         </div>
                     </div>
                     <HeroBlurCard data={heroBlurCardData} />
@@ -92,7 +95,7 @@ const Hero = ({ heroBlurCardData }) => {
                             >
                                 {t("subtitle")}
                             </motion.p>
-                            <motion.button
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{
@@ -100,11 +103,14 @@ const Hero = ({ heroBlurCardData }) => {
                                     ease: "easeOut",
                                     delay: 0.4,
                                 }}
-                                onClick={handleConsultationClick}
-                                className="w-[312px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm mx-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
                             >
-                                {t("button")}
-                            </motion.button>
+                                <button
+                                    onClick={handleConsultationClick}
+                                    className="w-[312px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm mx-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
+                                >
+                                    {t("button")}
+                                </button>
+                            </motion.div>
                         </div>
                     </div>
                     <HeroBlurCard data={heroBlurCardData} />
@@ -137,7 +143,7 @@ const Hero = ({ heroBlurCardData }) => {
                                 >
                                     {t("title")}
                                 </motion.h1>
-                                <motion.button
+                                <motion.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{
@@ -145,11 +151,14 @@ const Hero = ({ heroBlurCardData }) => {
                                         ease: "easeOut",
                                         delay: 0.4,
                                     }}
-                                    onClick={handleConsultationClick}
-                                    className="w-[317px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm ml-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
                                 >
-                                    {t("button")}
-                                </motion.button>
+                                    <button
+                                        onClick={handleConsultationClick}
+                                        className="w-[317px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-medium text-sm ml-auto block hover:bg-primary-black hover:text-primary-white transition-all duration-300"
+                                    >
+                                        {t("button")}
+                                    </button>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
