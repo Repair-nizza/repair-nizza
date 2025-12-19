@@ -64,14 +64,10 @@ const marqueeImages = [
 export default function MarqueeLine() {
     return (
         <motion.div
-            initial={{ opacity: 0.01 }}
+            initial={{ opacity: 0 }}
             whileInView={{
                 opacity: 1,
-                transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
-            }}
-            exit={{
-                opacity: 0,
-                transition: { duration: 0.3, ease: [0.42, 0, 1, 1] },
+                transition: { duration: 0.7, ease: "easeOut" },
             }}
             viewport={{ once: true, amount: 0.2 }}
             className="w-full"
