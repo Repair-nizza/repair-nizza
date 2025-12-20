@@ -40,24 +40,26 @@ export default function WeWorkWith() {
 
     return (
         <section className="relative pb-[104px] lg:pb-[56px]">
-            <motion.div
-                ref={linesMobRef}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={
-                    isLinesMobInView
-                        ? { opacity: 1, scale: 1 }
-                        : { opacity: 0, scale: 0.9 }
-                }
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="absolute top-[-58px] left-1/2 -translate-x-1/2 -z-20 lg:hidden w-[640px] h-[412px]"
-            >
-                <Image
-                    src={linesMob}
-                    alt="linesMob"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                />
-            </motion.div>
+            <div className="absolute top-[-58px] left-1/2 -translate-x-1/2 -z-20 lg:hidden w-[640px] h-[412px]">
+                <motion.div
+                    ref={linesMobRef}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={
+                        isLinesMobInView
+                            ? { opacity: 1, scale: 1 }
+                            : { opacity: 0, scale: 0.9 }
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="w-full h-full"
+                >
+                    <Image
+                        src={linesMob}
+                        alt="linesMob"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                </motion.div>
+            </div>
             <motion.div
                 ref={linesDeskRef}
                 initial={{ opacity: 0, scale: 0.9 }}

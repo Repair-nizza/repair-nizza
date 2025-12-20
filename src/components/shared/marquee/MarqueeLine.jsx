@@ -1,6 +1,7 @@
 "use client";
 import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 
 const marqueeImages = [
@@ -62,14 +63,18 @@ const marqueeImages = [
 ];
 
 export default function MarqueeLine() {
+    const marqueeRef = useRef(null);
+    const isMarqueeInView = useInView(marqueeRef, {
+        once: true,
+        margin: "-100px",
+    });
+
     return (
         <motion.div
+            ref={marqueeRef}
             initial={{ opacity: 0 }}
-            whileInView={{
-                opacity: 1,
-                transition: { duration: 0.7, ease: "easeOut" },
-            }}
-            viewport={{ once: true, amount: 0.2 }}
+            animate={isMarqueeInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="w-full"
         >
             <Marquee
