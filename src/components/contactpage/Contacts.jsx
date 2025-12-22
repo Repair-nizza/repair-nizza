@@ -185,7 +185,7 @@ const Contacts = () => {
                                     rel="noopener noreferrer nofollow"
                                     className="font-montserrat font-bold text-xs text-primary-black uppercase"
                                 >
-                                    Facebook
+                                    SolideRenovation
                                 </a>
                             </li>
                         </div>
