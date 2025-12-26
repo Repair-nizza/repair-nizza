@@ -17,7 +17,7 @@ import {
     INSTAGRAM_USERNAME,
     TELEGRAM_USERNAME,
     WHATSAPP_USERNAME,
-    FACEBOOK_USERNAME,
+    FACEBOOK_PROFILE_ID,
 } from "../../constants/contacts";
 
 const Contacts = () => {
@@ -180,12 +180,12 @@ const Contacts = () => {
                                     Facebook
                                 </p>
                                 <a
-                                    href={`https://www.facebook.com/${FACEBOOK_USERNAME}`}
+                                    href={`https://www.facebook.com/profile.php?id=${FACEBOOK_PROFILE_ID}`}
                                     target="_blank"
                                     rel="noopener noreferrer nofollow"
                                     className="font-montserrat font-bold text-xs text-primary-black uppercase"
                                 >
-                                    {FACEBOOK_USERNAME}
+                                    SolideRenovation
                                 </a>
                             </li>
                         </div>

@@ -110,7 +110,7 @@ const AboutUs = () => {
               >
                 {t("aboutUs.description")}
               </motion.p>
-              <motion.button
+              <motion.div
                 ref={mobileButtonRef}
                 initial={{ opacity: 0 }}
                 animate={isMobileButtonInView ? { opacity: 1 } : { opacity: 0 }}
@@ -118,11 +118,14 @@ const AboutUs = () => {
                   duration: 0.6,
                   ease: "easeInOut",
                 }}
-                onClick={handlePortfolioClick}
-                className="w-[310px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300 will-change-opacity"
               >
-                {t("aboutUs.button")}
-              </motion.button>
+                <button
+                  onClick={handlePortfolioClick}
+                  className="w-[310px] h-[52px] rounded-[32px] bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300 will-change-opacity"
+                >
+                  {t("aboutUs.button")}
+                </button>
+              </motion.div>
             </div>
             <motion.div
               ref={mobileCardRef}
@@ -203,7 +206,7 @@ const AboutUs = () => {
               >
                 {t("aboutUs.description")}
               </motion.p>
-              <motion.button
+              <motion.div
                 ref={buttonRef}
                 initial={{ opacity: 0 }}
                 animate={isButtonInView ? { opacity: 1 } : { opacity: 0 }}
@@ -211,11 +214,14 @@ const AboutUs = () => {
                   duration: 0.6,
                   ease: "easeInOut",
                 }}
-                onClick={handlePortfolioClick}
-                className="w-[310px] lg:w-[317px] h-[52px] rounded-[32px] lg:mx-0 lg:ml-auto bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300 will-change-opacity"
               >
-                {t("aboutUs.button")}
-              </motion.button>
+                <button
+                  onClick={handlePortfolioClick}
+                  className="w-[310px] lg:w-[317px] h-[52px] rounded-[32px] lg:mx-0 lg:ml-auto bg-primary-white text-primary-black font-montserrat font-normal text-sm mx-auto leading-5 hover:bg-transparent hover:text-primary-white hover:border-primary-white border transition-all duration-300 will-change-opacity"
+                >
+                  {t("aboutUs.button")}
+                </button>
+              </motion.div>
             </div>
             <motion.div
               ref={cardRef}

@@ -18,7 +18,7 @@ import {
     INSTAGRAM_USERNAME,
     TELEGRAM_USERNAME,
     WHATSAPP_USERNAME,
-    FACEBOOK_USERNAME,
+    FACEBOOK_PROFILE_ID,
     EMAIL_ADDRESS,
     CODE_SITE_URL,
 } from "../constants/contacts";
@@ -66,7 +66,7 @@ const Footer = () => {
                             <ul className="gap-5 hidden lg:flex mt-[30px]">
                                 <li>
                                     <a
-                                        href={`https://www.facebook.com/${FACEBOOK_USERNAME}`}
+                                        href={`https://www.facebook.com/profile.php?id=${FACEBOOK_PROFILE_ID}`}
                                         target="_blank"
                                         rel="noopener noreferrer nofollow"
                                     >
@@ -219,7 +219,7 @@ const Footer = () => {
                         <ul className="flex gap-5 mb-[94px] md:mb-0 lg:hidden">
                             <li>
                                 <a
-                                    href={`https://www.facebook.com/${FACEBOOK_USERNAME}`}
+                                    href={`https://www.facebook.com/profile.php?id=${FACEBOOK_PROFILE_ID}`}
                                     target="_blank"
                                     rel="noopener noreferrer nofollow"
                                 >

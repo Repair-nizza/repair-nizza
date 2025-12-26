@@ -12,7 +12,10 @@ async function getProjects() {
     mainImage {
       asset->
     },
-    slug
+    mobileMainImage {
+      asset->
+    },
+    slug,
   }`;
 
     return client.fetch(query);

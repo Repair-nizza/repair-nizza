@@ -29,6 +29,9 @@
         "description": "We take pride in every project we undertake, from cosmetic repairs to full turnkey renovation",
         "button": "View More"
     },
+    "weWorkWith": {
+        "title": "We Worked With"
+    },
     "mobileMenu": {
         "discussProject": "Let's discuss your project",
         "leaveContacts": "Leave your contacts and we will get in touch with you soon",

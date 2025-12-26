@@ -154,9 +154,9 @@ const ServiceDetails = ({ service }) => {
                                     className="flex-1"
                                 >
                                     {process && (
-                                        <div className="mb-7">
+                                        <div className="mb-6">
                                             <div
-                                                className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
+                                                className="flex justify-between items-center mb-[18px] w-full cursor-pointer"
                                                 onClick={() =>
                                                     toggleCard("process")
                                                 }
@@ -204,9 +204,9 @@ const ServiceDetails = ({ service }) => {
                                     )}
 
                                     {pros && (
-                                        <div className="mb-7">
+                                        <div className="mb-6">
                                             <div
-                                                className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
+                                                className="flex justify-between items-center mb-[18px] w-full cursor-pointer"
                                                 onClick={() =>
                                                     toggleCard("pros")
                                                 }
@@ -256,7 +256,7 @@ const ServiceDetails = ({ service }) => {
                                     {additionalInfo && (
                                         <div className="">
                                             <div
-                                                className="flex justify-between items-center mb-[22px] w-full cursor-pointer"
+                                                className="flex justify-between items-center mb-[18px] w-full cursor-pointer"
                                                 onClick={() =>
                                                     toggleCard("additionalInfo")
                                                 }
@@ -399,7 +399,7 @@ const ServiceDetails = ({ service }) => {
                                         <div
                                             className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                                                 openCards.process
-                                                    ? "lg:mb-6"
+                                                    ? "lg:mb-4"
                                                     : "lg:mb-0"
                                             }`}
                                             onClick={() =>
@@ -452,7 +452,7 @@ const ServiceDetails = ({ service }) => {
                                         <div
                                             className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                                                 openCards.pros
-                                                    ? "lg:mb-6"
+                                                    ? "lg:mb-4"
                                                     : "lg:mb-0"
                                             }`}
                                             onClick={() => toggleCard("pros")}
@@ -501,7 +501,7 @@ const ServiceDetails = ({ service }) => {
                                         <div
                                             className={`flex justify-between items-center mb-[22px] w-full cursor-pointer lg:w-[590px] transition-all duration-300 ${
                                                 openCards.additionalInfo
-                                                    ? "lg:mb-6"
+                                                    ? "lg:mb-4"
                                                     : "lg:mb-0"
                                             }`}
                                             onClick={() =>

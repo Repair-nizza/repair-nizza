@@ -13,6 +13,7 @@ import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import AutoFitText from "../shared/autoFillText/AutoFillText";
+import { urlForSanityImage } from "@/utils/getUrlForSanityImage";
 
 const useMediaQuery = query => {
     const [matches, setMatches] = useState(false);
@@ -42,14 +43,36 @@ const PortfolioCard = ({ data }) => {
 
     return (
         <div className="relative">
-            {data.mainImage?.asset?.url && (
+            {(data.mainImage?.asset?.url ||
+                data.mobileMainImage?.asset?.url) && (
                 <div className="relative w-[310px] h-[402px] lg:w-[590px] lg:h-[309px]">
-                    <Image
-                        src={data.mainImage.asset.url}
-                        alt={data.title[locale]}
-                        fill
-                        className="rounded-[20px] object-cover"
-                    />
+                    {data.mainImage?.asset?.url && (
+                        <Image
+                            src={urlForSanityImage(data.mainImage)
+                                .fit("crop")
+                                .quality(90)
+                                .url()}
+                            alt={data.title[locale]}
+                            fill
+                            className="rounded-[20px] object-cover hidden lg:block"
+                            sizes="590px"
+                        />
+                    )}
+                    {(data.mobileMainImage?.asset?.url ||
+                        data.mainImage?.asset?.url) && (
+                        <Image
+                            src={urlForSanityImage(
+                                data.mobileMainImage || data.mainImage
+                            )
+                                .fit("crop")
+                                .quality(90)
+                                .url()}
+                            alt={data.title[locale]}
+                            fill
+                            className="rounded-[20px] object-cover block lg:hidden"
+                            sizes="310px"
+                        />
+                    )}
                 </div>
             )}
             <div className="absolute bottom-0 left-0 w-[310px] lg:w-[590px] rounded-b-[20px] backdrop-blur-[26px] shadow-[inset_0_4px_13px_0_rgba(255,255,255,0.25)] bg-[rgba(18,18,18,0.26)] pt-4 pb-5 pr-10 pl-[25px] lg:pt-9 lg:pb-[34px] lg:pl-[28px] lg:pr-[133px]">
