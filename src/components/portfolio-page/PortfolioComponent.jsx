@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Container from "../Container";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -75,38 +75,21 @@ const PortfolioCard = ({ data }) => {
     );
 };
 
-const PortfolioComponent = ({ projects, categories }) => {
+const PortfolioComponent = ({ projects }) => {
     const t = useTranslations("portfolioPage");
     const locale = useLocale();
     const [currentPage, setCurrentPage] = useState(0);
-    const [activeFilter, setActiveFilter] = useState(null);
     const isDesktop = useMediaQuery("(min-width: 1280px)");
     const itemsPerPage = isDesktop ? 6 : 4;
     const portfolioRef = useRef(null);
 
     const titleRef = useRef(null);
-    const filtersRef = useRef(null);
     const cardsRef = useRef(null);
 
     const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
-    const isFiltersInView = useInView(filtersRef, {
-        once: true,
-        margin: "-100px",
-    });
     const isCardsInView = useInView(cardsRef, { once: true, margin: "-100px" });
 
-    // Показываем все категории, пришедшие с бэка
-    const availableCategories = categories || [];
-
-    const filteredProjects = useMemo(() => {
-        if (!projects) return [];
-        if (!activeFilter) return projects;
-        return projects.filter(project => {
-            const projectCategoryId =
-                project.category?._ref || project.category;
-            return projectCategoryId && projectCategoryId === activeFilter;
-        });
-    }, [projects, activeFilter]);
+    const displayProjects = projects || [];
 
     const scrollToTop = () => {
         portfolioRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -116,14 +99,14 @@ const PortfolioComponent = ({ projects, categories }) => {
         setCurrentPage(prev =>
             prev > 0
                 ? prev - 1
-                : Math.ceil(filteredProjects.length / itemsPerPage) - 1
+                : Math.ceil(displayProjects.length / itemsPerPage) - 1
         );
         scrollToTop();
     };
 
     const handleNextClick = () => {
         setCurrentPage(prev =>
-            prev < Math.ceil(filteredProjects.length / itemsPerPage) - 1
+            prev < Math.ceil(displayProjects.length / itemsPerPage) - 1
                 ? prev + 1
                 : 0
         );
@@ -135,12 +118,12 @@ const PortfolioComponent = ({ projects, categories }) => {
         scrollToTop();
     };
 
-    const currentItems = filteredProjects.slice(
+    const currentItems = displayProjects.slice(
         currentPage * itemsPerPage,
         (currentPage + 1) * itemsPerPage
     );
 
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+    const totalPages = Math.ceil(displayProjects.length / itemsPerPage);
 
     return (
         <div ref={portfolioRef}>
@@ -169,47 +152,6 @@ const PortfolioComponent = ({ projects, categories }) => {
                     >
                         {t("title")}
                     </motion.h1>
-                    <motion.div
-                        ref={filtersRef}
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={
-                            isFiltersInView
-                                ? { x: 0, opacity: 1 }
-                                : { x: 100, opacity: 0 }
-                        }
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="flex flex-col gap-2 mb-10 md:flex-row md:justify-center lg:gap-5 lg:justify-start lg:mb-[50px]"
-                    >
-                        {availableCategories.length > 0 ? (
-                            availableCategories.map(category => (
-                                <button
-                                    key={category._id}
-                                    onClick={() => {
-                                        if (activeFilter === category._id) {
-                                            setActiveFilter(null);
-                                        } else {
-                                            setActiveFilter(category._id);
-                                        }
-                                        setCurrentPage(0);
-                                        scrollToTop();
-                                    }}
-                                    className={`w-[310px] md:w-[234px] lg:w-[186px] h-[34px] lg:h-[52px] rounded-[40px] font-arsenal font-normal text-xs md:text-sm lg:text-xl leading-[14px] lg:leading-6 transition-all duration-300 relative z-10 ${
-                                        activeFilter === category._id
-                                            ? "bg-primary-black text-primary-white"
-                                            : "bg-transparent border border-primary-black text-primary-black hover:bg-primary-black hover:text-primary-white"
-                                    }`}
-                                >
-                                    {category.title && category.title[locale]
-                                        ? category.title[locale]
-                                        : category._id}
-                                </button>
-                            ))
-                        ) : (
-                            <div className="text-center text-gray-500">
-                                Нет доступных категорий
-                            </div>
-                        )}
-                    </motion.div>
 
                     <motion.div
                         ref={cardsRef}
@@ -222,7 +164,7 @@ const PortfolioComponent = ({ projects, categories }) => {
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className="flex flex-col gap-[26px] mb-10 md:flex-row md:flex-wrap md:justify-center md:gap-[26px] lg:gap-5"
                     >
-                        {filteredProjects.length === 0 ? (
+                        {displayProjects.length === 0 ? (
                             <div className="w-full text-center font-arsenal text-xl md:text-2xl lg:text-3xl text-primary-black relative z-10">
                                 {t("noProjects")}
                             </div>
@@ -248,7 +190,7 @@ const PortfolioComponent = ({ projects, categories }) => {
                         )}
                     </motion.div>
 
-                    {filteredProjects.length > 0 && (
+                    {displayProjects.length > 0 && (
                         <div className="flex justify-center items-center gap-6 md:gap-10">
                             <div
                                 onClick={handlePrevClick}
