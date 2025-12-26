@@ -18,6 +18,9 @@ const ProjectGallery = ({ gallery }) => {
   const swiperRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   const titleRef = useRef(null);
   const blockRef = useRef(null);
@@ -61,14 +64,24 @@ const ProjectGallery = ({ gallery }) => {
   if (!gallery || gallery.length === 0) return null;
 
   const handlePrevPage = () => {
-    if (swiperRef.current) {
+    if (swiperRef.current && !isTransitioning) {
+      const currentIndex = swiperRef.current.realIndex;
+      setPrevIndex(currentIndex);
+      setIsTransitioning(true);
+      setDirection("prev");
       swiperRef.current.slidePrev();
+      setTimeout(() => setIsTransitioning(false), 300);
     }
   };
 
   const handleNextPage = () => {
-    if (swiperRef.current) {
+    if (swiperRef.current && !isTransitioning) {
+      const currentIndex = swiperRef.current.realIndex;
+      setPrevIndex(currentIndex);
+      setIsTransitioning(true);
+      setDirection("next");
       swiperRef.current.slideNext();
+      setTimeout(() => setIsTransitioning(false), 300);
     }
   };
 
@@ -118,7 +131,7 @@ const ProjectGallery = ({ gallery }) => {
         >
           <SwiperWrapper
             uniqueKey="project-gallery"
-            swiperClassName="h-full w-full"
+            swiperClassName="h-full w-full project-gallery-swiper"
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -134,25 +147,34 @@ const ProjectGallery = ({ gallery }) => {
             }}
             onSlideChange={handleMainSlideChange}
           >
-            {gallery.map((item, index) => (
-              <SwiperSlide key={index} className="h-full">
-                {item?.asset?.url && (
-                  <div
-                    className="relative w-full h-full cursor-pointer"
-                    onClick={handleImageClick}
-                  >
-                    <Image
-                      src={item.asset.url}
-                      alt={`Gallery image ${index + 1}`}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 310px, (max-width: 1024px) 400px, 1200px"
-                      priority={index === 0}
-                    />
-                  </div>
-                )}
-              </SwiperSlide>
-            ))}
+            {gallery.map((item, index) => {
+              const isLeavingSlide = isTransitioning && prevIndex === index;
+              return (
+                <SwiperSlide key={index} className="h-full">
+                  {item?.asset?.url && (
+                    <div
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={handleImageClick}
+                    >
+                      <Image
+                        src={item.asset.url}
+                        alt={`Gallery image ${index + 1}`}
+                        fill
+                        className={`object-cover object-center transition-transform duration-300 ${
+                          isLeavingSlide
+                            ? direction === "next"
+                              ? "translate-x-[-100%]"
+                              : "translate-x-[100%]"
+                            : "translate-x-0"
+                        }`}
+                        sizes="(max-width: 768px) 310px, (max-width: 1024px) 400px, 1200px"
+                        priority={index === 0}
+                      />
+                    </div>
+                  )}
+                </SwiperSlide>
+              );
+            })}
           </SwiperWrapper>
 
           {/* Desktop/Tablet Navigation Buttons */}

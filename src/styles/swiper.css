@@ -514,3 +514,12 @@
     }
   }
 }
+
+/* Project Gallery Swiper - translate-x transitions */
+.project-gallery-swiper .swiper-wrapper {
+  transition-timing-function: ease-out !important;
+}
+
+.project-gallery-swiper .swiper-slide {
+  overflow: hidden;
+}
