@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Container from "../Container";
 import { useTranslations } from "next-intl";
@@ -22,6 +22,40 @@ const ProjectGallery = ({ gallery }) => {
   const blockRef = useRef(null);
   const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
   const isBlockInView = useInView(blockRef, { once: true, margin: "-100px" });
+
+   // Preload all gallery images
+   useEffect(() => {
+    if (!gallery || gallery.length === 0) return;
+
+    gallery.forEach(item => {
+        if (!item?.asset?.url) return;
+
+        const imageUrl = item.asset.url;
+
+        // Preload using Image API
+        const img = new window.Image();
+        img.src = imageUrl;
+
+        // Also add link preload for better browser optimization
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = imageUrl;
+        document.head.appendChild(link);
+    });
+
+    // Cleanup function to remove link tags when component unmounts
+    return () => {
+        const links = document.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
+        links.forEach(link => {
+            if (gallery.some(item => item?.asset?.url === link.href)) {
+                link.remove();
+            }
+        });
+    };
+}, [gallery]);
 
   if (!gallery || gallery.length === 0) return null;
 
