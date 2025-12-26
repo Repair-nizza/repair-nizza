@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Container from "../Container";
 import { useTranslations } from "next-intl";
@@ -11,10 +11,13 @@ import treeDesk from "../../../public/images/image/project-page/gallery-tree-des
 import { motion, useInView } from "framer-motion";
 import SwiperWrapper from "../shared/swiper/SwiperWrapper";
 import { SwiperSlide } from "swiper/react";
+import ProjectGalleryModal from "./ProjectGalleryModal";
 
 const ProjectGallery = ({ gallery }) => {
   const t = useTranslations("projectPage");
   const swiperRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const titleRef = useRef(null);
   const blockRef = useRef(null);
@@ -69,6 +72,31 @@ const ProjectGallery = ({ gallery }) => {
     }
   };
 
+  const handleImageClick = (e) => {
+    // Don't open modal if click was on navigation button or button container
+    const target = e.target;
+    const clickedButton = target.closest("button");
+    const clickedButtonsContainer = target.closest('[class*="absolute"][class*="z-10"]');
+
+    if (clickedButton || clickedButtonsContainer) {
+      e.stopPropagation();
+      return;
+    }
+
+    const realIndex = swiperRef.current?.realIndex ?? activeIndex;
+    setActiveIndex(realIndex);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleMainSlideChange = (swiper) => {
+    const realIndex = swiper.realIndex;
+    setActiveIndex(realIndex);
+  };
+
   return (
     <div className="relative">
       <Container className="pb-[67px] lg:pb-[150px] relative z-20">
@@ -104,11 +132,15 @@ const ProjectGallery = ({ gallery }) => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            onSlideChange={handleMainSlideChange}
           >
             {gallery.map((item, index) => (
               <SwiperSlide key={index} className="h-full">
                 {item?.asset?.url && (
-                  <div className="relative w-full h-full">
+                  <div
+                    className="relative w-full h-full cursor-pointer"
+                    onClick={handleImageClick}
+                  >
                     <Image
                       src={item.asset.url}
                       alt={`Gallery image ${index + 1}`}
@@ -172,6 +204,16 @@ const ProjectGallery = ({ gallery }) => {
           </button>
         </div>
       </Container>
+
+      <ProjectGalleryModal
+        gallery={gallery}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        mainSwiper={swiperRef}
+      />
+
       <Image
         src={treeMob}
         alt="tree"
