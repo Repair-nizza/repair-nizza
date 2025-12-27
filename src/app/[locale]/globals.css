@@ -74,3 +74,9 @@ input[type="number"] {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 767px) {
+  #lightboxContainer button.imageModal {
+    display: none !important;
+  }
+}
