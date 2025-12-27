@@ -8,11 +8,9 @@ import Image from "next/image";
 import arrowWhite from "../../../public/images/SVG/arrow-white-portfolio.svg";
 import arrowBlack from "../../../public/images/SVG/arrow-black-portfolio.svg";
 import ArrowDiagonalButton from "../ArrowDiagonalButton";
-import { useEffect, useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import { useRef } from "react";
+import { SwiperSlide } from "swiper/react";
+import SwiperWrapper from "../shared/swiper/SwiperWrapper";
 import { useLocale } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -68,8 +66,6 @@ const PortfolioSection = ({ portfolioData }) => {
     const t = useTranslations();
     const router = useRouter();
     const locale = useLocale();
-    const [isMobile, setIsMobile] = useState(true);
-    const [swiper, setSwiper] = useState(null);
 
     const titleRef = useRef(null);
     const descriptionRef = useRef(null);
@@ -92,34 +88,6 @@ const PortfolioSection = ({ portfolioData }) => {
     };
 
     if (!portfolioData || portfolioData.length === 0) return null;
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-            if (swiper) {
-                swiper.update();
-            }
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, [swiper]);
-
-    const handlePrevClick = () => {
-        if (swiper) {
-            swiper.slidePrev();
-        }
-    };
-
-    const handleNextClick = () => {
-        if (swiper) {
-            swiper.slideNext();
-        }
-    };
 
     return (
         <div className="portfolio-section-bg bg-cover bg-center h-[866px] w-full mx-auto md:h-[724px] lg:h-[758px] pt-[72px] pb-9 lg:pb-[70px]">
@@ -192,12 +160,9 @@ const PortfolioSection = ({ portfolioData }) => {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="h-[402px] lg:h-[418px]"
                 >
-                    <Swiper
-                        modules={[Navigation]}
-                        spaceBetween={20}
-                        onSwiper={setSwiper}
-                        observer={true}
-                        observeParents={true}
+                    <SwiperWrapper
+                        uniqueKey="portfolio-section"
+                        swiperClassName="h-full"
                         breakpoints={{
                             0: {
                                 slidesPerView: 1,
@@ -209,7 +174,17 @@ const PortfolioSection = ({ portfolioData }) => {
                                 slidesPerView: 3,
                             },
                         }}
-                        className="h-full"
+                        additionalOptions={{
+                            spaceBetween: 20,
+                            observer: true,
+                            observeParents: true,
+                        }}
+                        buttonVariant="portfolio"
+                        customPrevIcon={{ white: arrowWhite, black: arrowBlack }}
+                        customNextIcon={{ white: arrowWhite, black: arrowBlack }}
+                        buttonsPosition="center"
+                        buttonsVisibilityClass="lg:hidden"
+                        buttonsClassName="mt-6"
                     >
                         {portfolioData.map((project, index) => (
                             <SwiperSlide
@@ -219,52 +194,7 @@ const PortfolioSection = ({ portfolioData }) => {
                                 <PortfolioCard data={project} />
                             </SwiperSlide>
                         ))}
-                    </Swiper>
-                </motion.div>
-                <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={
-                        isCardsInView
-                            ? { y: 0, opacity: 1 }
-                            : { y: 100, opacity: 0 }
-                    }
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="flex justify-center gap-6 md:gap-10 lg:hidden mt-6"
-                >
-                    <div
-                        onClick={handlePrevClick}
-                        className="border border-primary-white rounded-full w-[54px] h-[54px] flex items-center justify-center hover:bg-primary-white group transition-all duration-300 cursor-pointer"
-                    >
-                        <div className="bg-transparent border border-primary-white rounded-full w-[27px] h-[27px] flex items-center justify-center group-hover:border-primary-black transition-all duration-300">
-                            <Image
-                                src={arrowWhite}
-                                alt="arrow button"
-                                className="block group-hover:hidden"
-                            />
-                            <Image
-                                src={arrowBlack}
-                                alt="arrow button"
-                                className="rotate-180 hidden group-hover:block"
-                            />
-                        </div>
-                    </div>
-                    <div
-                        onClick={handleNextClick}
-                        className="border border-primary-white rounded-full w-[54px] h-[54px] flex items-center justify-center hover:bg-primary-white group transition-all duration-300 cursor-pointer"
-                    >
-                        <div className="bg-transparent border border-primary-white rounded-full w-[27px] h-[27px] flex items-center justify-center group-hover:border-primary-black transition-all duration-300">
-                            <Image
-                                src={arrowWhite}
-                                alt="arrow button"
-                                className="rotate-180 block group-hover:hidden"
-                            />
-                            <Image
-                                src={arrowBlack}
-                                alt="arrow button"
-                                className="hidden group-hover:block"
-                            />
-                        </div>
-                    </div>
+                    </SwiperWrapper>
                 </motion.div>
             </Container>
         </div>

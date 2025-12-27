@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Container from "../Container";
 import { useTranslations } from "next-intl";
@@ -9,39 +9,105 @@ import galleryIconBtnDesk from "../../../public/images/SVG/gallery-icon-btn-desk
 import treeMob from "../../../public/images/image/project-page/gallery-tree-mob.webp";
 import treeDesk from "../../../public/images/image/project-page/gallery-tree-desk.webp";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import SwiperWrapper from "../shared/swiper/SwiperWrapper";
+import { SwiperSlide } from "swiper/react";
+import ProjectGalleryModal from "./ProjectGalleryModal";
 
 const ProjectGallery = ({ gallery }) => {
   const t = useTranslations("projectPage");
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const swiperRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("next");
-  const imagesPerPage = 1;
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   const titleRef = useRef(null);
   const blockRef = useRef(null);
   const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
   const isBlockInView = useInView(blockRef, { once: true, margin: "-100px" });
 
+  // Preload all gallery images
+  useEffect(() => {
+    if (!gallery || gallery.length === 0) return;
+
+    gallery.forEach((item) => {
+      if (!item?.asset?.url) return;
+
+      const imageUrl = item.asset.url;
+
+      // Preload using Image API
+      const img = new window.Image();
+      img.src = imageUrl;
+
+      // Also add link preload for better browser optimization
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = imageUrl;
+      document.head.appendChild(link);
+    });
+
+    // Cleanup function to remove link tags when component unmounts
+    return () => {
+      const links = document.querySelectorAll(
+        'link[rel="preload"][as="image"]'
+      );
+      links.forEach((link) => {
+        if (gallery.some((item) => item?.asset?.url === link.href)) {
+          link.remove();
+        }
+      });
+    };
+  }, [gallery]);
+
   if (!gallery || gallery.length === 0) return null;
 
-  const totalPages = Math.ceil(gallery.length / imagesPerPage);
-  const currentImage = gallery[currentPage];
-
   const handlePrevPage = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setDirection("prev");
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-    setTimeout(() => setIsTransitioning(false), 300);
+    if (swiperRef.current && !isTransitioning) {
+      const currentIndex = swiperRef.current.realIndex;
+      setPrevIndex(currentIndex);
+      setIsTransitioning(true);
+      setDirection("prev");
+      swiperRef.current.slidePrev();
+      setTimeout(() => setIsTransitioning(false), 300);
+    }
   };
 
   const handleNextPage = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setDirection("next");
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsTransitioning(false), 300);
+    if (swiperRef.current && !isTransitioning) {
+      const currentIndex = swiperRef.current.realIndex;
+      setPrevIndex(currentIndex);
+      setIsTransitioning(true);
+      setDirection("next");
+      swiperRef.current.slideNext();
+      setTimeout(() => setIsTransitioning(false), 300);
+    }
+  };
+
+  const handleImageClick = (e) => {
+    // Don't open modal if click was on navigation button or button container
+    const target = e.target;
+    const clickedButton = target.closest("button");
+    const clickedButtonsContainer = target.closest('[class*="absolute"][class*="z-10"]');
+
+    if (clickedButton || clickedButtonsContainer) {
+      e.stopPropagation();
+      return;
+    }
+
+    const realIndex = swiperRef.current?.realIndex ?? activeIndex;
+    setActiveIndex(realIndex);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleMainSlideChange = (swiper) => {
+    const realIndex = swiper.realIndex;
+    setActiveIndex(realIndex);
   };
 
   return (
@@ -63,30 +129,59 @@ const ProjectGallery = ({ gallery }) => {
           transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
           className="relative w-full h-[160px] md:h-[400px] lg:h-[620px] rounded-[20px] overflow-hidden"
         >
-          {currentImage?.asset?.url && (
-            <div className="relative w-full h-full">
-              <Image
-                src={currentImage.asset.url}
-                alt={`Gallery image ${currentPage + 1}`}
-                fill
-                className={`object-cover object-center transition-transform duration-300 ${
-                  isTransitioning
-                    ? direction === "next"
-                      ? "translate-x-[-100%]"
-                      : "translate-x-[100%]"
-                    : "translate-x-0"
-                }`}
-                sizes="(max-width: 768px) 310px, (max-width: 1024px) 400px, 1200px"
-                priority
-              />
-            </div>
-          )}
+          <SwiperWrapper
+            uniqueKey="project-gallery"
+            swiperClassName="h-full w-full project-gallery-swiper"
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+            }}
+            additionalOptions={{
+              loop: true,
+              speed: 300,
+            }}
+            showNavigation={false}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={handleMainSlideChange}
+          >
+            {gallery.map((item, index) => {
+              const isLeavingSlide = isTransitioning && prevIndex === index;
+              return (
+                <SwiperSlide key={index} className="h-full">
+                  {item?.asset?.url && (
+                    <div
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={handleImageClick}
+                    >
+                      <Image
+                        src={item.asset.url}
+                        alt={`Gallery image ${index + 1}`}
+                        fill
+                        className={`object-cover object-center transition-transform duration-300 ${
+                          isLeavingSlide
+                            ? direction === "next"
+                              ? "translate-x-[-100%]"
+                              : "translate-x-[100%]"
+                            : "translate-x-0"
+                        }`}
+                        sizes="(max-width: 768px) 310px, (max-width: 1024px) 400px, 1200px"
+                        priority={index === 0}
+                      />
+                    </div>
+                  )}
+                </SwiperSlide>
+              );
+            })}
+          </SwiperWrapper>
 
           {/* Desktop/Tablet Navigation Buttons */}
-          <div className="hidden md:flex absolute inset-y-0 left-0 right-0 items-center justify-between px-2">
+          <div className="hidden md:flex absolute inset-y-0 left-0 right-0 items-center justify-between px-2 pointer-events-none z-10">
             <button
               onClick={handlePrevPage}
-              className="flex items-center justify-center transition-transform hover:scale-110"
+              className="flex items-center justify-center transition-transform hover:scale-110 pointer-events-auto"
             >
               <Image
                 src={galleryIconBtnDesk}
@@ -97,7 +192,7 @@ const ProjectGallery = ({ gallery }) => {
 
             <button
               onClick={handleNextPage}
-              className="flex items-center justify-center transition-transform hover:scale-110"
+              className="flex items-center justify-center transition-transform hover:scale-110 pointer-events-auto"
             >
               <Image
                 src={galleryIconBtnDesk}
@@ -131,6 +226,16 @@ const ProjectGallery = ({ gallery }) => {
           </button>
         </div>
       </Container>
+
+      <ProjectGalleryModal
+        gallery={gallery}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        mainSwiper={swiperRef}
+      />
+
       <Image
         src={treeMob}
         alt="tree"

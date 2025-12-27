@@ -16,17 +16,6 @@ async function getProjects() {
       asset->
     },
     slug,
-    category
-  }`;
-
-    return client.fetch(query);
-}
-
-async function getCategories() {
-    const query = `*[_type == "category"] {
-    _id,
-    name,
-    title
   }`;
 
     return client.fetch(query);
@@ -51,16 +40,12 @@ export async function generateMetadata({ params }) {
 
 const Page = async () => {
     const projects = await getProjects();
-    const categories = await getCategories();
 
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow overflow-x-hidden">
-                <PortfolioComponent
-                    projects={projects}
-                    categories={categories}
-                />
+                <PortfolioComponent projects={projects} />
             </main>
             <BottomCTA />
             <Footer />
