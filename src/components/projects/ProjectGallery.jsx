@@ -27,7 +27,6 @@ const ProjectGallery = ({ gallery }) => {
   const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
   const isBlockInView = useInView(blockRef, { once: true, margin: "-100px" });
 
-  // Preload all gallery images
   useEffect(() => {
     if (!gallery || gallery.length === 0) return;
 
@@ -36,11 +35,9 @@ const ProjectGallery = ({ gallery }) => {
 
       const imageUrl = item.asset.url;
 
-      // Preload using Image API
       const img = new window.Image();
       img.src = imageUrl;
 
-      // Also add link preload for better browser optimization
       const link = document.createElement("link");
       link.rel = "preload";
       link.as = "image";
@@ -48,7 +45,6 @@ const ProjectGallery = ({ gallery }) => {
       document.head.appendChild(link);
     });
 
-    // Cleanup function to remove link tags when component unmounts
     return () => {
       const links = document.querySelectorAll(
         'link[rel="preload"][as="image"]'
@@ -86,7 +82,6 @@ const ProjectGallery = ({ gallery }) => {
   };
 
   const handleImageClick = (e) => {
-    // Don't open modal if click was on navigation button or button container
     const target = e.target;
     const clickedButton = target.closest("button");
     const clickedButtonsContainer = target.closest('[class*="absolute"][class*="z-10"]');
@@ -97,12 +92,16 @@ const ProjectGallery = ({ gallery }) => {
     }
 
     const realIndex = swiperRef.current?.realIndex ?? activeIndex;
-    setActiveIndex(realIndex);
+    const currentIndex = realIndex >= 0 ? realIndex : 0;
+    setActiveIndex(currentIndex);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    if (swiperRef.current && activeIndex !== undefined) {
+      swiperRef.current.slideToLoop(activeIndex, 300);
+    }
   };
 
   const handleMainSlideChange = (swiper) => {
@@ -177,7 +176,6 @@ const ProjectGallery = ({ gallery }) => {
             })}
           </SwiperWrapper>
 
-          {/* Desktop/Tablet Navigation Buttons */}
           <div className="hidden md:flex absolute inset-y-0 left-0 right-0 items-center justify-between px-2 pointer-events-none z-10">
             <button
               onClick={handlePrevPage}
@@ -203,7 +201,6 @@ const ProjectGallery = ({ gallery }) => {
           </div>
         </motion.div>
 
-        {/* Mobile Navigation Buttons */}
         <div className="md:hidden flex items-center justify-center gap-3 mt-8">
           <button
             onClick={handlePrevPage}

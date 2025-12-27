@@ -16,6 +16,7 @@
     "formik": "^2.4.6",
     "framer-motion": "^12.16.0",
     "i18next": "^25.2.1",
+    "lightbox.js-react": "^1.6.7",
     "next": "15.3.8",
     "next-i18next": "^15.4.2",
     "next-intl": "^4.1.0",
